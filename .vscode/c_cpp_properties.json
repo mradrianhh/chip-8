@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/app/include/",
+                "${workspaceFolder}/core/include/",
+                "${workspaceFolder}/ui/include/",
+                "${workspaceFolder}/graphics/include/",
+                "${workspaceFolder}/io/include/",
+                "${workspaceFolder}/audio/include/",
+                "${workspaceFolder}/external/events/include/",
+                "${workspaceFolder}/external/logger/include/"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}

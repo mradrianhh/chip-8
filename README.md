@@ -1,6 +1,24 @@
 # chip-8
 chip-8 emulator written in C.
 
+## Project structure
+
+### Core library
+
+Contains the logic of the device and it's components.
+
+### UI library
+
+Contains the UI logic. The internal graphic logic of the device is contained in the core library.
+
+### Graphics library
+
+Contains a shared API for displaying graphics. Both the UI and Core library uses this to handle graphics.
+
+### App
+
+Contains the executable.
+
 ## Specifications
 
 - 64x32 pixel monochrome display.
