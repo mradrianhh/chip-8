@@ -51,7 +51,7 @@ Additionally, to support subroutine calls, the CPU depends on a stack of 16-bit 
 | 8XY4   | Math     | Vx = Vx + Vy      | Adds Vy to Vx. VF set if overflow. |
 | 8XY5   | Math     | Vx = Vx - Vy      | Subtracts Vy from Vx. VF set if not underflow. |
 | 8XY6   | BitOp    | Vx = Vx >> 1      | Right-shifts Vx by 1 and stores least-significant bit
-                                          prior to shift in VF. |
+prior to shift in VF. |
 | 8XY7   | Math     | Vx = Vy - Vx      | Sets Vx to Vy - Vx. VF set if not underflow. |
 | 8XYE   | BitOp    | Vx = Vx << 1      | Left-shifts Vx by 1 and stores most-significant bit prior
                                           to shift in VF. |
