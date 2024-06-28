@@ -3,14 +3,16 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/app/include/",
-                "${workspaceFolder}/core/include/",
-                "${workspaceFolder}/ui/include/",
-                "${workspaceFolder}/graphics/include/",
-                "${workspaceFolder}/io/include/",
-                "${workspaceFolder}/audio/include/",
-                "${workspaceFolder}/external/events/include/",
-                "${workspaceFolder}/external/logger/include/"
+                "${workspaceFolder}/app/include/**",
+                "${workspaceFolder}/core/include/**",
+                "${workspaceFolder}/ui/include/**",
+                "${workspaceFolder}/graphics/include/**",
+                "${workspaceFolder}/io/include/**",
+                "${workspaceFolder}/audio/include/**",
+                "${workspaceFolder}/external/events/include/**",
+                "${workspaceFolder}/external/logger/include/**",
+                "${workspaceFolder}/external/cglm/include/**",
+                "${workspaceFolder}/third-party/includes/**"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
