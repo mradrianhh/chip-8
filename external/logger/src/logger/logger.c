@@ -10,12 +10,12 @@
 static int LogWrite(const Logger *logger, const char *log_level, const char *format, va_list args);
 static pthread_mutex_t _mutex = PTHREAD_MUTEX_INITIALIZER;
 
-Logger *logger_Initialize(char *filename)
+Logger *logger_Initialize(char *filename, LogLevel log_level)
 {
     Logger *logger = calloc(1, sizeof(Logger));
     logger->filename = realloc(logger->filename, strlen(filename));
     strcpy(logger->filename, filename);
-    logger->log_level = LOG_LEVEL_NONE;
+    logger->log_level = log_level;
 
     if ((logger->file_pointer = fopen(logger->filename, "w")) == NULL)
     {

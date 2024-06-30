@@ -30,7 +30,7 @@ typedef struct Logger
     LogLevel log_level;
 } Logger;
 
-Logger *logger_Initialize(char *filename);
+Logger *logger_Initialize(char *filename, LogLevel log_level);
 
 int logger_SetLogLevel(Logger *logger, LogLevel log_level);
 

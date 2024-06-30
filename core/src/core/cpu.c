@@ -29,6 +29,8 @@ CPUState *core_InitializeCPU(LogLevel log_level)
 {
     CPUState *cpu = calloc(1, sizeof(CPUState));
     cpu->memory_size = CH8_MEM_SIZE;
+
+    pthread_mutex_init(&cpu->display_buffer_lock, NULL);
     cpu->display_buffer_size = CH8_DISPLAY_SIZE;
     
     cpu->stack_pointer = cpu->stack;
@@ -39,8 +41,7 @@ CPUState *core_InitializeCPU(LogLevel log_level)
     cpu->index_register = 0;
     cpu->program_counter = CH8_PROGRAM_START_ADDRESS;
 
-    cpu->logger = logger_Initialize(LOGS_BASE_PATH "cpu.log");
-    logger_SetLogLevel(cpu->logger, log_level);
+    cpu->logger = logger_Initialize(LOGS_BASE_PATH "cpu.log", log_level);
 
     // Load font into memory at 0x0050-0x009F.
     logger_LogInfo(cpu->logger, "Loading font starting at address 0x50.");

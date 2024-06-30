@@ -44,7 +44,7 @@ struct EventSubscription
     event_handler handler;
 };
 
-void events_Initialize();
+void events_Initialize(LogLevel log_level);
 
 void events_Destroy();
 

@@ -2,6 +2,7 @@
 #define CORE_CPU_H
 
 #include <stdint.h>
+#include <pthread.h>
 
 #include "logger/logger.h"
 
@@ -17,6 +18,9 @@ typedef struct CPUState
     // Memory
     uint8_t memory[CH8_MEM_SIZE];
     size_t memory_size;
+    // We need a lock on the display buffer since it will be read from the graphics thread.
+    // This is to prevent the CPU from updating it while we're drawing.
+    pthread_mutex_t display_buffer_lock;
     uint8_t display_buffer[CH8_DISPLAY_SIZE];
     size_t display_buffer_size;
     uint16_t stack[CH8_STACK_DEPTH];

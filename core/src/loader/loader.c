@@ -11,8 +11,7 @@ static Logger *logger;
 
 void core_InitializeLoader(LogLevel log_level)
 {
-    logger = logger_Initialize(LOGS_BASE_PATH "loader.log");
-    logger_SetLogLevel(logger, log_level);
+    logger = logger_Initialize(LOGS_BASE_PATH "loader.log", log_level);
 }
 
 void core_DestroyLoader()

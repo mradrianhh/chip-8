@@ -8,9 +8,9 @@ static EventTable event_table;
 static int FindEvent(Event **event, const char *event_name);
 
 // Initialize event_table and logger.
-void events_Initialize()
+void events_Initialize(LogLevel log_level)
 {
-    event_table.logger = logger_Initialize(LOGS_BASE_PATH "events.log");
+    event_table.logger = logger_Initialize(LOGS_BASE_PATH "events.log", log_level);
 
     event_table.root_event = NULL;
     pthread_mutex_init(&event_table.mutex, NULL);
