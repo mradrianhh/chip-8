@@ -1,9 +1,11 @@
-#ifndef _MIPSVM_GUEST_COMMON_LOADER_H_
-#define _MIPSVM_GUEST_COMMON_LOADER_H_
+#ifndef CORE_LOADER_H
+#define CORE_LOADER_H
+
+#include "logger/logger.h"
 
 /// @brief Initializes the loader.
 /// @details Sets up logging and configures static variables.
-void core_InitializeLoader();
+void core_InitializeLoader(LogLevel log_level);
 
 /// @brief Destroys memory held by the loader.
 /// @details Destroys the logger and other variables that are manually allocated.

@@ -1,5 +1,5 @@
-#ifndef _MIPSVM_GUEST_COMMON_CONVERT_H_
-#define _MIPSVM_GUEST_COMMON_CONVERT_H_
+#ifndef CORE_CONVERT_H
+#define CORE_CONVERT_H
 
 #include <elf.h>
 

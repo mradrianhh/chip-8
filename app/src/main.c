@@ -5,6 +5,8 @@
 
 #include <loader/loader.h>
 
+#include <graphics/application.h>
+
 #ifdef CH8_EXAMPLE_ROMS_DIR
 #define ROMS_BASE_PATH CH8_EXAMPLE_ROMS_DIR
 #else
@@ -13,21 +15,22 @@
 
 int main(int argc, char **argv)
 {
-    CPUState *cpu = core_InitializeCPU();
-    core_InitializeLoader();
+    // Loader is used by CPU so must be initialized first.
+    core_InitializeLoader(LOG_LEVEL_FULL);
+    CPUState *cpu = core_InitializeCPU(LOG_LEVEL_FULL);
+    Application *app = gfx_CreateApplication(cpu->display_buffer, cpu->display_buffer_size);
 
     // Test binary.
     // Should load program data starting at address 0x0200.
     core_LoadBinary16File(ROMS_BASE_PATH "ibm_logo.bin", cpu->memory, 0x200, cpu->memory_size);
 
-    core_DumpMemoryCPU(cpu);
-
-    for(int i = 0; i < 100; i++)
+    for (int i = 0; i < 100; i++)
     {
         core_CycleCPU(cpu);
     }
 
-    core_DestroyLoader();
+    gfx_DestroyApplication(app);
     core_DestroyCPU(cpu);
+    core_DestroyLoader();
     return 0;
 }

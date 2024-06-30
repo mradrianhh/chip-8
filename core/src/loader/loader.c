@@ -7,13 +7,12 @@
 #include "loader/loader.h"
 #include "loader/convert.h"
 
-#include "logger/logger.h"
-
 static Logger *logger;
 
-void core_InitializeLoader()
+void core_InitializeLoader(LogLevel log_level)
 {
     logger = logger_Initialize(LOGS_BASE_PATH "loader.log");
+    logger_SetLogLevel(logger, log_level);
 }
 
 void core_DestroyLoader()
@@ -145,6 +144,7 @@ uint16_t core_LoadBinary16Data(uint8_t *region, uint16_t offset, size_t region_s
     }
 
     memcpy(&region[offset], data, data_size);
+    logger_LogInfo(logger, "Loaded 16-bit binary data of size %zx starting at offset %04X.", data_size, offset);
 
     return offset + (uint16_t)data_size;
 }

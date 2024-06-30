@@ -34,4 +34,4 @@ target_include_directories(graphics PUBLIC
 	"${CMAKE_SOURCE_DIR}/external/cglm/include"
 )
 
-target_link_libraries(graphics PRIVATE ${Vulkan_LIBRARY} ${Assimp_LIBRARY} glfw cglm m)
+target_link_libraries(graphics PRIVATE logger ${Vulkan_LIBRARY} ${Assimp_LIBRARY} glfw cglm m)
