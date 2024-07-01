@@ -21,7 +21,7 @@ Contains the executable.
 
 ## Specifications
 
-- 64x32 pixel monochrome display.
+- 64 width x 32 height pixel monochrome display.
 - 4K 8-bit RAM.
 - 16 8-bit variable registers. V0-VF.
 - 1 16-bit address register. I.

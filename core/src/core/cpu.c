@@ -1,6 +1,8 @@
 #include <stdlib.h>
 #include <string.h>
 #include <signal.h>
+#include <assert.h>
+#include <stdbool.h>
 
 #include "core/cpu.h"
 #include "core/memory.h"
@@ -25,14 +27,27 @@ static uint8_t font_data[CH8_FONT_SIZE] = {
     0xF0, 0x80, 0xF0, 0x80, 0x80  // F
 };
 
+// Returns true if any pixels were turned off.
+static bool SetPixel(CPUState *cpu, uint8_t x, uint8_t y, uint8_t pixel_value);
+static bool SetPixels(CPUState *cpu, uint8_t x, uint8_t y, uint8_t pixels);
+static void SetAlpha(CPUState *cpu, uint8_t x, uint8_t y, uint8_t alpha_value);
+
 CPUState *core_InitializeCPU(LogLevel log_level)
 {
     CPUState *cpu = calloc(1, sizeof(CPUState));
     cpu->memory_size = CH8_MEM_SIZE;
 
     pthread_mutex_init(&cpu->display_buffer_lock, NULL);
-    cpu->display_buffer_size = CH8_DISPLAY_SIZE;
-    
+    // Initialize alpha-channel to 0xFF.
+    for (uint8_t y = 0; y < CH8_DISPLAY_HEIGHT; y++)
+    {
+        for (uint8_t x = 0; x < CH8_DISPLAY_WIDTH; x++)
+        {
+            SetAlpha(cpu, x, y, 0xFF);
+        }
+    }
+    cpu->display_buffer_size = CH8_INTERNAL_DISPLAY_BUFFER_SIZE;
+
     cpu->stack_pointer = cpu->stack;
 
     cpu->delay_timer = 0;
@@ -43,9 +58,9 @@ CPUState *core_InitializeCPU(LogLevel log_level)
 
     cpu->logger = logger_Initialize(LOGS_BASE_PATH "cpu.log", log_level);
 
-    // Load font into memory at 0x0050-0x009F.
-    logger_LogInfo(cpu->logger, "Loading font starting at address 0x50.");
-    uint16_t end_address = core_LoadBinary16Data(cpu->memory, 0x50, cpu->memory_size, font_data, CH8_FONT_SIZE);
+    // Load font into memory.
+    logger_LogInfo(cpu->logger, "Loading font starting at address 0x%04x.", CH8_FONT_START_ADDRESS);
+    uint16_t end_address = core_LoadBinary16Data(cpu->memory, CH8_FONT_START_ADDRESS, cpu->memory_size, font_data, CH8_FONT_SIZE);
     // Check alignment is correct. Should be 2-byte alignment.
     if (end_address % 2 != 0)
     {
@@ -77,10 +92,18 @@ void core_CycleCPU(CPUState *cpu)
     {
         switch (instruction & 0x00FF)
         {
-        // 0x00E0 - Clear screen. TODO.
+        // 0x00E0 - Clear screen.
         case 0x00E0:
         {
-            logger_LogDebug(cpu->logger, "(0x%04X) - Clear screen(NOT IMPLEMENTED).\n", instruction);
+            // Set every pixel to 0.
+            for (uint8_t y = 0; y < CH8_DISPLAY_HEIGHT; y++)
+            {
+                for (uint8_t x = 0; x < CH8_DISPLAY_WIDTH; x++)
+                {
+                    SetPixel(cpu, x, y, 0);
+                }
+            }
+            logger_LogDebug(cpu->logger, "(0x%04X) - Clear screen.\n", instruction);
             break;
         }
         // 0x00EE - Return. TODO.
@@ -402,8 +425,39 @@ void core_CycleCPU(CPUState *cpu)
         uint8_t register_index_y = (instruction & 0x00F0) >> 4;
         // Extract height N.
         uint8_t height = (instruction & 0x000F);
-        logger_LogDebug(cpu->logger, "(0x%04X) - Draw sprite at (V%X, V%X). Width: 8 pixels. Height: %d pixels(NOT IMPLEMENTED).\n",
-                        instruction, register_index_x, register_index_y, height);
+
+        // We modulo by width/height so coordinate will wrap if it's past the width/height
+        // of the screen.
+        // Get X coordinate modulo 64.
+        uint8_t x_coord = cpu->variable_registers[register_index_x] % 64;
+        // Get Y coordinate module 32.
+        uint8_t y_coord = cpu->variable_registers[register_index_y] % 32;
+        // Set VF to 0 initially.
+        cpu->variable_registers[0xF] = 0;
+
+        // There are N rows of 8 bits in a sprite.
+        // The fonts, for example, are all 5 rows tall, which each row containing 8 bits/1 byte.
+
+        // If we turn off any pixels, we set this flag so we can set VF correctly.
+        bool turned_off = false;
+        // The index register points at the first row in the sprite.
+        // We should loop through all N rows without incrementing I, and draw it to the screen.
+        for (uint16_t i = 0; i < height; i++)
+        {
+            // Get row.
+            uint8_t row = cpu->memory[cpu->index_register + i];
+            // Set pixels in display buffer to bits in row.
+            if(SetPixels(cpu, x_coord, y_coord, row))
+                turned_off = true;
+            y_coord++;
+        }
+
+        cpu->variable_registers[0xF] = turned_off;
+
+        logger_LogDebug(cpu->logger, "(0x%04X) - Draw sprite at (V%X(0x%02X), V%X(0x%02X)). Width: 8 pixels. Height: %d pixels. VF(0x%02X).\n",
+                        instruction, register_index_x, cpu->variable_registers[register_index_x],
+                        register_index_y, cpu->variable_registers[register_index_y],
+                        height, cpu->variable_registers[0xF]);
         break;
     }
     // 0xEX__ - Both instructions here have register index X. TODO.
@@ -541,4 +595,62 @@ void core_DumpMemoryCPU(CPUState *cpu)
     }
 
     printf("\n");
+}
+
+bool SetPixel(CPUState *cpu, uint8_t x, uint8_t y, uint8_t pixel_value)
+{
+    assert(x < CH8_DISPLAY_WIDTH);
+    assert(y < CH8_DISPLAY_HEIGHT);
+
+    // This is set to true if we turn of any pixels and returned in the end.
+    bool turned_off = false;
+
+    // index * 4 because we index as if it's one byte per pixel, but actually it's 4(RGBA).
+    size_t actual_index = ((y * CH8_DISPLAY_WIDTH) + x) * CH8_INTERNAL_DISPLAY_CHANNELS;
+    // Set RGB. A is always set to 0xFF.
+    // Since we always set all channels at the same time, we only need to check the first channel
+    // to see if we turn off the pixel.
+    size_t actual_value = pixel_value == 1 ? 0xFF : 0x00;
+    if (cpu->display_buffer[actual_index] == actual_value && actual_value == 0xFF)
+    {
+        actual_value = 0x00;
+        turned_off = true;
+    }
+    cpu->display_buffer[actual_index] = actual_value;
+    cpu->display_buffer[actual_index + 1] = actual_value;
+    cpu->display_buffer[actual_index + 2] = actual_value;
+
+    return turned_off;
+}
+
+bool SetPixels(CPUState *cpu, uint8_t x, uint8_t y, uint8_t pixels)
+{
+    assert(x < CH8_DISPLAY_WIDTH);
+    assert(y < CH8_DISPLAY_HEIGHT);
+
+    // This is set to true if we turn of any pixels and returned in the end.
+    bool turned_off = false;
+
+    // Loop through each bit in 'pixels'.
+    for (uint8_t i = 0; i < 8; i++)
+    {
+        uint8_t mask = 1 << (7 - i);
+        uint8_t pixel_value = (pixels & mask) >> (7 - i);
+        // If the pixel is turned off, we must return it.
+        if(SetPixel(cpu, x + i, y, pixel_value))
+            turned_off = true;
+    }
+
+    return turned_off;
+}
+
+void SetAlpha(CPUState *cpu, uint8_t x, uint8_t y, uint8_t alpha_value)
+{
+    assert(x < CH8_DISPLAY_WIDTH);
+    assert(y < CH8_DISPLAY_HEIGHT);
+
+    // index * 4 because we index as if it's one byte per pixel, but actually it's 4(RGBA).
+    size_t actual_index = ((y * CH8_DISPLAY_WIDTH) + x) * CH8_INTERNAL_DISPLAY_CHANNELS;
+    // Set RGB. A is always set to 0xFF.
+    cpu->display_buffer[actual_index + 3] = alpha_value;
 }

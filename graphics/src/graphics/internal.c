@@ -1,5 +1,8 @@
 #include <signal.h>
 
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb/stb_image.h"
+
 #include "graphics/internal.h"
 
 static void InitGLFW(GraphicsContext *ctx);

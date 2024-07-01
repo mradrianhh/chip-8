@@ -4,6 +4,7 @@ set(CMAKE_BUILD_TYPE Debug)
 set(CMAKE_CXX_FLAGS "-fsanitize=address,undefined")
 
 add_definitions(-DCH8_EXAMPLE_ROMS_DIR=\"${CMAKE_SOURCE_DIR}/assets/roms/\")
+add_definitions(-DCH8_PNGS_DIR=\"${CMAKE_SOURCE_DIR}/assets/pngs/\")
 add_definitions(-DCH8_LOGS_DIR=\"${CMAKE_SOURCE_DIR}/logs/\")
 
 add_subdirectory(app)

@@ -49,4 +49,12 @@ void gfx_StartApplication(Application *app);
 /// @param app Handle to application.
 void gfx_StopApplication(Application *app);
 
+/// @brief Stores the given pixel buffer in file 'filename' as PNG.
+/// @param filename file to store png in.
+/// @param pixel_buffer buffer to write to file.
+/// @param width width of buffer.
+/// @param height height of buffer.
+/// @param channels number of channels per pixel.
+void gfx_SavePixelBufferPNG(const char *filename, uint8_t *pixel_buffer, uint8_t width, uint8_t height, uint8_t channels);
+
 #endif

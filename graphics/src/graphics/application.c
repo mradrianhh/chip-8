@@ -1,6 +1,9 @@
 #include <stdlib.h>
 #include <signal.h>
 
+#define STB_IMAGE_WRITE_IMPLEMENTATION
+#include "stb/stb_image_write.h"
+
 #include <timing/timing.h>
 
 #include "graphics/application.h"
@@ -65,6 +68,11 @@ void gfx_StopApplication(Application *app)
     pthread_join(app->thread_id, NULL);
 }
 
+void gfx_SavePixelBufferPNG(const char *filename, uint8_t *pixel_buffer, uint8_t width, uint8_t height, uint8_t channels)
+{
+    stbi_write_png(filename, width, height, channels, pixel_buffer, width * channels);
+}
+
 void *RunApplication(void *vargp)
 {
     Application *app = vargp;
@@ -94,7 +102,7 @@ void *RunApplication(void *vargp)
         }
     }
 
-    CALL_VK(vkDeviceWaitIdle(app->gfx_context->device), app->logger, "Failed while waiting for device to go idle.");
+    //CALL_VK(vkDeviceWaitIdle(app->gfx_context->device), app->logger, "Failed while waiting for device to go idle.");
 
     pthread_exit(NULL);
 }
