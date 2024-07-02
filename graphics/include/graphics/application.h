@@ -27,27 +27,27 @@ typedef struct Application
     long frame_frequency_nsec;
     // Internal graphics context.
     GraphicsContext *gfx_context;
-} Application;
+} gfxApplication;
 
 /// @brief Create and initialize an application.
 /// @details This sets up all the vulkan configuration, GLFW configuration and custom configurations.
 /// @param src_display_buffer Pointer to the memory region that the graphics library will draw from.
 /// @param src_display_buffer_size Size of memory region that the graphics library will draw from.
 /// @return Returns a handle to the created application.
-Application *gfx_CreateApplication(uint8_t *src_display_buffer, size_t src_display_buffer_size, pthread_mutex_t *src_display_buffer_lock, LogLevel log_level);
+gfxApplication *gfx_CreateApplication(uint8_t *src_display_buffer, size_t src_display_buffer_size, pthread_mutex_t *src_display_buffer_lock, LogLevel log_level);
 
 /// @brief Destroy application and free memory.
 /// @param app application to destroy.
-void gfx_DestroyApplication(Application *app);
+void gfx_DestroyApplication(gfxApplication *app);
 
 /// @brief Starts the application in a new thread with a render loop at 60 hz.
 /// @param app Handle to application.
-void gfx_StartApplication(Application *app);
+void gfx_StartApplication(gfxApplication *app);
 
 /// @brief Stops the application by signaling the render loop to stop.
 /// @remark This will end the thread but not destroy the application.
 /// @param app Handle to application.
-void gfx_StopApplication(Application *app);
+void gfx_StopApplication(gfxApplication *app);
 
 /// @brief Stores the given pixel buffer in file 'filename' as PNG.
 /// @param filename file to store png in.

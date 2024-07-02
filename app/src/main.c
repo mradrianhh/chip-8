@@ -22,24 +22,22 @@
 
 int main(int argc, char **argv)
 {
-    // Loader is used by CPU so must be initialized first.
     core_InitializeLoader(LOG_LEVEL_FULL);
 
     CPUState *cpu = core_InitializeCPU(LOG_LEVEL_FULL);
-    // Test binary.
-    // Should load program data starting at address 0x0200.
-    core_LoadBinary16File(ROMS_BASE_PATH "ibm_logo.bin", cpu->memory, 0x200, cpu->memory_size);
+    core_LoadBinary16File(ROMS_BASE_PATH "ibm_logo.bin", cpu->memory, CH8_PROGRAM_START_ADDRESS, cpu->memory_size);
 
-    //Application *app = gfx_CreateApplication(cpu->display_buffer, cpu->display_buffer_size, &cpu->display_buffer_lock, LOG_LEVEL_FULL);
-    //gfx_StartApplication(app);
+    gfxApplication *app = gfx_CreateApplication(cpu->display_buffer, cpu->display_buffer_size, &cpu->display_buffer_lock, LOG_LEVEL_FULL);
+    gfx_StartApplication(app);
 
     for (int i = 0; i < 100; i++)
     {
         core_CycleCPU(cpu);
     }
 
-    //gfx_StopApplication(app);
-    //gfx_DestroyApplication(app);
+
+    gfx_StopApplication(app);
+    gfx_DestroyApplication(app);
 
     gfx_SavePixelBufferPNG(PNGS_BASE_PATH "display_buffer.png", cpu->display_buffer,
                            CH8_DISPLAY_WIDTH, CH8_DISPLAY_HEIGHT, CH8_INTERNAL_DISPLAY_CHANNELS);

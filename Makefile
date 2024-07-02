@@ -1,5 +1,10 @@
+.PHONY: build-shaders
+build-shaders:
+	cd ./assets/shaders && \
+	./compile.sh
+
 .PHONY: build
-build: 
+build: build-shaders
 	mkdir -p ./build && \
 	cd ./build && \
 	cmake .. && \

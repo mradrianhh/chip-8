@@ -10,9 +10,9 @@
 
 static void *RunApplication(void *vargp);
 
-Application *gfx_CreateApplication(uint8_t *src_display_buffer, size_t src_display_buffer_size, pthread_mutex_t *src_display_buffer_lock, LogLevel log_level)
+gfxApplication *gfx_CreateApplication(uint8_t *src_display_buffer, size_t src_display_buffer_size, pthread_mutex_t *src_display_buffer_lock, LogLevel log_level)
 {
-    Application *app = calloc(1, sizeof(Application));
+    gfxApplication *app = calloc(1, sizeof(gfxApplication));
 
     // Configure logger.
     app->logger = logger_Initialize(LOGS_BASE_PATH "graphics.log", log_level);
@@ -42,7 +42,7 @@ Application *gfx_CreateApplication(uint8_t *src_display_buffer, size_t src_displ
     return app;
 }
 
-void gfx_DestroyApplication(Application *app)
+void gfx_DestroyApplication(gfxApplication *app)
 {
     if (app->running == false)
     {
@@ -56,16 +56,17 @@ void gfx_DestroyApplication(Application *app)
     free(app);
 }
 
-void gfx_StartApplication(Application *app)
+void gfx_StartApplication(gfxApplication *app)
 {
     app->running = true;
     pthread_create(&(app->thread_id), NULL, RunApplication, (void *)app);
 }
 
-void gfx_StopApplication(Application *app)
+void gfx_StopApplication(gfxApplication *app)
 {
     app->running = false;
     pthread_join(app->thread_id, NULL);
+    gfx_StopGraphicsContext(app->gfx_context);
 }
 
 void gfx_SavePixelBufferPNG(const char *filename, uint8_t *pixel_buffer, uint8_t width, uint8_t height, uint8_t channels)
@@ -75,7 +76,7 @@ void gfx_SavePixelBufferPNG(const char *filename, uint8_t *pixel_buffer, uint8_t
 
 void *RunApplication(void *vargp)
 {
-    Application *app = vargp;
+    gfxApplication *app = vargp;
 
     // Each cycle of this loop is one frame.
     while (app->running && !glfwWindowShouldClose(app->gfx_context->window))
@@ -89,6 +90,7 @@ void *RunApplication(void *vargp)
         // TODO: Update texture with data from display buffer.
         
         // TODO: Draw texture to screen.
+        gfx_DrawFrame(app->gfx_context);
 
         // Get end time of frame, calculate delta and delay.
         timespec_get(&app->end_time, TIME_UTC);
@@ -101,8 +103,6 @@ void *RunApplication(void *vargp)
             nanosleep(&app->delay_time, NULL);
         }
     }
-
-    //CALL_VK(vkDeviceWaitIdle(app->gfx_context->device), app->logger, "Failed while waiting for device to go idle.");
 
     pthread_exit(NULL);
 }

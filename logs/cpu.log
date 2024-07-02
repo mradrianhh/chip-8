@@ -1,201 +1,201 @@
-[UTC: 01-07-2024 15-24-41] - INFO: Loading font starting at address 0x0050.
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x00E0) - Clear screen.
+[UTC: 02-07-2024 07-51-19] - INFO: Loading font starting at address 0x0050.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x00E0) - Clear screen.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0xA22A) - Set I to 0x022A.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0xA22A) - Set I to 0x022A.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x600C) - Set V0 to 0x0C.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x600C) - Set V0 to 0x0C.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x6108) - Set V1 to 0x08.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x6108) - Set V1 to 0x08.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0xD01F) - Draw sprite at (V0(0x0C), V1(0x08)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0xD01F) - Draw sprite at (V0(0x0C), V1(0x08)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x7009) - Add 0x00 to V9.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x7009) - Add 0x00 to V9.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0xA239) - Set I to 0x0239.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0xA239) - Set I to 0x0239.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0xD01F) - Draw sprite at (V0(0x15), V1(0x08)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0xD01F) - Draw sprite at (V0(0x15), V1(0x08)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0xA248) - Set I to 0x0248.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0xA248) - Set I to 0x0248.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x7008) - Add 0x00 to V8.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x7008) - Add 0x00 to V8.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0xD01F) - Draw sprite at (V0(0x1D), V1(0x08)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0xD01F) - Draw sprite at (V0(0x1D), V1(0x08)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x7004) - Add 0x00 to V4.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x7004) - Add 0x00 to V4.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0xA257) - Set I to 0x0257.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0xA257) - Set I to 0x0257.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0xD01F) - Draw sprite at (V0(0x21), V1(0x08)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0xD01F) - Draw sprite at (V0(0x21), V1(0x08)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x7008) - Add 0x00 to V8.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x7008) - Add 0x00 to V8.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0xA266) - Set I to 0x0266.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0xA266) - Set I to 0x0266.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0xD01F) - Draw sprite at (V0(0x29), V1(0x08)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0xD01F) - Draw sprite at (V0(0x29), V1(0x08)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x7008) - Add 0x00 to V8.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x7008) - Add 0x00 to V8.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0xA275) - Set I to 0x0275.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0xA275) - Set I to 0x0275.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0xD01F) - Draw sprite at (V0(0x31), V1(0x08)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0xD01F) - Draw sprite at (V0(0x31), V1(0x08)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 01-07-2024 15-24-41] - DEBUG: (0x1228) - Jump to 0x0228.
+[UTC: 02-07-2024 07-51-19] - DEBUG: (0x1228) - Jump to 0x0228.
 

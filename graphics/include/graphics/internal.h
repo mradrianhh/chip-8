@@ -9,6 +9,12 @@
 #define CGLM_FORCE_DEPTH_ZERO_TO_ONE
 #include "cglm/cglm.h"
 
+#ifdef CH8_SHADERS_DIR
+#define SHADERS_BASE_PATH CH8_SHADERS_DIR
+#else
+#define SHADERS_BASE_PATH "../../assets/shaders/"
+#endif
+
 #define WINDOW_WIDTH (800)
 #define WINDOW_HEIGHT (600)
 #define MAX_FRAMES_IN_FLIGHT (2)
@@ -29,20 +35,6 @@
         logger_LogError((logger_ptr), fmt, ##__VA_ARGS__); \
         raise(SIGABRT);                           \
     } while (false)
-
-typedef struct UniformBufferObject
-{
-    alignas(16) mat4 model;
-    alignas(16) mat4 view;
-    alignas(16) mat4 proj;
-} UniformBufferObject;
-
-typedef struct Vertex
-{
-    vec3 pos;
-    vec4 color;
-    vec3 texCoord;
-} Vertex;
 
 typedef struct SwapChainSupportDetails
 {
@@ -103,5 +95,9 @@ typedef struct GraphicsContext
 GraphicsContext *gfx_CreateGraphicsContext(Logger *logger);
 
 void gfx_DestroyGraphicsContext(GraphicsContext *ctx);
+
+void gfx_DrawFrame(GraphicsContext *ctx);
+
+void gfx_StopGraphicsContext(GraphicsContext *ctx);
 
 #endif
