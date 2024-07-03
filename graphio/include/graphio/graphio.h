@@ -87,6 +87,9 @@ typedef struct GraphioContext
     VkImageView textureImageView;
     VkDeviceMemory textureImageMemory;
     VkSampler textureSampler;
+    VkBuffer textureStagingBuffer;
+    VkDeviceMemory textureStagingBufferMemory;
+    void *pTextureStagingBufferMemory;
 
     VkDescriptorSetLayout descriptorSetLayout;
     VkDescriptorPool descriptorPool;
@@ -104,14 +107,21 @@ GraphioContext *gio_CreateGraphioContext(Logger *logger, Display *display, uint1
 
 void gio_DestroyGraphioContext(GraphioContext *ctx);
 
-void gio_UpdateTexture(GraphioContext *ctx);
-
-void gio_DrawFrame(GraphioContext *ctx);
+void gio_Draw(GraphioContext *ctx);
 
 void gio_UpdateFPS(GraphioContext *ctx, double fps);
 
 double gio_GetCurrentTime();
 
 void gio_StopGraphioContext(GraphioContext *ctx);
+
+/// @brief Stores the given pixel buffer in file 'filename' as PNG.
+/// @param filename file to store png in.
+/// @param pixel_buffer buffer to write to file.
+/// @param width width of buffer.
+/// @param height height of buffer.
+/// @param channels number of channels per pixel.
+void gio_SavePixelBufferPNG(const char *filename, uint8_t *pixel_buffer, uint8_t width, uint8_t height, uint8_t channels);
+
 
 #endif

@@ -7,7 +7,7 @@
 
 #include <loader/loader.h>
 
-#include <graphio/application.h>
+#include <application.h>
 
 #ifdef CH8_EXAMPLE_ROMS_DIR
 #define ROMS_BASE_PATH CH8_EXAMPLE_ROMS_DIR
@@ -19,20 +19,18 @@ int main(int argc, char **argv)
 {
     core_InitializeLoader(LOG_LEVEL_FULL);
 
-    CPUState *cpu = core_InitializeCPU(LOG_LEVEL_FULL);
-    core_LoadBinary16File(ROMS_BASE_PATH "delay_timer_test.bin", cpu->memory, CH8_PROGRAM_START_ADDRESS, cpu->memory_size);
+    CPUState *cpu = core_CreateCPU(60, gio_GetCurrentTime, LOG_LEVEL_FULL);
+    core_LoadBinary16File(ROMS_BASE_PATH "ibm_logo.bin", cpu->memory, CH8_PROGRAM_START_ADDRESS, cpu->memory_size);
+    
+    Application *app = CreateApplication(&cpu->display, &cpu->keys, 60, LOG_LEVEL_FULL);
 
-    // Run CPU, create PNG.
-    for (int i = 0; i < 100; i++)
-    {
-        core_CycleCPU(cpu);
-    }
+    core_StartCPU(cpu);
 
-    gioApplication *app = gio_CreateApplication(&cpu->display, &cpu->keys, 1, LOG_LEVEL_FULL);
-    gio_StartApplication(app);
-    while(true){}
-    gio_StopApplication(app);
-    gio_DestroyApplication(app);
+    RunApplication(app);
+    
+    core_StopCPU(cpu);
+
+    DestroyApplication(app);
 
     core_DestroyCPU(cpu);
 

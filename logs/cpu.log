@@ -1,218 +1,183 @@
-[UTC: 03-07-2024 14-57-55] - INFO: Loading font starting at address 0x0050.
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x6400) - Set V4 to 0x00.
+[UTC: 03-07-2024 17-05-24] - INFO: Loading font starting at address 0x0050.
+[UTC: 03-07-2024 17-05-24] - INFO: Starting CPU on thread 0x00007fd82f7fe640.
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x00E0) - Clear screen.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x221E) - Call subroutine at address 021E(NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0xA22A) - Set I to 0x022A.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - Waited for keypress. Key 00 pressed and stored in V5.
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - (NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x600C) - Set V0 to 0x0C.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4502) - Skip next instruction if (V5(00) != 02)(true).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x6108) - Set V1 to 0x08.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4508) - Skip next instruction if (V5(00) != 08)(true).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0xD01F) - Draw sprite at (V0(0x0C), V1(0x08)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x3505) - Skip next instruction if (V5(00) == 05)(false).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x7009) - Add 0x00 to V9.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x1202) - Jump to 0x0202.
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0xA239) - Set I to 0x0239.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x221E) - Call subroutine at address 021E(NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0xD01F) - Draw sprite at (V0(0x15), V1(0x08)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - Waited for keypress. Key 00 pressed and stored in V5.
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - (NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0xA248) - Set I to 0x0248.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4502) - Skip next instruction if (V5(00) != 02)(true).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x7008) - Add 0x00 to V8.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4508) - Skip next instruction if (V5(00) != 08)(true).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0xD01F) - Draw sprite at (V0(0x1D), V1(0x08)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x3505) - Skip next instruction if (V5(00) == 05)(false).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x7004) - Add 0x00 to V4.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x1202) - Jump to 0x0202.
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0xA257) - Set I to 0x0257.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x221E) - Call subroutine at address 021E(NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0xD01F) - Draw sprite at (V0(0x21), V1(0x08)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - Waited for keypress. Key 00 pressed and stored in V5.
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - (NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x7008) - Add 0x00 to V8.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4502) - Skip next instruction if (V5(00) != 02)(true).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0xA266) - Set I to 0x0266.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4508) - Skip next instruction if (V5(00) != 08)(true).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0xD01F) - Draw sprite at (V0(0x29), V1(0x08)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x3505) - Skip next instruction if (V5(00) == 05)(false).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x7008) - Add 0x00 to V8.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x1202) - Jump to 0x0202.
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0xA275) - Set I to 0x0275.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x221E) - Call subroutine at address 021E(NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0xD01F) - Draw sprite at (V0(0x31), V1(0x08)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - Waited for keypress. Key 00 pressed and stored in V5.
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - (NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4502) - Skip next instruction if (V5(00) != 02)(true).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4508) - Skip next instruction if (V5(00) != 08)(true).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x3505) - Skip next instruction if (V5(00) == 05)(false).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x1202) - Jump to 0x0202.
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x221E) - Call subroutine at address 021E(NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - Waited for keypress. Key 00 pressed and stored in V5.
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - (NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4502) - Skip next instruction if (V5(00) != 02)(true).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4508) - Skip next instruction if (V5(00) != 08)(true).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x3505) - Skip next instruction if (V5(00) == 05)(false).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x1202) - Jump to 0x0202.
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x221E) - Call subroutine at address 021E(NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - Waited for keypress. Key 00 pressed and stored in V5.
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - (NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4502) - Skip next instruction if (V5(00) != 02)(true).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4508) - Skip next instruction if (V5(00) != 08)(true).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x3505) - Skip next instruction if (V5(00) == 05)(false).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x1202) - Jump to 0x0202.
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x221E) - Call subroutine at address 021E(NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - Waited for keypress. Key 00 pressed and stored in V5.
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - (NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4502) - Skip next instruction if (V5(00) != 02)(true).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4508) - Skip next instruction if (V5(00) != 08)(true).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x3505) - Skip next instruction if (V5(00) == 05)(false).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x1202) - Jump to 0x0202.
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x221E) - Call subroutine at address 021E(NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - Waited for keypress. Key 00 pressed and stored in V5.
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - (NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4502) - Skip next instruction if (V5(00) != 02)(true).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4508) - Skip next instruction if (V5(00) != 08)(true).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x3505) - Skip next instruction if (V5(00) == 05)(false).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x1202) - Jump to 0x0202.
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x221E) - Call subroutine at address 021E(NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - Waited for keypress. Key 00 pressed and stored in V5.
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - (NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4502) - Skip next instruction if (V5(00) != 02)(true).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4508) - Skip next instruction if (V5(00) != 08)(true).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x3505) - Skip next instruction if (V5(00) == 05)(false).
+[UTC: 03-07-2024 17-05-24] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x1202) - Jump to 0x0202.
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x221E) - Call subroutine at address 021E(NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - Waited for keypress. Key 00 pressed and stored in V5.
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - (NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4502) - Skip next instruction if (V5(00) != 02)(true).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4508) - Skip next instruction if (V5(00) != 08)(true).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x3505) - Skip next instruction if (V5(00) == 05)(false).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x1202) - Jump to 0x0202.
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x221E) - Call subroutine at address 021E(NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - Waited for keypress. Key 00 pressed and stored in V5.
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - (NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4502) - Skip next instruction if (V5(00) != 02)(true).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4508) - Skip next instruction if (V5(00) != 08)(true).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x3505) - Skip next instruction if (V5(00) == 05)(false).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x1202) - Jump to 0x0202.
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x221E) - Call subroutine at address 021E(NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - Waited for keypress. Key 00 pressed and stored in V5.
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - (NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4502) - Skip next instruction if (V5(00) != 02)(true).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4508) - Skip next instruction if (V5(00) != 08)(true).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x3505) - Skip next instruction if (V5(00) == 05)(false).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x1202) - Jump to 0x0202.
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x221E) - Call subroutine at address 021E(NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - Waited for keypress. Key 00 pressed and stored in V5.
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - (NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4502) - Skip next instruction if (V5(00) != 02)(true).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4508) - Skip next instruction if (V5(00) != 08)(true).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x3505) - Skip next instruction if (V5(00) == 05)(false).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x1202) - Jump to 0x0202.
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x221E) - Call subroutine at address 021E(NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - Waited for keypress. Key 00 pressed and stored in V5.
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - (NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4502) - Skip next instruction if (V5(00) != 02)(true).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4508) - Skip next instruction if (V5(00) != 08)(true).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x3505) - Skip next instruction if (V5(00) == 05)(false).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x1202) - Jump to 0x0202.
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x221E) - Call subroutine at address 021E(NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - Waited for keypress. Key 00 pressed and stored in V5.
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - (NOT IMPLEMENTED).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4502) - Skip next instruction if (V5(00) != 02)(true).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4508) - Skip next instruction if (V5(00) != 08)(true).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x3505) - Skip next instruction if (V5(00) == 05)(false).
+[UTC: 03-07-2024 17-05-25] - DEBUG: (0x1228) - Jump to 0x0228.
 
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x1202) - Jump to 0x0202.
-
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x221E) - Call subroutine at address 021E(NOT IMPLEMENTED).
-
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - Waited for keypress. Key 00 pressed and stored in V5.
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - (NOT IMPLEMENTED).
-
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4502) - Skip next instruction if (V5(00) != 02)(true).
-
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4508) - Skip next instruction if (V5(00) != 08)(true).
-
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x3505) - Skip next instruction if (V5(00) == 05)(false).
-
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x1202) - Jump to 0x0202.
-
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x221E) - Call subroutine at address 021E(NOT IMPLEMENTED).
-
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - Waited for keypress. Key 00 pressed and stored in V5.
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0xF50A) - (NOT IMPLEMENTED).
-
-[UTC: 03-07-2024 14-57-55] - DEBUG: (0x4502) - Skip next instruction if (V5(00) != 02)(true).
-
+[UTC: 03-07-2024 17-05-25] - INFO: Stopping CPU on thread 0x00007fd82f7fe640.

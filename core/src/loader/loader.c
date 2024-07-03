@@ -120,7 +120,7 @@ uint16_t core_LoadBinary16File(const char *filename, uint8_t *region, uint16_t o
     // Check if size of file plus the offset exceeds the size of the region.
     if (size + offset > region_size)
     {
-        logger_LogError(logger, "Attempting to load data from file %s starting at offset %04x will exceed the memory size.",
+        logger_LogError(logger, "Attempting to load data from file %s starting at offset 0x%04x will exceed the memory size.",
                         filename, offset);
         raise(SIGABRT);
     }
@@ -137,13 +137,13 @@ uint16_t core_LoadBinary16Data(uint8_t *region, uint16_t offset, size_t region_s
 {
     if (offset + data_size > region_size)
     {
-        logger_LogError(logger, "Attempting to load data which exceeds size of destination region. Offset: %04x. Region size: %zu. Data size: %zu.",
+        logger_LogError(logger, "Attempting to load data which exceeds size of destination region. Offset: 0x%04x. Region size: %zu. Data size: %zu.",
                         offset, region_size, data_size);
         raise(SIGABRT);
     }
 
     memcpy(&region[offset], data, data_size);
-    logger_LogInfo(logger, "Loaded 16-bit binary data of size %zx starting at offset %04X.", data_size, offset);
+    logger_LogInfo(logger, "Loaded 16-bit binary data of size %zx starting at offset 0x%04X.", data_size, offset);
 
     return offset + (uint16_t)data_size;
 }

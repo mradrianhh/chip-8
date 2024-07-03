@@ -35,13 +35,23 @@ typedef struct CPUState
     // Timers
     uint8_t delay_timer;
     uint8_t sound_timer;
+    // Clock
+    double clock_target_frequency;
+    double (*pfn_get_time)();
     // Internal
     Logger *logger;
+    pthread_t thread_id;
+    bool running;
 } CPUState;
 
-CPUState *core_InitializeCPU(LogLevel log_level);
+CPUState *core_CreateCPU(uint8_t clock_target_freq, double (*pfn_get_time)(), LogLevel log_level);
+
+void core_StartCPU(CPUState *cpu);
+
+void core_StopCPU(CPUState *cpu);
+
 void core_DestroyCPU(CPUState *cpu);
-void core_CycleCPU(CPUState *cpu);
+
 void core_DumpMemoryCPU(CPUState *cpu);
 
 #endif

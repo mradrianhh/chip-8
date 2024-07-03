@@ -2,6 +2,8 @@
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb/stb_image.h"
+#define STB_IMAGE_WRITE_IMPLEMENTATION
+#include "stb/stb_image_write.h"
 
 #include <maths/maths.h>
 #include <core/keys.h>
@@ -86,6 +88,9 @@ static void RecordCommandBuffer(GraphioContext *ctx, uint32_t image_index);
 static VkCommandBuffer BeginSingleTimeCommands(GraphioContext *ctx);
 static void EndSingleTimeCommands(GraphioContext *ctx, VkCommandBuffer commandBuffer);
 
+// Textures
+static void UpdateTexture(GraphioContext *ctx);
+
 // Keys
 
 static void SetKeyPressed(GraphioContext *ctx, int key);
@@ -97,6 +102,8 @@ static void glfwKeyCallback(GLFWwindow *window, int key, int scancode, int actio
 static void glfwErrorCallback(int error_code, const char *description);
 static void framebufferResizeCallback(GLFWwindow *window, int width, int height);
 static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageType, const VkDebugUtilsMessengerCallbackDataEXT *pCallbackData, void *pUserData);
+
+// Public
 
 GraphioContext *gio_CreateGraphioContext(Logger *logger, Display *display, uint16_t *keys)
 {
@@ -148,6 +155,10 @@ void gio_DestroyGraphioContext(GraphioContext *ctx)
     vkDestroyImageView(ctx->device, ctx->textureImageView, NULL);
     vkDestroyImage(ctx->device, ctx->textureImage, NULL);
     vkFreeMemory(ctx->device, ctx->textureImageMemory, NULL);
+    // Destroy texture staging buffer.
+    vkUnmapMemory(ctx->device, ctx->textureStagingBufferMemory);
+    vkDestroyBuffer(ctx->device, ctx->textureStagingBuffer, NULL);
+    vkFreeMemory(ctx->device, ctx->textureStagingBufferMemory, NULL);
 
     vkDestroyPipeline(ctx->device, ctx->graphicsPipeline, NULL);
     vkDestroyPipelineLayout(ctx->device, ctx->pipelineLayout, NULL);
@@ -169,25 +180,7 @@ void gio_DestroyGraphioContext(GraphioContext *ctx)
     free(ctx);
 }
 
-void gio_UpdateTexture(GraphioContext *ctx)
-{
-    // Steps to dynamically update texture:
-    // ------------------------------------
-    //
-    // Before render loop:
-    // 1. Create a VkImage with VK_IMAGE_LAYOUT_UNDEFINED.
-    // 2. Set up staging buffer.
-    // 3. Map the staging buffer memory.
-    //
-    // In render loop:
-    // 1. Transfer from staging buffer to device local memory(?).
-    //
-    // Clean up.
-    // 1. Unmap memory.
-    // 2. Clean up image/memory/imageview.
-}
-
-void gio_DrawFrame(GraphioContext *ctx)
+void gio_Draw(GraphioContext *ctx)
 {
     vkWaitForFences(ctx->device, 1, &ctx->inFlightFences[ctx->currentFrame], VK_TRUE, UINT64_MAX);
 
@@ -206,6 +199,9 @@ void gio_DrawFrame(GraphioContext *ctx)
     }
 
     vkResetFences(ctx->device, 1, &ctx->inFlightFences[ctx->currentFrame]);
+
+    // DYNTEX: UpdateTexture
+    UpdateTexture(ctx);
 
     vkResetCommandBuffer(ctx->commandBuffers[ctx->currentFrame], /*VkCommandBufferResetFlagBits*/ 0);
     RecordCommandBuffer(ctx, imageIndex);
@@ -276,6 +272,13 @@ void gio_StopGraphioContext(GraphioContext *ctx)
 {
     CALL_VK(vkDeviceWaitIdle(ctx->device), ctx->logger, "Failed while waiting for device to go idle.");
 }
+
+void gio_SavePixelBufferPNG(const char *filename, uint8_t *pixel_buffer, uint8_t width, uint8_t height, uint8_t channels)
+{
+    stbi_write_png(filename, width, height, channels, pixel_buffer, width * channels);
+}
+
+// Private
 
 void InitGLFW(GraphioContext *ctx)
 {
@@ -801,37 +804,40 @@ void CreateCommandPool(GraphioContext *ctx)
 
 void CreateTextureImage(GraphioContext *ctx)
 {
-    // Fetch texture data from display buffer.
-    VkDeviceSize imageSize = ctx->display->display_buffer_size;
-    int texWidth = ctx->display->display_buffer_width;
-    int texHeight = ctx->display->display_buffer_height;
-    int texChannels = ctx->display->display_buffer_channels;
-
+    // Create and map texture staging buffer.
     VkBuffer stagingBuffer;
     VkDeviceMemory stagingBufferMemory;
-    CreateBuffer(ctx, imageSize, VK_BUFFER_USAGE_TRANSFER_SRC_BIT,
+    CreateBuffer(ctx, ctx->display->display_buffer_size, VK_BUFFER_USAGE_TRANSFER_SRC_BIT,
                  VK_MEMORY_PROPERTY_HOST_COHERENT_BIT | VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT,
-                 &stagingBuffer, &stagingBufferMemory);
-
-    void *data;
-    CALL_VK(vkMapMemory(ctx->device, stagingBufferMemory, 0, imageSize, 0, &data),
+                 &ctx->textureStagingBuffer, &ctx->textureStagingBufferMemory);
+    CALL_VK(vkMapMemory(ctx->device, ctx->textureStagingBufferMemory, 0,
+                        ctx->display->display_buffer_size, 0,
+                        &ctx->pTextureStagingBufferMemory),
             ctx->logger, "Failed to map memory for texture image staging buffer.");
-    memcpy(data, ctx->display->display_buffer, (size_t)imageSize);
-    vkUnmapMemory(ctx->device, stagingBufferMemory);
 
-    CreateImage(ctx, (uint32_t)texWidth, (uint32_t)texHeight, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_TILING_OPTIMAL,
+    // Create texture image.
+    CreateImage(ctx, (uint32_t)ctx->display->display_buffer_width,
+                (uint32_t)ctx->display->display_buffer_height,
+                VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_TILING_OPTIMAL,
                 VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_SAMPLED_BIT,
-                VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, &ctx->textureImage, &ctx->textureImageMemory);
+                VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT,
+                &ctx->textureImage, &ctx->textureImageMemory);
+
+    // We do an initial load of texture data to the texture image.
+    memcpy(ctx->pTextureStagingBufferMemory, ctx->display->display_buffer,
+           (size_t)ctx->display->display_buffer_size);
 
     // Transition the texture image to VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL.
-    TransitionImageLayout(ctx, ctx->textureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
+    TransitionImageLayout(ctx, ctx->textureImage, VK_FORMAT_R8G8B8A8_SRGB,
+                          VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
     // Copy buffer to image.
-    CopyBufferToImage(ctx, stagingBuffer, ctx->textureImage, (uint32_t)texWidth, (uint32_t)texHeight);
-    // Transition texture image from VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL to VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL to prepare it for shader access.
-    TransitionImageLayout(ctx, ctx->textureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
-
-    vkDestroyBuffer(ctx->device, stagingBuffer, NULL);
-    vkFreeMemory(ctx->device, stagingBufferMemory, NULL);
+    CopyBufferToImage(ctx, ctx->textureStagingBuffer, ctx->textureImage,
+                      (uint32_t)ctx->display->display_buffer_width,
+                      (uint32_t)ctx->display->display_buffer_height);
+    // Transition texture image from VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL 
+    // to VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL to prepare it for shader access.
+    TransitionImageLayout(ctx, ctx->textureImage, VK_FORMAT_R8G8B8A8_SRGB,
+                          VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
 }
 
 void CreateTextureImageView(GraphioContext *ctx)
@@ -1507,6 +1513,23 @@ void EndSingleTimeCommands(GraphioContext *ctx, VkCommandBuffer commandBuffer)
     vkQueueWaitIdle(ctx->graphicsQueue);
 
     vkFreeCommandBuffers(ctx->device, ctx->commandPool, 1, &commandBuffer);
+}
+
+// Textures
+
+void UpdateTexture(GraphioContext *ctx)
+{
+    memcpy(ctx->pTextureStagingBufferMemory, ctx->display->display_buffer,
+           (size_t)ctx->display->display_buffer_size);
+
+    // Transition the texture image to VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL.
+    TransitionImageLayout(ctx, ctx->textureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
+    // Copy buffer to image.
+    CopyBufferToImage(ctx, ctx->textureStagingBuffer, ctx->textureImage,
+                      (uint32_t)ctx->display->display_buffer_width,
+                      (uint32_t)ctx->display->display_buffer_height);
+    // Transition texture image from VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL to VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL to prepare it for shader access.
+    TransitionImageLayout(ctx, ctx->textureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
 }
 
 // Keys

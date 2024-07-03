@@ -7,6 +7,7 @@
 #include "core/cpu.h"
 #include "core/memory.h"
 #include "core/keys.h"
+#include "timing/timing.h"
 #include "loader/loader.h"
 
 static uint8_t font_data[CH8_FONT_SIZE] = {
@@ -28,6 +29,8 @@ static uint8_t font_data[CH8_FONT_SIZE] = {
     0xF0, 0x80, 0xF0, 0x80, 0x80  // F
 };
 
+static void *RunCPU(void *vargp);
+static void CycleCPU(CPUState *cpu);
 // Returns true if any pixels were turned off.
 static bool SetPixel(CPUState *cpu, uint8_t x, uint8_t y, uint8_t pixel_value);
 static bool SetPixels(CPUState *cpu, uint8_t x, uint8_t y, uint8_t pixels);
@@ -35,7 +38,7 @@ static void SetAlpha(CPUState *cpu, uint8_t x, uint8_t y, uint8_t alpha_value);
 static bool KeyPressed(CPUState *cpu, uint16_t key_bit);
 static int WaitKeyPressed(CPUState *cpu, uint16_t key_bit);
 
-CPUState *core_InitializeCPU(LogLevel log_level)
+CPUState *core_CreateCPU(uint8_t clock_target_freq, double (*pfn_get_time)(), LogLevel log_level)
 {
     CPUState *cpu = calloc(1, sizeof(CPUState));
     cpu->memory_size = CH8_MEM_SIZE;
@@ -62,6 +65,10 @@ CPUState *core_InitializeCPU(LogLevel log_level)
     cpu->index_register = 0;
     cpu->program_counter = CH8_PROGRAM_START_ADDRESS;
 
+    // Internal
+    cpu->running = false;
+    cpu->clock_target_frequency = (double)1 / clock_target_freq;
+    cpu->pfn_get_time = pfn_get_time;
     cpu->logger = logger_Initialize(LOGS_BASE_PATH "cpu.log", log_level);
 
     // Load font into memory.
@@ -77,13 +84,73 @@ CPUState *core_InitializeCPU(LogLevel log_level)
     return cpu;
 }
 
+void core_StartCPU(CPUState *cpu)
+{
+    cpu->running = true;
+    pthread_create(&cpu->thread_id, NULL, RunCPU, (void *)cpu);
+    logger_LogInfo(cpu->logger, "Starting CPU on thread 0x%016lx.", cpu->thread_id);
+}
+
+void core_StopCPU(CPUState *cpu)
+{
+    logger_LogInfo(cpu->logger, "Stopping CPU on thread 0x%016lx.", cpu->thread_id);
+    cpu->running = false;
+    pthread_join(cpu->thread_id, NULL);
+}
+
 void core_DestroyCPU(CPUState *cpu)
 {
+    if(cpu->running)
+    {
+        core_StopCPU(cpu);
+    }
     logger_Destroy(cpu->logger);
     free(cpu);
 }
 
-void core_CycleCPU(CPUState *cpu)
+void core_DumpMemoryCPU(CPUState *cpu)
+{
+    for (size_t i = 0; i < cpu->memory_size;)
+    {
+        if (i % 8 == 0)
+            printf("\n%04zu(0x%04zx): ", i, i);
+
+        printf("%04x ", READ_16BIT(cpu->memory, i));
+    }
+
+    printf("\n");
+}
+
+void *RunCPU(void *vargp)
+{
+    CPUState *cpu = vargp;
+    while(cpu->running)
+    {
+        // Get start time of cycle.
+        double start_time = cpu->pfn_get_time();
+
+        // Do work
+        CycleCPU(cpu);
+
+        // Get end time of frame, calculate delta and delay.
+        double end_time = cpu->pfn_get_time();
+
+        double delta_time = end_time - start_time;
+        struct timespec delay_time = {
+            .tv_nsec = SEC_TO_NS(cpu->clock_target_frequency - delta_time),
+        };
+
+        // Cap at target clock frequency.
+        if (delay_time.tv_nsec > 0)
+        {
+            nanosleep(&delay_time, NULL);
+        }
+    }
+
+    pthread_exit(NULL);
+}
+
+void CycleCPU(CPUState *cpu)
 {
     // Fetch instruction.
     // Side-effect: increases program_counter by 2.
@@ -602,19 +669,6 @@ void core_CycleCPU(CPUState *cpu)
     }
 }
 
-void core_DumpMemoryCPU(CPUState *cpu)
-{
-    for (size_t i = 0; i < cpu->memory_size;)
-    {
-        if (i % 8 == 0)
-            printf("\n%04zu(0x%04zx): ", i, i);
-
-        printf("%04x ", READ_16BIT(cpu->memory, i));
-    }
-
-    printf("\n");
-}
-
 bool SetPixel(CPUState *cpu, uint8_t x, uint8_t y, uint8_t pixel_value)
 {
     assert(x < CH8_DISPLAY_WIDTH);
@@ -682,5 +736,3 @@ int WaitKeyPressed(CPUState *cpu, uint16_t key_bit)
 {
     return 0;
 }
-
-
