@@ -8,4 +8,4 @@ target_include_directories(chip-8 PUBLIC
 )
 
 # Must link 'm' to use STB.
-target_link_libraries(chip-8 PRIVATE core ui graphics events logger io audio m)
+target_link_libraries(chip-8 PRIVATE core ui graphio events logger audio m)

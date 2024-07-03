@@ -26,12 +26,12 @@ else()
 	message(STATUS ${Assimp_LIBRARY})
 endif()
 
-add_library(graphics SHARED "${SOURCES}")
+add_library(graphio SHARED "${SOURCES}")
 
-target_include_directories(graphics PUBLIC 
+target_include_directories(graphio PUBLIC 
 	"${CMAKE_CURRENT_SOURCE_DIR}/include"
 	"${CMAKE_SOURCE_DIR}/third-party/includes"
 	"${CMAKE_SOURCE_DIR}/external/cglm/include"
 )
 
-target_link_libraries(graphics PRIVATE logger core maths ${Vulkan_LIBRARY} ${Assimp_LIBRARY} glfw cglm m)
+target_link_libraries(graphio PRIVATE logger core maths ${Vulkan_LIBRARY} ${Assimp_LIBRARY} glfw cglm m)

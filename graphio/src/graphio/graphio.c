@@ -3,8 +3,16 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb/stb_image.h"
 
-#include "graphics/internal.h"
-#include "maths/maths.h"
+#include <maths/maths.h>
+#include <core/keys.h>
+
+#include "graphio/graphio.h"
+
+#ifdef CH8_PNGS_DIR
+#define PNGS_BASE_PATH CH8_PNGS_DIR
+#else
+#define PNGS_BASE_PATH "../../assets/pngs/"
+#endif
 
 static const uint32_t device_extensions_count = 1;
 static const char *device_extensions[1] = {VK_KHR_SWAPCHAIN_EXTENSION_NAME};
@@ -12,121 +20,87 @@ static const char *device_extensions[1] = {VK_KHR_SWAPCHAIN_EXTENSION_NAME};
 static const uint32_t validation_layers_count = 1;
 static const char *validation_layers[1] = {"VK_LAYER_KHRONOS_validation"};
 
-static void InitGLFW(GraphicsContext *ctx);
-static void InitVulkan(GraphicsContext *ctx);
+static void InitGLFW(GraphioContext *ctx);
+static void InitVulkan(GraphioContext *ctx);
 
-static void CreateInstance(GraphicsContext *ctx);
-static void SetupDebugMessenger(GraphicsContext *ctx);
-static void CreateSurface(GraphicsContext *ctx);
-static void SelectPhysicalDevice(GraphicsContext *ctx);
-static void CreateLogicalDevice(GraphicsContext *ctx);
-static void CreateSwapChain(GraphicsContext *ctx);
-static void CreateImageViews(GraphicsContext *ctx);
-static void CreateRenderPass(GraphicsContext *ctx);
-static void CreateGraphicsPipeline(GraphicsContext *ctx);
-static void CreateFramebuffers(GraphicsContext *ctx);
-static void CreateCommandPool(GraphicsContext *ctx);
-static void CreateCommandBuffers(GraphicsContext *ctx);
-static void CreateSyncObjects(GraphicsContext *ctx);
+static void CreateInstance(GraphioContext *ctx);
+static void SetupDebugMessenger(GraphioContext *ctx);
+static void CreateSurface(GraphioContext *ctx);
+static void SelectPhysicalDevice(GraphioContext *ctx);
+static void CreateLogicalDevice(GraphioContext *ctx);
+static void CreateSwapChain(GraphioContext *ctx);
+static void CreateImageViews(GraphioContext *ctx);
+static void CreateRenderPass(GraphioContext *ctx);
+static void CreateDescriptorSetLayout(GraphioContext *ctx);
+static void CreateGraphicsPipeline(GraphioContext *ctx);
+static void CreateFramebuffers(GraphioContext *ctx);
+static void CreateCommandPool(GraphioContext *ctx);
+static void CreateTextureImage(GraphioContext *ctx);
+static void CreateTextureImageView(GraphioContext *ctx);
+static void CreateTextureSampler(GraphioContext *ctx);
+static void CreateDescriptorPool(GraphioContext *ctx);
+static void CreateDescriptorSets(GraphioContext *ctx);
+static void CreateCommandBuffers(GraphioContext *ctx);
+static void CreateSyncObjects(GraphioContext *ctx);
 
 // Debug/Extensions
 
-static bool CheckValidationLayerSupport(GraphicsContext *ctx);
-static char **GetRequiredExtensions(GraphicsContext *ctx, uint32_t *count);
+static bool CheckValidationLayerSupport(GraphioContext *ctx);
+static char **GetRequiredExtensions(GraphioContext *ctx, uint32_t *count);
 static void PopulateDebugMessengerCreateInfo(Logger *logger, VkDebugUtilsMessengerCreateInfoEXT *createInfo);
 static VkResult CreateDebugUtilsMessengerEXT(VkInstance instance, const VkDebugUtilsMessengerCreateInfoEXT *pCreateInfo, const VkAllocationCallbacks *pAllocator, VkDebugUtilsMessengerEXT *pDebugMessenger);
 static void DestroyDebugUtilsMessengerEXT(VkInstance instance, VkDebugUtilsMessengerEXT debugMessenger, const VkAllocationCallbacks *pAllocator);
 
 // Swapchain
 
-static void CleanUpSwapchain(GraphicsContext *ctx);
-static void RecreateSwapChain(GraphicsContext *ctx);
-static SwapChainSupportDetails QuerySwapChainSupport(GraphicsContext *ctx);
+static void CleanUpSwapchain(GraphioContext *ctx);
+static void RecreateSwapChain(GraphioContext *ctx);
+static SwapChainSupportDetails QuerySwapChainSupport(GraphioContext *ctx);
 static VkSurfaceFormatKHR ChooseSwapSurfaceFormat(SwapChainSupportDetails *support);
 static VkPresentModeKHR ChooseSwapPresentMode(SwapChainSupportDetails *support);
-static VkExtent2D ChooseSwapExtent(GraphicsContext *ctx, SwapChainSupportDetails *support);
+static VkExtent2D ChooseSwapExtent(GraphioContext *ctx, SwapChainSupportDetails *support);
 static void DestroySwapChainSupportDetails(SwapChainSupportDetails details);
 
 // Image/Imageview
 
-static VkImageView CreateImageView(GraphicsContext *ctx, VkImage image, VkFormat format, VkImageAspectFlags aspectFlags);
+static VkImageView CreateImageView(GraphioContext *ctx, VkImage image, VkFormat format, VkImageAspectFlags aspectFlags);
+static void CreateImage(GraphioContext *ctx, uint32_t width, uint32_t height, VkFormat format,
+                        VkImageTiling tiling, VkImageUsageFlags usage, VkMemoryPropertyFlags properties,
+                        VkImage *image, VkDeviceMemory *imageMemory);
+static void CopyBufferToImage(GraphioContext *ctx, VkBuffer buffer, VkImage image, uint32_t width, uint32_t height);
+static void TransitionImageLayout(GraphioContext *ctx, VkImage image, VkFormat format, VkImageLayout oldLayout, VkImageLayout newLayout);
+
+// Memory/Buffers
+
+static uint32_t FindMemoryType(GraphioContext *ctx, uint32_t type_filter, VkMemoryPropertyFlags properties);
+static void CreateBuffer(GraphioContext *ctx, VkDeviceSize size, VkBufferUsageFlags usage, VkMemoryPropertyFlags properties, VkBuffer *buffer, VkDeviceMemory *bufferMemory);
 
 // Shaders
 
 static void ReadShaderFile(Logger *logger, const char *filename, char **data, size_t *size);
-static void CreateShaderModule(GraphicsContext *ctx, const char *code, size_t size, VkShaderModule *module);
+static void CreateShaderModule(GraphioContext *ctx, const char *code, size_t size, VkShaderModule *module);
 
-// Drawing
-void RecordCommandBuffer(GraphicsContext *ctx, uint32_t image_index)
-{
-    VkCommandBufferBeginInfo begin_info = {
-        .sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO,
-        .flags = 0,
-        .pInheritanceInfo = NULL,
-    };
+// Commands
 
-    CALL_VK(vkBeginCommandBuffer(ctx->commandBuffers[ctx->currentFrame], &begin_info),
-            ctx->logger, "Failed to being recording command buffer for image %i.", image_index);
+static void RecordCommandBuffer(GraphioContext *ctx, uint32_t image_index);
+static VkCommandBuffer BeginSingleTimeCommands(GraphioContext *ctx);
+static void EndSingleTimeCommands(GraphioContext *ctx, VkCommandBuffer commandBuffer);
 
-    VkClearValue clearValues[1] = {};
-    clearValues[0].color.float32[0] = 0.0f;
-    clearValues[0].color.float32[1] = 0.0f;
-    clearValues[0].color.float32[2] = 0.0f;
-    clearValues[0].color.float32[3] = 1.0f;
+// Keys
 
-    VkRenderPassBeginInfo renderpass_begin_info = {
-        .sType = VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO,
-        .renderPass = ctx->renderPass,
-        .framebuffer = ctx->swapChainFramebuffers[image_index],
-        .renderArea = {
-            .offset = {0, 0},
-            .extent = ctx->swapChainExtent,
-        },
-        .clearValueCount = 1,
-        .pClearValues = clearValues,
-    };
-
-    vkCmdBeginRenderPass(ctx->commandBuffers[ctx->currentFrame], &renderpass_begin_info, VK_SUBPASS_CONTENTS_INLINE);
-    vkCmdBindPipeline(ctx->commandBuffers[ctx->currentFrame], VK_PIPELINE_BIND_POINT_GRAPHICS, ctx->graphicsPipeline);
-
-    // Since we set viewport and scissor as dynamic states we need to pass them in here
-    // while recording the command buffer.
-    VkViewport viewport = {
-        .x = 0.0f,
-        .y = 0.0f,
-        .width = (float)ctx->swapChainExtent.width,
-        .height = (float)ctx->swapChainExtent.height,
-        .maxDepth = 1.0f,
-        .minDepth = 0.0f,
-    };
-    vkCmdSetViewport(ctx->commandBuffers[ctx->currentFrame], 0, 1, &viewport);
-
-    VkRect2D scissor = {
-        .offset = {0, 0},
-        .extent = ctx->swapChainExtent,
-    };
-    vkCmdSetScissor(ctx->commandBuffers[ctx->currentFrame], 0, 1, &scissor);
-
-    vkCmdDraw(ctx->commandBuffers[ctx->currentFrame], 3, 1, 0, 0);
-
-    vkCmdEndRenderPass(ctx->commandBuffers[ctx->currentFrame]);
-
-    // When we record commands, we are not able to error-check. When we here call
-    // 'vkEndCommandBuffer', we are finally submitting the commands and can then error-check.
-    // This means that no errors are caught until we are finished recording.
-    CALL_VK(vkEndCommandBuffer(ctx->commandBuffers[ctx->currentFrame]),
-            ctx->logger, "Failed to record command buffer for image %i.", image_index);
-}
+static void SetKeyPressed(GraphioContext *ctx, int key);
+static void SetKeyReleased(GraphioContext *ctx, int key);
 
 // Callbacks
 
+static void glfwKeyCallback(GLFWwindow *window, int key, int scancode, int action, int mods);
 static void glfwErrorCallback(int error_code, const char *description);
 static void framebufferResizeCallback(GLFWwindow *window, int width, int height);
 static VKAPI_ATTR VkBool32 VKAPI_CALL debugCallback(VkDebugUtilsMessageSeverityFlagBitsEXT messageSeverity, VkDebugUtilsMessageTypeFlagsEXT messageType, const VkDebugUtilsMessengerCallbackDataEXT *pCallbackData, void *pUserData);
 
-GraphicsContext *gfx_CreateGraphicsContext(Logger *logger)
+GraphioContext *gio_CreateGraphioContext(Logger *logger, Display *display, uint16_t *keys)
 {
-    GraphicsContext *ctx = calloc(1, sizeof(GraphicsContext));
+    GraphioContext *ctx = calloc(1, sizeof(GraphioContext));
     ctx->logger = logger;
 
 #ifdef NDEBUG
@@ -143,6 +117,10 @@ GraphicsContext *gfx_CreateGraphicsContext(Logger *logger)
     ctx->currentFrame = 0;
     ctx->graphicsQueueFamilyIdx = UINT32_MAX;
     ctx->presentQueueFamilyIdx = UINT32_MAX;
+    ctx->descriptorSets = realloc(ctx->descriptorSets, sizeof(VkDescriptorSet) * MAX_FRAMES_IN_FLIGHT);
+
+    ctx->display = display;
+    ctx->keys = keys;
 
     InitGLFW(ctx);
     InitVulkan(ctx);
@@ -150,7 +128,7 @@ GraphicsContext *gfx_CreateGraphicsContext(Logger *logger)
     return ctx;
 }
 
-void gfx_DestroyGraphicsContext(GraphicsContext *ctx)
+void gio_DestroyGraphioContext(GraphioContext *ctx)
 {
     for (size_t i = 0; i < MAX_FRAMES_IN_FLIGHT; i++)
     {
@@ -162,6 +140,9 @@ void gfx_DestroyGraphicsContext(GraphicsContext *ctx)
     vkDestroyCommandPool(ctx->device, ctx->commandPool, NULL);
 
     CleanUpSwapchain(ctx);
+
+    vkDestroyDescriptorPool(ctx->device, ctx->descriptorPool, NULL);
+    vkDestroyDescriptorSetLayout(ctx->device, ctx->descriptorSetLayout, NULL);
 
     vkDestroySampler(ctx->device, ctx->textureSampler, NULL);
     vkDestroyImageView(ctx->device, ctx->textureImageView, NULL);
@@ -188,7 +169,25 @@ void gfx_DestroyGraphicsContext(GraphicsContext *ctx)
     free(ctx);
 }
 
-void gfx_DrawFrame(GraphicsContext *ctx)
+void gio_UpdateTexture(GraphioContext *ctx)
+{
+    // Steps to dynamically update texture:
+    // ------------------------------------
+    //
+    // Before render loop:
+    // 1. Create a VkImage with VK_IMAGE_LAYOUT_UNDEFINED.
+    // 2. Set up staging buffer.
+    // 3. Map the staging buffer memory.
+    //
+    // In render loop:
+    // 1. Transfer from staging buffer to device local memory(?).
+    //
+    // Clean up.
+    // 1. Unmap memory.
+    // 2. Clean up image/memory/imageview.
+}
+
+void gio_DrawFrame(GraphioContext *ctx)
 {
     vkWaitForFences(ctx->device, 1, &ctx->inFlightFences[ctx->currentFrame], VK_TRUE, UINT64_MAX);
 
@@ -259,15 +258,27 @@ void gfx_DrawFrame(GraphicsContext *ctx)
     ctx->currentFrame = (ctx->currentFrame + 1) % MAX_FRAMES_IN_FLIGHT;
 }
 
-void gfx_StopGraphicsContext(GraphicsContext *ctx)
+void gio_UpdateFPS(GraphioContext *ctx, double fps)
 {
-        CALL_VK(vkDeviceWaitIdle(ctx->device), ctx->logger, "Failed while waiting for device to go idle.");
+    char title[256];
+    title[255] = '\0';
+
+    snprintf(title, 255, "FPS: %3.2f", fps);
+    glfwSetWindowTitle(ctx->window, title);
 }
 
-void InitGLFW(GraphicsContext *ctx)
+double gio_GetCurrentTime()
 {
-    glfwSetErrorCallback(glfwErrorCallback);
+    return glfwGetTime();
+}
 
+void gio_StopGraphioContext(GraphioContext *ctx)
+{
+    CALL_VK(vkDeviceWaitIdle(ctx->device), ctx->logger, "Failed while waiting for device to go idle.");
+}
+
+void InitGLFW(GraphioContext *ctx)
+{
     glfwInit();
 
     glfwWindowHint(GLFW_CLIENT_API, GLFW_NO_API);
@@ -275,10 +286,13 @@ void InitGLFW(GraphicsContext *ctx)
 
     ctx->window = glfwCreateWindow(WINDOW_WIDTH, WINDOW_HEIGHT, "Chip-8", NULL, NULL);
     glfwSetWindowUserPointer(ctx->window, ctx);
+
     glfwSetFramebufferSizeCallback(ctx->window, framebufferResizeCallback);
+    glfwSetErrorCallback(glfwErrorCallback);
+    glfwSetKeyCallback(ctx->window, glfwKeyCallback);
 }
 
-void InitVulkan(GraphicsContext *ctx)
+void InitVulkan(GraphioContext *ctx)
 {
     CreateInstance(ctx);
     SetupDebugMessenger(ctx);
@@ -288,14 +302,20 @@ void InitVulkan(GraphicsContext *ctx)
     CreateSwapChain(ctx);
     CreateImageViews(ctx);
     CreateRenderPass(ctx);
+    CreateDescriptorSetLayout(ctx);
     CreateGraphicsPipeline(ctx);
     CreateFramebuffers(ctx);
     CreateCommandPool(ctx);
+    CreateTextureImage(ctx);
+    CreateTextureImageView(ctx);
+    CreateTextureSampler(ctx);
+    CreateDescriptorPool(ctx);
+    CreateDescriptorSets(ctx);
     CreateCommandBuffers(ctx);
     CreateSyncObjects(ctx);
 }
 
-void CreateInstance(GraphicsContext *ctx)
+void CreateInstance(GraphioContext *ctx)
 {
     if (ctx->enable_validation_layers && !CheckValidationLayerSupport(ctx))
     {
@@ -334,7 +354,7 @@ void CreateInstance(GraphicsContext *ctx)
     CALL_VK(vkCreateInstance(&createInfo, NULL, &ctx->instance), ctx->logger, "Failed to create instance!");
 }
 
-void SetupDebugMessenger(GraphicsContext *ctx)
+void SetupDebugMessenger(GraphioContext *ctx)
 {
     VkDebugUtilsMessengerCreateInfoEXT createInfo = {};
     PopulateDebugMessengerCreateInfo(ctx->logger, &createInfo);
@@ -343,14 +363,14 @@ void SetupDebugMessenger(GraphicsContext *ctx)
             ctx->logger, "Failed to set up debug messenger.");
 }
 
-void CreateSurface(GraphicsContext *ctx)
+void CreateSurface(GraphioContext *ctx)
 {
     // Using CALL_VK on GLFW function because it returns VkResult.
     CALL_VK(glfwCreateWindowSurface(ctx->instance, ctx->window, NULL, &ctx->surface),
             ctx->logger, "Failed to create window surface!");
 }
 
-void SelectPhysicalDevice(GraphicsContext *ctx)
+void SelectPhysicalDevice(GraphioContext *ctx)
 {
     // First fetch to get count.
     uint32_t device_count = 0;
@@ -369,7 +389,7 @@ void SelectPhysicalDevice(GraphicsContext *ctx)
     ctx->physicalDevice = devices[0];
 }
 
-void CreateLogicalDevice(GraphicsContext *ctx)
+void CreateLogicalDevice(GraphioContext *ctx)
 {
     // Get properties of all queue families on physical device.
     uint32_t properties_count = 0;
@@ -421,6 +441,7 @@ void CreateLogicalDevice(GraphicsContext *ctx)
     };
 
     VkPhysicalDeviceFeatures device_features = {};
+    device_features.samplerAnisotropy = VK_TRUE;
 
     // We now create the DeviceCreateInfo and prepare to create the logical device.
     VkDeviceCreateInfo device_create_info = {
@@ -452,7 +473,7 @@ void CreateLogicalDevice(GraphicsContext *ctx)
     vkGetDeviceQueue(ctx->device, ctx->presentQueueFamilyIdx, 0, &ctx->presentQueue);
 }
 
-void CreateSwapChain(GraphicsContext *ctx)
+void CreateSwapChain(GraphioContext *ctx)
 {
     // Get info about swap-chain support and set up surface-format, present-mode and extent.
     SwapChainSupportDetails swap_chain_support = QuerySwapChainSupport(ctx);
@@ -508,10 +529,10 @@ void CreateSwapChain(GraphicsContext *ctx)
 
     ctx->swapChainImageFormat = surface_format.format;
     ctx->swapChainExtent = extent;
-    //DestroySwapChainSupportDetails(swap_chain_support);
+    // DestroySwapChainSupportDetails(swap_chain_support);
 }
 
-void CreateImageViews(GraphicsContext *ctx)
+void CreateImageViews(GraphioContext *ctx)
 {
     // Resize SwapchainImageViews to the same size as SwapChainImages.
     // We want one ImageView per Image.
@@ -525,7 +546,7 @@ void CreateImageViews(GraphicsContext *ctx)
     }
 }
 
-void CreateRenderPass(GraphicsContext *ctx)
+void CreateRenderPass(GraphioContext *ctx)
 {
     VkAttachmentDescription color_attachment_desc = {
         .format = ctx->swapChainImageFormat,
@@ -574,7 +595,27 @@ void CreateRenderPass(GraphicsContext *ctx)
             ctx->logger, "Failed to create render pass.");
 }
 
-void CreateGraphicsPipeline(GraphicsContext *ctx)
+void CreateDescriptorSetLayout(GraphioContext *ctx)
+{
+    VkDescriptorSetLayoutBinding samplerLayoutBinding = {};
+    samplerLayoutBinding.binding = 0;
+    samplerLayoutBinding.descriptorCount = 1;
+    samplerLayoutBinding.descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+    samplerLayoutBinding.pImmutableSamplers = NULL;
+    samplerLayoutBinding.stageFlags = VK_SHADER_STAGE_FRAGMENT_BIT;
+
+    VkDescriptorSetLayoutBinding bindings[1] = {samplerLayoutBinding};
+
+    VkDescriptorSetLayoutCreateInfo createInfo = {};
+    createInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_LAYOUT_CREATE_INFO;
+    createInfo.bindingCount = 1;
+    createInfo.pBindings = bindings;
+
+    CALL_VK(vkCreateDescriptorSetLayout(ctx->device, &createInfo, NULL, &ctx->descriptorSetLayout),
+            ctx->logger, "Failed to create descriptor set layout.");
+}
+
+void CreateGraphicsPipeline(GraphioContext *ctx)
 {
     // First we create the programmable stages by reading and compiling
     // the vertex and fragment shaders.
@@ -640,9 +681,9 @@ void CreateGraphicsPipeline(GraphicsContext *ctx)
         .rasterizerDiscardEnable = VK_FALSE,
         .polygonMode = VK_POLYGON_MODE_FILL,
         .lineWidth = 1.0f,
-        .cullMode = VK_CULL_MODE_BACK_BIT,
-        //.frontFace = VK_FRONT_FACE_COUNTER_CLOCKWISE,
-        .frontFace = VK_FRONT_FACE_CLOCKWISE,
+        .cullMode = VK_CULL_MODE_FRONT_BIT,
+        .frontFace = VK_FRONT_FACE_COUNTER_CLOCKWISE,
+        //.frontFace = VK_FRONT_FACE_CLOCKWISE,
         .depthBiasEnable = VK_FALSE,
     };
 
@@ -684,8 +725,8 @@ void CreateGraphicsPipeline(GraphicsContext *ctx)
     // Set up and create pipeline layout.
     VkPipelineLayoutCreateInfo pipeline_layout_info = {
         .sType = VK_STRUCTURE_TYPE_PIPELINE_LAYOUT_CREATE_INFO,
-        .setLayoutCount = 0,
-        .pushConstantRangeCount = 0,
+        .setLayoutCount = 1,
+        .pSetLayouts = &ctx->descriptorSetLayout,
     };
 
     CALL_VK(vkCreatePipelineLayout(ctx->device, &pipeline_layout_info, NULL, &ctx->pipelineLayout),
@@ -720,7 +761,7 @@ void CreateGraphicsPipeline(GraphicsContext *ctx)
     free(vert_shader_code);
 }
 
-void CreateFramebuffers(GraphicsContext *ctx)
+void CreateFramebuffers(GraphioContext *ctx)
 {
     // We want one framebuffer per image-view.
     ctx->swapChainFramebuffers_count = ctx->swapChainImageViews_count;
@@ -746,7 +787,7 @@ void CreateFramebuffers(GraphicsContext *ctx)
     }
 }
 
-void CreateCommandPool(GraphicsContext *ctx)
+void CreateCommandPool(GraphioContext *ctx)
 {
     VkCommandPoolCreateInfo poolInfo = {
         .sType = VK_STRUCTURE_TYPE_COMMAND_POOL_CREATE_INFO,
@@ -758,7 +799,125 @@ void CreateCommandPool(GraphicsContext *ctx)
             ctx->logger, "Failed to create command pool.");
 }
 
-void CreateCommandBuffers(GraphicsContext *ctx)
+void CreateTextureImage(GraphioContext *ctx)
+{
+    // Fetch texture data from display buffer.
+    VkDeviceSize imageSize = ctx->display->display_buffer_size;
+    int texWidth = ctx->display->display_buffer_width;
+    int texHeight = ctx->display->display_buffer_height;
+    int texChannels = ctx->display->display_buffer_channels;
+
+    VkBuffer stagingBuffer;
+    VkDeviceMemory stagingBufferMemory;
+    CreateBuffer(ctx, imageSize, VK_BUFFER_USAGE_TRANSFER_SRC_BIT,
+                 VK_MEMORY_PROPERTY_HOST_COHERENT_BIT | VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT,
+                 &stagingBuffer, &stagingBufferMemory);
+
+    void *data;
+    CALL_VK(vkMapMemory(ctx->device, stagingBufferMemory, 0, imageSize, 0, &data),
+            ctx->logger, "Failed to map memory for texture image staging buffer.");
+    memcpy(data, ctx->display->display_buffer, (size_t)imageSize);
+    vkUnmapMemory(ctx->device, stagingBufferMemory);
+
+    CreateImage(ctx, (uint32_t)texWidth, (uint32_t)texHeight, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_TILING_OPTIMAL,
+                VK_IMAGE_USAGE_TRANSFER_DST_BIT | VK_IMAGE_USAGE_SAMPLED_BIT,
+                VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, &ctx->textureImage, &ctx->textureImageMemory);
+
+    // Transition the texture image to VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL.
+    TransitionImageLayout(ctx, ctx->textureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_LAYOUT_UNDEFINED, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL);
+    // Copy buffer to image.
+    CopyBufferToImage(ctx, stagingBuffer, ctx->textureImage, (uint32_t)texWidth, (uint32_t)texHeight);
+    // Transition texture image from VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL to VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL to prepare it for shader access.
+    TransitionImageLayout(ctx, ctx->textureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
+
+    vkDestroyBuffer(ctx->device, stagingBuffer, NULL);
+    vkFreeMemory(ctx->device, stagingBufferMemory, NULL);
+}
+
+void CreateTextureImageView(GraphioContext *ctx)
+{
+    ctx->textureImageView = CreateImageView(ctx, ctx->textureImage, VK_FORMAT_R8G8B8A8_SRGB, VK_IMAGE_ASPECT_COLOR_BIT);
+}
+
+void CreateTextureSampler(GraphioContext *ctx)
+{
+    VkSamplerCreateInfo createInfo = {};
+    createInfo.sType = VK_STRUCTURE_TYPE_SAMPLER_CREATE_INFO;
+    // Should we use VK_FILTER_NEAREST to get the 'square-pixel' effect?
+    createInfo.magFilter = VK_FILTER_LINEAR;
+    createInfo.minFilter = VK_FILTER_LINEAR;
+    createInfo.addressModeU = VK_SAMPLER_ADDRESS_MODE_REPEAT;
+    createInfo.addressModeV = VK_SAMPLER_ADDRESS_MODE_REPEAT;
+    createInfo.addressModeW = VK_SAMPLER_ADDRESS_MODE_REPEAT;
+    createInfo.anisotropyEnable = VK_TRUE;
+
+    VkPhysicalDeviceProperties properties = {};
+    vkGetPhysicalDeviceProperties(ctx->physicalDevice, &properties);
+
+    createInfo.maxAnisotropy = properties.limits.maxSamplerAnisotropy;
+
+    createInfo.borderColor = VK_BORDER_COLOR_INT_OPAQUE_BLACK;
+    createInfo.unnormalizedCoordinates = VK_FALSE;
+    createInfo.compareEnable = VK_FALSE;
+    createInfo.compareOp = VK_COMPARE_OP_ALWAYS;
+    createInfo.mipmapMode = VK_SAMPLER_MIPMAP_MODE_LINEAR;
+    createInfo.mipLodBias = 0.0f;
+    createInfo.minLod = 0.0f;
+    createInfo.maxLod = 0.0f;
+    CALL_VK(vkCreateSampler(ctx->device, &createInfo, NULL, &ctx->textureSampler),
+            ctx->logger, "Failed to create texture sampler.");
+}
+
+void CreateDescriptorPool(GraphioContext *ctx)
+{
+    VkDescriptorPoolSize poolSizes[1];
+    poolSizes[0].type = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+    poolSizes[0].descriptorCount = MAX_FRAMES_IN_FLIGHT;
+
+    VkDescriptorPoolCreateInfo createInfo = {};
+    createInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_POOL_CREATE_INFO;
+    createInfo.poolSizeCount = 1;
+    createInfo.pPoolSizes = poolSizes;
+    createInfo.maxSets = MAX_FRAMES_IN_FLIGHT;
+
+    CALL_VK(vkCreateDescriptorPool(ctx->device, &createInfo, NULL, &ctx->descriptorPool),
+            ctx->logger, "Failed to create descriptor pool.");
+}
+
+void CreateDescriptorSets(GraphioContext *ctx)
+{
+    VkDescriptorSetLayout layouts[MAX_FRAMES_IN_FLIGHT] = {ctx->descriptorSetLayout, ctx->descriptorSetLayout};
+
+    VkDescriptorSetAllocateInfo allocInfo = {};
+    allocInfo.sType = VK_STRUCTURE_TYPE_DESCRIPTOR_SET_ALLOCATE_INFO;
+    allocInfo.descriptorPool = ctx->descriptorPool;
+    allocInfo.descriptorSetCount = MAX_FRAMES_IN_FLIGHT;
+    allocInfo.pSetLayouts = layouts;
+
+    CALL_VK(vkAllocateDescriptorSets(ctx->device, &allocInfo, ctx->descriptorSets),
+            ctx->logger, "Failed to allocate descriptor sets.");
+
+    for (size_t i = 0; i < MAX_FRAMES_IN_FLIGHT; i++)
+    {
+        VkDescriptorImageInfo imageInfo = {};
+        imageInfo.imageLayout = VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL;
+        imageInfo.imageView = ctx->textureImageView;
+        imageInfo.sampler = ctx->textureSampler;
+
+        VkWriteDescriptorSet descriptorWrite[1] = {};
+        descriptorWrite[0].sType = VK_STRUCTURE_TYPE_WRITE_DESCRIPTOR_SET;
+        descriptorWrite[0].dstSet = ctx->descriptorSets[i];
+        descriptorWrite[0].dstBinding = 0;
+        descriptorWrite[0].dstArrayElement = 0;
+        descriptorWrite[0].descriptorType = VK_DESCRIPTOR_TYPE_COMBINED_IMAGE_SAMPLER;
+        descriptorWrite[0].descriptorCount = 1;
+        descriptorWrite[0].pImageInfo = &imageInfo;
+
+        vkUpdateDescriptorSets(ctx->device, 1, descriptorWrite, 0, NULL);
+    }
+}
+
+void CreateCommandBuffers(GraphioContext *ctx)
 {
     VkCommandBufferAllocateInfo alloc_info = {
         .sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO,
@@ -771,7 +930,7 @@ void CreateCommandBuffers(GraphicsContext *ctx)
             ctx->logger, "Failed to create command buffers.");
 }
 
-void CreateSyncObjects(GraphicsContext *ctx)
+void CreateSyncObjects(GraphioContext *ctx)
 {
     VkSemaphoreCreateInfo semaphore_info = {
         .sType = VK_STRUCTURE_TYPE_SEMAPHORE_CREATE_INFO,
@@ -796,7 +955,7 @@ void CreateSyncObjects(GraphicsContext *ctx)
 
 // Debug/Extensions
 
-bool CheckValidationLayerSupport(GraphicsContext *ctx)
+bool CheckValidationLayerSupport(GraphioContext *ctx)
 {
     uint32_t layerCount;
     CALL_VK(vkEnumerateInstanceLayerProperties(&layerCount, NULL),
@@ -831,7 +990,7 @@ bool CheckValidationLayerSupport(GraphicsContext *ctx)
     return true;
 }
 
-char **GetRequiredExtensions(GraphicsContext *ctx, uint32_t *count)
+char **GetRequiredExtensions(GraphioContext *ctx, uint32_t *count)
 {
     uint32_t glfwExtensionCount = 0;
     const char **glfwExtensions;
@@ -897,7 +1056,7 @@ void DestroyDebugUtilsMessengerEXT(VkInstance instance, VkDebugUtilsMessengerEXT
 
 // Swapchain
 
-void CleanUpSwapchain(GraphicsContext *ctx)
+void CleanUpSwapchain(GraphioContext *ctx)
 {
     for (size_t i = 0; i < ctx->swapChainFramebuffers_count; i++)
     {
@@ -912,7 +1071,7 @@ void CleanUpSwapchain(GraphicsContext *ctx)
     vkDestroySwapchainKHR(ctx->device, ctx->swapChain, NULL);
 }
 
-void RecreateSwapChain(GraphicsContext *ctx)
+void RecreateSwapChain(GraphioContext *ctx)
 {
     int width = 0, height = 0;
     glfwGetFramebufferSize(ctx->window, &width, &height);
@@ -935,7 +1094,7 @@ void RecreateSwapChain(GraphicsContext *ctx)
 // Includes surface capabilities, surface formats and surface present-modes.
 // Creates a SwapChainSupportDetails object that needs to be destroyed with a call to
 // DestroySwapChainSupportDetails.
-SwapChainSupportDetails QuerySwapChainSupport(GraphicsContext *ctx)
+SwapChainSupportDetails QuerySwapChainSupport(GraphioContext *ctx)
 {
     SwapChainSupportDetails details = {};
 
@@ -983,7 +1142,7 @@ VkPresentModeKHR ChooseSwapPresentMode(SwapChainSupportDetails *support)
     return VK_PRESENT_MODE_FIFO_KHR;
 }
 
-VkExtent2D ChooseSwapExtent(GraphicsContext *ctx, SwapChainSupportDetails *support)
+VkExtent2D ChooseSwapExtent(GraphioContext *ctx, SwapChainSupportDetails *support)
 {
     if (support->capabilities.currentExtent.width != UINT32_MAX)
     {
@@ -1014,7 +1173,7 @@ void DestroySwapChainSupportDetails(SwapChainSupportDetails details)
 
 // Image/Imageviews
 
-VkImageView CreateImageView(GraphicsContext *ctx, VkImage image, VkFormat format, VkImageAspectFlags aspectFlags)
+VkImageView CreateImageView(GraphioContext *ctx, VkImage image, VkFormat format, VkImageAspectFlags aspectFlags)
 {
     VkImageViewCreateInfo createInfo = {
         .sType = VK_STRUCTURE_TYPE_IMAGE_VIEW_CREATE_INFO,
@@ -1041,6 +1200,181 @@ VkImageView CreateImageView(GraphicsContext *ctx, VkImage image, VkFormat format
     return imageView;
 }
 
+void CreateImage(GraphioContext *ctx, uint32_t width, uint32_t height, VkFormat format,
+                 VkImageTiling tiling, VkImageUsageFlags usage, VkMemoryPropertyFlags properties,
+                 VkImage *image, VkDeviceMemory *imageMemory)
+{
+    VkImageCreateInfo createInfo = {};
+    createInfo.sType = VK_STRUCTURE_TYPE_IMAGE_CREATE_INFO;
+    createInfo.imageType = VK_IMAGE_TYPE_2D;
+    createInfo.extent.width = (uint32_t)width;
+    createInfo.extent.height = (uint32_t)height;
+    createInfo.extent.depth = 1;
+    createInfo.mipLevels = 1;
+    createInfo.arrayLayers = 1;
+    createInfo.format = format;
+    createInfo.tiling = tiling;
+    createInfo.initialLayout = VK_IMAGE_LAYOUT_UNDEFINED;
+    createInfo.usage = usage;
+    createInfo.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
+    createInfo.samples = VK_SAMPLE_COUNT_1_BIT;
+    CALL_VK(vkCreateImage(ctx->device, &createInfo, NULL, image),
+            ctx->logger, "Failed to create texture image.");
+
+    VkMemoryRequirements memRequirements;
+    vkGetImageMemoryRequirements(ctx->device, *image, &memRequirements);
+
+    VkMemoryAllocateInfo allocInfo = {};
+    allocInfo.sType = VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO;
+    allocInfo.allocationSize = memRequirements.size;
+    allocInfo.memoryTypeIndex = FindMemoryType(ctx, memRequirements.memoryTypeBits, properties);
+    CALL_VK(vkAllocateMemory(ctx->device, &allocInfo, NULL, imageMemory),
+            ctx->logger, "Failed to allocate memory for texture image memory.");
+
+    CALL_VK(vkBindImageMemory(ctx->device, *image, *imageMemory, 0),
+            ctx->logger, "Failed to bind texture image to texture image memory.");
+}
+
+void CopyBufferToImage(GraphioContext *ctx, VkBuffer buffer, VkImage image, uint32_t width, uint32_t height)
+{
+    VkCommandBuffer commandBuffer = BeginSingleTimeCommands(ctx);
+
+    VkBufferImageCopy region = {};
+    region.bufferOffset = 0;
+    region.bufferRowLength = 0;
+    region.bufferImageHeight = 0;
+    region.imageSubresource = (VkImageSubresourceLayers){
+        .aspectMask = VK_IMAGE_ASPECT_COLOR_BIT,
+        .mipLevel = 0,
+        .baseArrayLayer = 0,
+        .layerCount = 1,
+    };
+    region.imageOffset = (VkOffset3D){
+        .x = 0,
+        .y = 0,
+        .z = 0,
+    };
+    region.imageExtent = (VkExtent3D){
+        .width = width,
+        .height = height,
+        .depth = 1,
+    };
+
+    vkCmdCopyBufferToImage(commandBuffer, buffer, image, VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, 1, &region);
+
+    EndSingleTimeCommands(ctx, commandBuffer);
+}
+
+void TransitionImageLayout(GraphioContext *ctx, VkImage image, VkFormat format, VkImageLayout oldLayout, VkImageLayout newLayout)
+{
+    VkCommandBuffer commandBuffer = BeginSingleTimeCommands(ctx);
+
+    VkImageMemoryBarrier memoryBarrier = {};
+    memoryBarrier.sType = VK_STRUCTURE_TYPE_IMAGE_MEMORY_BARRIER;
+    memoryBarrier.oldLayout = oldLayout;
+    memoryBarrier.newLayout = newLayout;
+    memoryBarrier.srcQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED;
+    memoryBarrier.dstQueueFamilyIndex = VK_QUEUE_FAMILY_IGNORED;
+    memoryBarrier.image = image;
+    memoryBarrier.subresourceRange = (VkImageSubresourceRange){
+        .baseMipLevel = 0,
+        .levelCount = 1,
+        .baseArrayLayer = 0,
+        .layerCount = 1,
+    };
+
+    memoryBarrier.subresourceRange.aspectMask = VK_IMAGE_ASPECT_COLOR_BIT;
+
+    // Set up access masks and pipeline stages for transition from
+    // undefined -> transfer destination &
+    // transfer destination -> shader reading
+    VkPipelineStageFlags sourceStage;
+    VkPipelineStageFlags destinationStage;
+
+    if (oldLayout == VK_IMAGE_LAYOUT_UNDEFINED && newLayout == VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL)
+    {
+        // We have nothing to wait for in the source stage, so we set access mask to 0.
+        memoryBarrier.srcAccessMask = 0;
+        // Set transfer write to destination.
+        memoryBarrier.dstAccessMask = VK_ACCESS_TRANSFER_WRITE_BIT;
+
+        // The source will be the earliest point of the pipeline.
+        sourceStage = VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT;
+        // The destination is the transfer pseudo-stage.
+        destinationStage = VK_PIPELINE_STAGE_TRANSFER_BIT;
+    }
+    else if (oldLayout == VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL && newLayout == VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL)
+    {
+        // Set transfer write in source stage.
+        memoryBarrier.srcAccessMask = VK_ACCESS_TRANSFER_WRITE_BIT;
+        // Set shader read in destination stage.
+        memoryBarrier.dstAccessMask = VK_ACCESS_SHADER_READ_BIT;
+
+        // The image will come from the transfer stage.
+        sourceStage = VK_PIPELINE_STAGE_TRANSFER_BIT;
+        // Set destination stage to fragment shader.
+        destinationStage = VK_PIPELINE_STAGE_FRAGMENT_SHADER_BIT;
+    }
+    else if (oldLayout == VK_IMAGE_LAYOUT_UNDEFINED && newLayout == VK_IMAGE_LAYOUT_DEPTH_STENCIL_ATTACHMENT_OPTIMAL)
+    {
+        memoryBarrier.srcAccessMask = 0;
+        memoryBarrier.dstAccessMask = VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_READ_BIT | VK_ACCESS_DEPTH_STENCIL_ATTACHMENT_WRITE_BIT;
+
+        sourceStage = VK_PIPELINE_STAGE_TOP_OF_PIPE_BIT;
+        destinationStage = VK_PIPELINE_STAGE_EARLY_FRAGMENT_TESTS_BIT;
+    }
+    else
+    {
+        PANIC(ctx->logger, "Unsupported layout transition.");
+    }
+
+    vkCmdPipelineBarrier(commandBuffer, sourceStage, destinationStage, 0, 0, NULL, 0, NULL, 1, &memoryBarrier);
+
+    EndSingleTimeCommands(ctx, commandBuffer);
+}
+
+// Memory/Buffers
+
+uint32_t FindMemoryType(GraphioContext *ctx, uint32_t type_filter, VkMemoryPropertyFlags properties)
+{
+    VkPhysicalDeviceMemoryProperties memProperties = {};
+    vkGetPhysicalDeviceMemoryProperties(ctx->physicalDevice, &memProperties);
+
+    for (uint32_t i = 0; i < memProperties.memoryTypeCount; i++)
+    {
+        if (type_filter & (1 << i) && (memProperties.memoryTypes[i].propertyFlags & properties) == properties)
+        {
+            return i;
+        }
+    }
+
+    PANIC(ctx->logger, "Failed to find suitable memory type.");
+}
+
+void CreateBuffer(GraphioContext *ctx, VkDeviceSize size, VkBufferUsageFlags usage, VkMemoryPropertyFlags properties, VkBuffer *buffer, VkDeviceMemory *bufferMemory)
+{
+    VkBufferCreateInfo bufferInfo = {};
+    bufferInfo.sType = VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO;
+    bufferInfo.size = size;
+    bufferInfo.usage = usage;
+    bufferInfo.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
+    CALL_VK(vkCreateBuffer(ctx->device, &bufferInfo, NULL, buffer),
+            ctx->logger, "Failed to create vertex buffer.");
+
+    VkMemoryRequirements memRequirements = {};
+    vkGetBufferMemoryRequirements(ctx->device, *buffer, &memRequirements);
+
+    VkMemoryAllocateInfo allocInfo = {};
+    allocInfo.sType = VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO;
+    allocInfo.allocationSize = memRequirements.size;
+    allocInfo.memoryTypeIndex = FindMemoryType(ctx, memRequirements.memoryTypeBits, properties);
+    CALL_VK(vkAllocateMemory(ctx->device, &allocInfo, NULL, bufferMemory),
+            ctx->logger, "Failed to allocate vertex-buffer memory.");
+
+    CALL_VK(vkBindBufferMemory(ctx->device, *buffer, *bufferMemory, 0),
+            ctx->logger, "Failed to bind vertex buffer to vertex memory.");
+}
+
 // Shaders
 
 void ReadShaderFile(Logger *logger, const char *filename, char **data, size_t *size)
@@ -1062,7 +1396,7 @@ void ReadShaderFile(Logger *logger, const char *filename, char **data, size_t *s
     fread(*data, sizeof(char) * (*size), 1, fp);
 }
 
-void CreateShaderModule(GraphicsContext *ctx, const char *code, size_t size, VkShaderModule *module)
+void CreateShaderModule(GraphioContext *ctx, const char *code, size_t size, VkShaderModule *module)
 {
     VkShaderModuleCreateInfo create_info = {
         .sType = VK_STRUCTURE_TYPE_SHADER_MODULE_CREATE_INFO,
@@ -1076,18 +1410,345 @@ void CreateShaderModule(GraphicsContext *ctx, const char *code, size_t size, VkS
     return;
 }
 
+// Commands
+
+void RecordCommandBuffer(GraphioContext *ctx, uint32_t image_index)
+{
+    VkCommandBufferBeginInfo begin_info = {
+        .sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO,
+        .flags = 0,
+        .pInheritanceInfo = NULL,
+    };
+
+    CALL_VK(vkBeginCommandBuffer(ctx->commandBuffers[ctx->currentFrame], &begin_info),
+            ctx->logger, "Failed to being recording command buffer for image %i.", image_index);
+
+    VkClearValue clearValues[1] = {};
+    clearValues[0].color.float32[0] = 0.0f;
+    clearValues[0].color.float32[1] = 0.0f;
+    clearValues[0].color.float32[2] = 0.0f;
+    clearValues[0].color.float32[3] = 1.0f;
+
+    VkRenderPassBeginInfo renderpass_begin_info = {
+        .sType = VK_STRUCTURE_TYPE_RENDER_PASS_BEGIN_INFO,
+        .renderPass = ctx->renderPass,
+        .framebuffer = ctx->swapChainFramebuffers[image_index],
+        .renderArea = {
+            .offset = {0, 0},
+            .extent = ctx->swapChainExtent,
+        },
+        .clearValueCount = 1,
+        .pClearValues = clearValues,
+    };
+
+    vkCmdBeginRenderPass(ctx->commandBuffers[ctx->currentFrame], &renderpass_begin_info, VK_SUBPASS_CONTENTS_INLINE);
+    vkCmdBindPipeline(ctx->commandBuffers[ctx->currentFrame], VK_PIPELINE_BIND_POINT_GRAPHICS, ctx->graphicsPipeline);
+
+    // Since we set viewport and scissor as dynamic states we need to pass them in here
+    // while recording the command buffer.
+    VkViewport viewport = {
+        .x = 0.0f,
+        .y = 0.0f,
+        .width = (float)ctx->swapChainExtent.width,
+        .height = (float)ctx->swapChainExtent.height,
+        .maxDepth = 1.0f,
+        .minDepth = 0.0f,
+    };
+    vkCmdSetViewport(ctx->commandBuffers[ctx->currentFrame], 0, 1, &viewport);
+
+    VkRect2D scissor = {
+        .offset = {0, 0},
+        .extent = ctx->swapChainExtent,
+    };
+    vkCmdSetScissor(ctx->commandBuffers[ctx->currentFrame], 0, 1, &scissor);
+
+    vkCmdBindDescriptorSets(ctx->commandBuffers[ctx->currentFrame], VK_PIPELINE_BIND_POINT_GRAPHICS,
+                            ctx->pipelineLayout, 0, 1, &ctx->descriptorSets[ctx->currentFrame], 0, NULL);
+    vkCmdDraw(ctx->commandBuffers[ctx->currentFrame], 3, 1, 0, 0);
+
+    vkCmdEndRenderPass(ctx->commandBuffers[ctx->currentFrame]);
+
+    // When we record commands, we are not able to error-check. When we here call
+    // 'vkEndCommandBuffer', we are finally submitting the commands and can then error-check.
+    // This means that no errors are caught until we are finished recording.
+    CALL_VK(vkEndCommandBuffer(ctx->commandBuffers[ctx->currentFrame]),
+            ctx->logger, "Failed to record command buffer for image %i.", image_index);
+}
+
+VkCommandBuffer BeginSingleTimeCommands(GraphioContext *ctx)
+{
+    VkCommandBufferAllocateInfo allocInfo = {};
+    allocInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_ALLOCATE_INFO;
+    allocInfo.level = VK_COMMAND_BUFFER_LEVEL_PRIMARY;
+    allocInfo.commandPool = ctx->commandPool;
+    allocInfo.commandBufferCount = 1;
+
+    VkCommandBuffer commandBuffer;
+    vkAllocateCommandBuffers(ctx->device, &allocInfo, &commandBuffer);
+
+    VkCommandBufferBeginInfo beginInfo = {};
+    beginInfo.sType = VK_STRUCTURE_TYPE_COMMAND_BUFFER_BEGIN_INFO;
+    beginInfo.flags = VK_COMMAND_BUFFER_USAGE_ONE_TIME_SUBMIT_BIT;
+    vkBeginCommandBuffer(commandBuffer, &beginInfo);
+
+    return commandBuffer;
+}
+
+void EndSingleTimeCommands(GraphioContext *ctx, VkCommandBuffer commandBuffer)
+{
+    CALL_VK(vkEndCommandBuffer(commandBuffer), ctx->logger, "Failed to end command buffer.");
+
+    VkSubmitInfo submitInfo = {};
+    submitInfo.sType = VK_STRUCTURE_TYPE_SUBMIT_INFO;
+    submitInfo.commandBufferCount = 1;
+    submitInfo.pCommandBuffers = &commandBuffer;
+
+    vkQueueSubmit(ctx->graphicsQueue, 1, &submitInfo, VK_NULL_HANDLE);
+    vkQueueWaitIdle(ctx->graphicsQueue);
+
+    vkFreeCommandBuffers(ctx->device, ctx->commandPool, 1, &commandBuffer);
+}
+
+// Keys
+
+void SetKeyPressed(GraphioContext *ctx, int key)
+{
+    switch (key)
+    {
+    case GLFW_KEY_1:
+    {
+        logger_LogDebug(ctx->logger, "Key 1 pressed.");
+        *(ctx->keys) |= CH8_IO_KEY1_BIT;
+        break;
+    }
+    case GLFW_KEY_2:
+    {
+        logger_LogDebug(ctx->logger, "Key 2 pressed.");
+        *(ctx->keys) |= CH8_IO_KEY2_BIT;
+        break;
+    }
+    case GLFW_KEY_3:
+    {
+        logger_LogDebug(ctx->logger, "Key 3 pressed.");
+        *(ctx->keys) |= CH8_IO_KEY3_BIT;
+        break;
+    }
+    case GLFW_KEY_4:
+    {
+        logger_LogDebug(ctx->logger, "Key C pressed.");
+        *(ctx->keys) |= CH8_IO_KEYC_BIT;
+        break;
+    }
+    case GLFW_KEY_Q:
+    {
+        logger_LogDebug(ctx->logger, "Key 4 pressed.");
+        *(ctx->keys) |= CH8_IO_KEY4_BIT;
+        break;
+    }
+    case GLFW_KEY_W:
+    {
+        logger_LogDebug(ctx->logger, "Key 5 pressed.");
+        *(ctx->keys) |= CH8_IO_KEY5_BIT;
+        break;
+    }
+    case GLFW_KEY_E:
+    {
+        logger_LogDebug(ctx->logger, "Key 6 pressed.");
+        *(ctx->keys) |= CH8_IO_KEY6_BIT;
+        break;
+    }
+    case GLFW_KEY_R:
+    {
+        logger_LogDebug(ctx->logger, "Key D pressed.");
+        *(ctx->keys) |= CH8_IO_KEYD_BIT;
+        break;
+    }
+    case GLFW_KEY_A:
+    {
+        logger_LogDebug(ctx->logger, "Key 7 pressed.");
+        *(ctx->keys) |= CH8_IO_KEY7_BIT;
+        break;
+    }
+    case GLFW_KEY_S:
+    {
+        logger_LogDebug(ctx->logger, "Key 8 pressed.");
+        *(ctx->keys) |= CH8_IO_KEY8_BIT;
+        break;
+    }
+    case GLFW_KEY_D:
+    {
+        logger_LogDebug(ctx->logger, "Key 9 pressed.");
+        *(ctx->keys) |= CH8_IO_KEY9_BIT;
+        break;
+    }
+    case GLFW_KEY_F:
+    {
+        logger_LogDebug(ctx->logger, "Key E pressed.");
+        *(ctx->keys) |= CH8_IO_KEYE_BIT;
+        break;
+    }
+    case GLFW_KEY_Z:
+    {
+        logger_LogDebug(ctx->logger, "Key A pressed.");
+        *(ctx->keys) |= CH8_IO_KEYA_BIT;
+        break;
+    }
+    case GLFW_KEY_X:
+    {
+        logger_LogDebug(ctx->logger, "Key 0 pressed.");
+        *(ctx->keys) |= CH8_IO_KEY0_BIT;
+        break;
+    }
+    case GLFW_KEY_C:
+    {
+        logger_LogDebug(ctx->logger, "Key B pressed.");
+        *(ctx->keys) |= CH8_IO_KEYB_BIT;
+        break;
+    }
+    case GLFW_KEY_V:
+    {
+        logger_LogDebug(ctx->logger, "Key F pressed.");
+        *(ctx->keys) |= CH8_IO_KEYF_BIT;
+        break;
+    }
+    default:
+        logger_LogDebug(ctx->logger, "Unknown key pressed.");
+        break;
+    }
+}
+
+void SetKeyReleased(GraphioContext *ctx, int key)
+{
+    switch (key)
+    {
+    case GLFW_KEY_1:
+    {
+        logger_LogDebug(ctx->logger, "Key 1 released.");
+        *(ctx->keys) ^= CH8_IO_KEY1_BIT;
+        break;
+    }
+    case GLFW_KEY_2:
+    {
+        logger_LogDebug(ctx->logger, "Key 2 released.");
+        *(ctx->keys) ^= CH8_IO_KEY2_BIT;
+        break;
+    }
+    case GLFW_KEY_3:
+    {
+        logger_LogDebug(ctx->logger, "Key 3 released.");
+        *(ctx->keys) ^= CH8_IO_KEY3_BIT;
+        break;
+    }
+    case GLFW_KEY_4:
+    {
+        logger_LogDebug(ctx->logger, "Key C released.");
+        *(ctx->keys) ^= CH8_IO_KEYC_BIT;
+        break;
+    }
+    case GLFW_KEY_Q:
+    {
+        logger_LogDebug(ctx->logger, "Key 4 released.");
+        *(ctx->keys) ^= CH8_IO_KEY4_BIT;
+        break;
+    }
+    case GLFW_KEY_W:
+    {
+        logger_LogDebug(ctx->logger, "Key 5 released.");
+        *(ctx->keys) ^= CH8_IO_KEY5_BIT;
+        break;
+    }
+    case GLFW_KEY_E:
+    {
+        logger_LogDebug(ctx->logger, "Key 6 released.");
+        *(ctx->keys) ^= CH8_IO_KEY6_BIT;
+        break;
+    }
+    case GLFW_KEY_R:
+    {
+        logger_LogDebug(ctx->logger, "Key D released.");
+        *(ctx->keys) ^= CH8_IO_KEYD_BIT;
+        break;
+    }
+    case GLFW_KEY_A:
+    {
+        logger_LogDebug(ctx->logger, "Key 7 released.");
+        *(ctx->keys) ^= CH8_IO_KEY7_BIT;
+        break;
+    }
+    case GLFW_KEY_S:
+    {
+        logger_LogDebug(ctx->logger, "Key 8 released.");
+        *(ctx->keys) ^= CH8_IO_KEY8_BIT;
+        break;
+    }
+    case GLFW_KEY_D:
+    {
+        logger_LogDebug(ctx->logger, "Key 9 released.");
+        *(ctx->keys) ^= CH8_IO_KEY9_BIT;
+        break;
+    }
+    case GLFW_KEY_F:
+    {
+        logger_LogDebug(ctx->logger, "Key E released.");
+        *(ctx->keys) ^= CH8_IO_KEYE_BIT;
+        break;
+    }
+    case GLFW_KEY_Z:
+    {
+        logger_LogDebug(ctx->logger, "Key A released.");
+        *(ctx->keys) ^= CH8_IO_KEYA_BIT;
+        break;
+    }
+    case GLFW_KEY_X:
+    {
+        logger_LogDebug(ctx->logger, "Key 0 released.");
+        *(ctx->keys) ^= CH8_IO_KEY0_BIT;
+        break;
+    }
+    case GLFW_KEY_C:
+    {
+        logger_LogDebug(ctx->logger, "Key B released.");
+        *(ctx->keys) ^= CH8_IO_KEYB_BIT;
+        break;
+    }
+    case GLFW_KEY_V:
+    {
+        logger_LogDebug(ctx->logger, "Key F released.");
+        *(ctx->keys) ^= CH8_IO_KEYF_BIT;
+        break;
+    }
+    default:
+        logger_LogDebug(ctx->logger, "Unknown key released.");
+        break;
+    }
+}
+
 // Callbacks
+
+void glfwKeyCallback(GLFWwindow *window, int key, int scancode, int action, int mods)
+{
+    GraphioContext *ctx = glfwGetWindowUserPointer(window);
+
+    if (action == GLFW_PRESS)
+    {
+        SetKeyPressed(ctx, key);
+    }
+    else if (action == GLFW_RELEASE)
+    {
+        SetKeyReleased(ctx, key);
+    }
+}
 
 void glfwErrorCallback(int error_code, const char *description)
 {
     GLFWwindow *window = glfwGetCurrentContext();
-    GraphicsContext *ctx = glfwGetWindowUserPointer(window);
+    GraphioContext *ctx = glfwGetWindowUserPointer(window);
     PANIC(ctx->logger, "GLFW(RC=%d) - %s.", error_code, description);
 }
 
 void framebufferResizeCallback(GLFWwindow *window, int width, int height)
 {
-    GraphicsContext *ctx = glfwGetWindowUserPointer(window);
+    GraphioContext *ctx = glfwGetWindowUserPointer(window);
     ctx->frameBufferResized = true;
 }
 

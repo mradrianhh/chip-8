@@ -1,7 +1,8 @@
-#ifndef GRAPHICS_VULKAN_H
-#define GRAPHICS_VULKAN_H
+#ifndef GRAPHIO_GRAPHIO_H
+#define GRAPHIO_GRAPHIO_H
 
 #include <logger/logger.h>
+#include <core/display.h>
 
 #define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
@@ -21,19 +22,19 @@
 
 // Calls VK-function and checks VkResult. Raises SIGABRT if error.
 #define CALL_VK(func, logger_ptr, fmt, ...)        \
-    do                                 \
-    {                                  \
-        if ((func) != VK_SUCCESS)      \
-        {                              \
+    do                                             \
+    {                                              \
+        if ((func) != VK_SUCCESS)                  \
+        {                                          \
             PANIC(logger_ptr, fmt, ##__VA_ARGS__); \
-        }                              \
+        }                                          \
     } while (false)
 
-#define PANIC(logger_ptr, fmt, ...)                           \
-    do                                            \
-    {                                             \
+#define PANIC(logger_ptr, fmt, ...)                        \
+    do                                                     \
+    {                                                      \
         logger_LogError((logger_ptr), fmt, ##__VA_ARGS__); \
-        raise(SIGABRT);                           \
+        raise(SIGABRT);                                    \
     } while (false)
 
 typedef struct SwapChainSupportDetails
@@ -45,7 +46,7 @@ typedef struct SwapChainSupportDetails
     VkPresentModeKHR *present_modes;
 } SwapChainSupportDetails;
 
-typedef struct GraphicsContext
+typedef struct GraphioContext
 {
     // Reference to logger in application.
     // We do not need to free this logger as we do not own it.
@@ -61,6 +62,9 @@ typedef struct GraphicsContext
     uint32_t presentQueueFamilyIdx;
     VkQueue presentQueue;
     VkSurfaceKHR surface;
+
+    Display *display;
+    uint16_t *keys;
 
     VkSwapchainKHR swapChain;
     VkImage *swapChainImages;
@@ -84,20 +88,30 @@ typedef struct GraphicsContext
     VkDeviceMemory textureImageMemory;
     VkSampler textureSampler;
 
+    VkDescriptorSetLayout descriptorSetLayout;
+    VkDescriptorPool descriptorPool;
+    VkDescriptorSet *descriptorSets;
+
     VkSemaphore *imageAvailableSemaphores;
     VkSemaphore *renderFinishedSemaphores;
     VkFence *inFlightFences;
     uint32_t currentFrame;
 
     bool frameBufferResized;
-} GraphicsContext;
+} GraphioContext;
 
-GraphicsContext *gfx_CreateGraphicsContext(Logger *logger);
+GraphioContext *gio_CreateGraphioContext(Logger *logger, Display *display, uint16_t *keys);
 
-void gfx_DestroyGraphicsContext(GraphicsContext *ctx);
+void gio_DestroyGraphioContext(GraphioContext *ctx);
 
-void gfx_DrawFrame(GraphicsContext *ctx);
+void gio_UpdateTexture(GraphioContext *ctx);
 
-void gfx_StopGraphicsContext(GraphicsContext *ctx);
+void gio_DrawFrame(GraphioContext *ctx);
+
+void gio_UpdateFPS(GraphioContext *ctx, double fps);
+
+double gio_GetCurrentTime();
+
+void gio_StopGraphioContext(GraphioContext *ctx);
 
 #endif

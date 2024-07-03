@@ -6,6 +6,7 @@
 
 #include "core/cpu.h"
 #include "core/memory.h"
+#include "core/keys.h"
 #include "loader/loader.h"
 
 static uint8_t font_data[CH8_FONT_SIZE] = {
@@ -31,13 +32,15 @@ static uint8_t font_data[CH8_FONT_SIZE] = {
 static bool SetPixel(CPUState *cpu, uint8_t x, uint8_t y, uint8_t pixel_value);
 static bool SetPixels(CPUState *cpu, uint8_t x, uint8_t y, uint8_t pixels);
 static void SetAlpha(CPUState *cpu, uint8_t x, uint8_t y, uint8_t alpha_value);
+static bool KeyPressed(CPUState *cpu, uint16_t key_bit);
+static int WaitKeyPressed(CPUState *cpu, uint16_t key_bit);
 
 CPUState *core_InitializeCPU(LogLevel log_level)
 {
     CPUState *cpu = calloc(1, sizeof(CPUState));
     cpu->memory_size = CH8_MEM_SIZE;
 
-    pthread_mutex_init(&cpu->display_buffer_lock, NULL);
+    pthread_mutex_init(&cpu->display.display_buffer_lock, NULL);
     // Initialize alpha-channel to 0xFF.
     for (uint8_t y = 0; y < CH8_DISPLAY_HEIGHT; y++)
     {
@@ -46,7 +49,10 @@ CPUState *core_InitializeCPU(LogLevel log_level)
             SetAlpha(cpu, x, y, 0xFF);
         }
     }
-    cpu->display_buffer_size = CH8_INTERNAL_DISPLAY_BUFFER_SIZE;
+    cpu->display.display_buffer_size = CH8_INTERNAL_DISPLAY_BUFFER_SIZE;
+    cpu->display.display_buffer_width = CH8_DISPLAY_WIDTH;
+    cpu->display.display_buffer_height = CH8_DISPLAY_HEIGHT;
+    cpu->display.display_buffer_channels = CH8_INTERNAL_DISPLAY_CHANNELS;
 
     cpu->stack_pointer = cpu->stack;
 
@@ -415,7 +421,7 @@ void core_CycleCPU(CPUState *cpu)
                         random_number, immediate_value);
         break;
     }
-    // 0xDXYN - Draw a sprite at (Vx, Vy) with 8 pixels width and N pixels height. TODO.
+    // 0xDXYN - Draw a sprite at (Vx, Vy) with 8 pixels width and N pixels height.
     // Set Vf if any pixels are turned off(set to 0) when drawing.
     case 0xD000:
     {
@@ -447,7 +453,7 @@ void core_CycleCPU(CPUState *cpu)
             // Get row.
             uint8_t row = cpu->memory[cpu->index_register + i];
             // Set pixels in display buffer to bits in row.
-            if(SetPixels(cpu, x_coord, y_coord, row))
+            if (SetPixels(cpu, x_coord, y_coord, row))
                 turned_off = true;
             y_coord++;
         }
@@ -460,7 +466,7 @@ void core_CycleCPU(CPUState *cpu)
                         height, cpu->variable_registers[0xF]);
         break;
     }
-    // 0xEX__ - Both instructions here have register index X. TODO.
+    // 0xEX__ - Both instructions here have register index X.
     case 0xE000:
     {
         // Extract 4-bit register index(X).
@@ -468,16 +474,28 @@ void core_CycleCPU(CPUState *cpu)
 
         switch (instruction & 0x00FF)
         {
-        // 0xEX9E - Skips next instruction if key stored in VX is pressed. TODO.
+        // 0xEX9E - Skips next instruction if key stored in VX is pressed.
         case 0x009E:
         {
+            uint16_t key_bit = (0x1 << cpu->variable_registers[register_index]);
+            // If key is pressed, increment PC by 2.
+            if (KeyPressed(cpu, key_bit))
+            {
+                cpu->program_counter += 2;
+            }
             logger_LogDebug(cpu->logger, "(0x%04X) - Skip next instruction if key V%X(%02X) is pressed.\n",
                             instruction, register_index, cpu->variable_registers[register_index]);
             break;
         }
-        // 0xEXA1 - Skips next instruction if key stored in VX is not pressed. TODO.
+        // 0xEXA1 - Skips next instruction if key stored in VX is not pressed.
         case 0x00A1:
         {
+            uint16_t key_bit = (0x1 << cpu->variable_registers[register_index]);
+            // If key is not pressed, increment PC by 2.
+            if (!KeyPressed(cpu, key_bit))
+            {
+                cpu->program_counter += 2;
+            }
             logger_LogDebug(cpu->logger, "(0x%04X) - Skip next instruction if key V%X(%02X) is not pressed.\n",
                             instruction, register_index, cpu->variable_registers[register_index]);
             break;
@@ -611,14 +629,14 @@ bool SetPixel(CPUState *cpu, uint8_t x, uint8_t y, uint8_t pixel_value)
     // Since we always set all channels at the same time, we only need to check the first channel
     // to see if we turn off the pixel.
     size_t actual_value = pixel_value == 1 ? 0xFF : 0x00;
-    if (cpu->display_buffer[actual_index] == actual_value && actual_value == 0xFF)
+    if (cpu->display.display_buffer[actual_index] == actual_value && actual_value == 0xFF)
     {
         actual_value = 0x00;
         turned_off = true;
     }
-    cpu->display_buffer[actual_index] = actual_value;
-    cpu->display_buffer[actual_index + 1] = actual_value;
-    cpu->display_buffer[actual_index + 2] = actual_value;
+    cpu->display.display_buffer[actual_index] = actual_value;
+    cpu->display.display_buffer[actual_index + 1] = actual_value;
+    cpu->display.display_buffer[actual_index + 2] = actual_value;
 
     return turned_off;
 }
@@ -637,7 +655,7 @@ bool SetPixels(CPUState *cpu, uint8_t x, uint8_t y, uint8_t pixels)
         uint8_t mask = 1 << (7 - i);
         uint8_t pixel_value = (pixels & mask) >> (7 - i);
         // If the pixel is turned off, we must return it.
-        if(SetPixel(cpu, x + i, y, pixel_value))
+        if (SetPixel(cpu, x + i, y, pixel_value))
             turned_off = true;
     }
 
@@ -652,5 +670,17 @@ void SetAlpha(CPUState *cpu, uint8_t x, uint8_t y, uint8_t alpha_value)
     // index * 4 because we index as if it's one byte per pixel, but actually it's 4(RGBA).
     size_t actual_index = ((y * CH8_DISPLAY_WIDTH) + x) * CH8_INTERNAL_DISPLAY_CHANNELS;
     // Set RGB. A is always set to 0xFF.
-    cpu->display_buffer[actual_index + 3] = alpha_value;
+    cpu->display.display_buffer[actual_index + 3] = alpha_value;
 }
+
+bool KeyPressed(CPUState *cpu, uint16_t key_bit)
+{
+    return cpu->keys & key_bit;
+}
+
+int WaitKeyPressed(CPUState *cpu, uint16_t key_bit)
+{
+    return 0;
+}
+
+
