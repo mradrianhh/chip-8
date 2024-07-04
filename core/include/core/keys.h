@@ -1,6 +1,8 @@
 #ifndef CORE_KEYS_H
 #define CORE_KEYS_H
 
+#include <stdint.h>
+
 #define CH8_IO_KEY0_BIT  (0x1 << 0)
 #define CH8_IO_KEY1_BIT  (0x1 << 1)
 #define CH8_IO_KEY2_BIT  (0x1 << 2)
@@ -17,5 +19,8 @@
 #define CH8_IO_KEYD_BIT  (0x1 << 13)
 #define CH8_IO_KEYE_BIT  (0x1 << 14)
 #define CH8_IO_KEYF_BIT  (0x1 << 15)
+
+uint16_t MapKeyBit(uint8_t key);
+uint8_t MapBitKey(uint16_t bit);
 
 #endif

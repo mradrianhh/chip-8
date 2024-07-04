@@ -1541,97 +1541,98 @@ void SetKeyPressed(GraphioContext *ctx, int key)
     case GLFW_KEY_1:
     {
         logger_LogDebug(ctx->logger, "Key 1 pressed.");
-        *(ctx->keys) |= CH8_IO_KEY1_BIT;
+        // Only one key should be pressed at a time.
+        *(ctx->keys) = CH8_IO_KEY1_BIT;
         break;
     }
     case GLFW_KEY_2:
     {
         logger_LogDebug(ctx->logger, "Key 2 pressed.");
-        *(ctx->keys) |= CH8_IO_KEY2_BIT;
+        *(ctx->keys) = CH8_IO_KEY2_BIT;
         break;
     }
     case GLFW_KEY_3:
     {
         logger_LogDebug(ctx->logger, "Key 3 pressed.");
-        *(ctx->keys) |= CH8_IO_KEY3_BIT;
+        *(ctx->keys) = CH8_IO_KEY3_BIT;
         break;
     }
     case GLFW_KEY_4:
     {
         logger_LogDebug(ctx->logger, "Key C pressed.");
-        *(ctx->keys) |= CH8_IO_KEYC_BIT;
+        *(ctx->keys) = CH8_IO_KEYC_BIT;
         break;
     }
     case GLFW_KEY_Q:
     {
         logger_LogDebug(ctx->logger, "Key 4 pressed.");
-        *(ctx->keys) |= CH8_IO_KEY4_BIT;
+        *(ctx->keys) = CH8_IO_KEY4_BIT;
         break;
     }
     case GLFW_KEY_W:
     {
         logger_LogDebug(ctx->logger, "Key 5 pressed.");
-        *(ctx->keys) |= CH8_IO_KEY5_BIT;
+        *(ctx->keys) = CH8_IO_KEY5_BIT;
         break;
     }
     case GLFW_KEY_E:
     {
         logger_LogDebug(ctx->logger, "Key 6 pressed.");
-        *(ctx->keys) |= CH8_IO_KEY6_BIT;
+        *(ctx->keys) = CH8_IO_KEY6_BIT;
         break;
     }
     case GLFW_KEY_R:
     {
         logger_LogDebug(ctx->logger, "Key D pressed.");
-        *(ctx->keys) |= CH8_IO_KEYD_BIT;
+        *(ctx->keys) = CH8_IO_KEYD_BIT;
         break;
     }
     case GLFW_KEY_A:
     {
         logger_LogDebug(ctx->logger, "Key 7 pressed.");
-        *(ctx->keys) |= CH8_IO_KEY7_BIT;
+        *(ctx->keys) = CH8_IO_KEY7_BIT;
         break;
     }
     case GLFW_KEY_S:
     {
         logger_LogDebug(ctx->logger, "Key 8 pressed.");
-        *(ctx->keys) |= CH8_IO_KEY8_BIT;
+        *(ctx->keys) = CH8_IO_KEY8_BIT;
         break;
     }
     case GLFW_KEY_D:
     {
         logger_LogDebug(ctx->logger, "Key 9 pressed.");
-        *(ctx->keys) |= CH8_IO_KEY9_BIT;
+        *(ctx->keys) = CH8_IO_KEY9_BIT;
         break;
     }
     case GLFW_KEY_F:
     {
         logger_LogDebug(ctx->logger, "Key E pressed.");
-        *(ctx->keys) |= CH8_IO_KEYE_BIT;
+        *(ctx->keys) = CH8_IO_KEYE_BIT;
         break;
     }
     case GLFW_KEY_Z:
     {
         logger_LogDebug(ctx->logger, "Key A pressed.");
-        *(ctx->keys) |= CH8_IO_KEYA_BIT;
+        *(ctx->keys) = CH8_IO_KEYA_BIT;
         break;
     }
     case GLFW_KEY_X:
     {
         logger_LogDebug(ctx->logger, "Key 0 pressed.");
-        *(ctx->keys) |= CH8_IO_KEY0_BIT;
+        *(ctx->keys) = CH8_IO_KEY0_BIT;
         break;
     }
     case GLFW_KEY_C:
     {
         logger_LogDebug(ctx->logger, "Key B pressed.");
-        *(ctx->keys) |= CH8_IO_KEYB_BIT;
+        *(ctx->keys) = CH8_IO_KEYB_BIT;
         break;
     }
     case GLFW_KEY_V:
     {
         logger_LogDebug(ctx->logger, "Key F pressed.");
-        *(ctx->keys) |= CH8_IO_KEYF_BIT;
+        *(ctx->keys) = CH8_IO_KEYF_BIT;
         break;
     }
     default:

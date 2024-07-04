@@ -34,4 +34,4 @@ target_include_directories(graphio PUBLIC
 	"${CMAKE_SOURCE_DIR}/external/cglm/include"
 )
 
-target_link_libraries(graphio PRIVATE logger core maths PUBLIC ${Vulkan_LIBRARY} ${Assimp_LIBRARY} glfw cglm m)
+target_link_libraries(graphio PRIVATE logger core common PUBLIC ${Vulkan_LIBRARY} ${Assimp_LIBRARY} glfw cglm m)

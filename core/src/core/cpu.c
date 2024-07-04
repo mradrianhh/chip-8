@@ -36,13 +36,19 @@ static bool SetPixel(CPUState *cpu, uint8_t x, uint8_t y, uint8_t pixel_value);
 static bool SetPixels(CPUState *cpu, uint8_t x, uint8_t y, uint8_t pixels);
 static void SetAlpha(CPUState *cpu, uint8_t x, uint8_t y, uint8_t alpha_value);
 static bool KeyPressed(CPUState *cpu, uint16_t key_bit);
-static int WaitKeyPressed(CPUState *cpu, uint16_t key_bit);
+static uint8_t WaitKeyPressed(CPUState *cpu);
+static void PushStack(CPUState *cpu, uint16_t pc);
+static uint16_t PopStack(CPUState *cpu);
 
 CPUState *core_CreateCPU(uint8_t clock_target_freq, double (*pfn_get_time)(), LogLevel log_level)
 {
     CPUState *cpu = calloc(1, sizeof(CPUState));
     cpu->memory_size = CH8_MEM_SIZE;
 
+    cpu->display.display_buffer_size = CH8_INTERNAL_DISPLAY_BUFFER_SIZE;
+    cpu->display.display_buffer_width = CH8_DISPLAY_WIDTH;
+    cpu->display.display_buffer_height = CH8_DISPLAY_HEIGHT;
+    cpu->display.display_buffer_channels = CH8_INTERNAL_DISPLAY_CHANNELS;
     pthread_mutex_init(&cpu->display.display_buffer_lock, NULL);
     // Initialize alpha-channel to 0xFF.
     for (uint8_t y = 0; y < CH8_DISPLAY_HEIGHT; y++)
@@ -52,10 +58,6 @@ CPUState *core_CreateCPU(uint8_t clock_target_freq, double (*pfn_get_time)(), Lo
             SetAlpha(cpu, x, y, 0xFF);
         }
     }
-    cpu->display.display_buffer_size = CH8_INTERNAL_DISPLAY_BUFFER_SIZE;
-    cpu->display.display_buffer_width = CH8_DISPLAY_WIDTH;
-    cpu->display.display_buffer_height = CH8_DISPLAY_HEIGHT;
-    cpu->display.display_buffer_channels = CH8_INTERNAL_DISPLAY_CHANNELS;
 
     cpu->stack_pointer = cpu->stack;
 
@@ -100,7 +102,7 @@ void core_StopCPU(CPUState *cpu)
 
 void core_DestroyCPU(CPUState *cpu)
 {
-    if(cpu->running)
+    if (cpu->running)
     {
         core_StopCPU(cpu);
     }
@@ -124,7 +126,7 @@ void core_DumpMemoryCPU(CPUState *cpu)
 void *RunCPU(void *vargp)
 {
     CPUState *cpu = vargp;
-    while(cpu->running)
+    while (cpu->running)
     {
         // Get start time of cycle.
         double start_time = cpu->pfn_get_time();
@@ -160,7 +162,6 @@ void CycleCPU(CPUState *cpu)
     // Test on most significant nibble.
     switch (instruction & 0xF000)
     {
-    // TODO.
     case 0x0000:
     {
         switch (instruction & 0x00FF)
@@ -176,19 +177,20 @@ void CycleCPU(CPUState *cpu)
                     SetPixel(cpu, x, y, 0);
                 }
             }
-            logger_LogDebug(cpu->logger, "(0x%04X) - Clear screen.\n", instruction);
+            logger_LogDebug(cpu->logger, "(0x%04X) - Clear screen.", instruction);
             break;
         }
-        // 0x00EE - Return. TODO.
+        // 0x00EE - Return.
         case 0x00EE:
         {
             // Pop previous PC of stack and set current PC.
-            logger_LogDebug(cpu->logger, "(0x%04X) - Return(NOT IMPLEMENTED).\n", instruction);
+            cpu->program_counter = PopStack(cpu);
+            logger_LogDebug(cpu->logger, "(0x%04X) - Return.", instruction);
             break;
         }
         // 0x0NNN - Ignored as we're not running on a machine with actual chip-8 support.
         default:
-            logger_LogDebug(cpu->logger, "(0x%04X) - Call machine code routine(NOT IMPLEMENTED).\n", instruction);
+            logger_LogDebug(cpu->logger, "(0x%04X) - Call machine code routine(NOT IMPLEMENTED).", instruction);
             break;
         }
         break;
@@ -200,17 +202,19 @@ void CycleCPU(CPUState *cpu)
         uint16_t immediate_addr = instruction & 0x0FFF;
         // Set PC.
         cpu->program_counter = immediate_addr;
-        logger_LogDebug(cpu->logger, "(0x%04X) - Jump to 0x%04X.\n", instruction, immediate_addr);
+        logger_LogDebug(cpu->logger, "(0x%04X) - Jump to 0x%04X.", instruction, immediate_addr);
         break;
     }
-    // 0x2NNN - Call subroutine at address NNN. TODO.
+    // 0x2NNN - Call subroutine at address NNN.
     case 0x2000:
     {
         // Extract 12-bit immediate address(NNN).
         uint16_t immediate_addr = instruction & 0x0FFF;
         // Push current PC on stack.
+        PushStack(cpu, cpu->program_counter);
         // Set PC to NNN.
-        logger_LogDebug(cpu->logger, "(0x%04X) - Call subroutine at address %04X(NOT IMPLEMENTED).\n", instruction, immediate_addr);
+        cpu->program_counter = immediate_addr;
+        logger_LogDebug(cpu->logger, "(0x%04X) - Call subroutine at address %04X.", instruction, immediate_addr);
         break;
     }
     // 0x3XNN - Skips next instruction if Vx == NN.
@@ -227,7 +231,7 @@ void CycleCPU(CPUState *cpu)
             //       when we read the next instruction.
             cpu->program_counter += 2;
         }
-        logger_LogDebug(cpu->logger, "(0x%04X) - Skip next instruction if (V%X(%02X) == %02X)(%s).\n",
+        logger_LogDebug(cpu->logger, "(0x%04X) - Skip next instruction if (V%X(%02X) == %02X)(%s).",
                         instruction, register_index, cpu->variable_registers[register_index], immediate_value,
                         cpu->variable_registers[register_index] == immediate_value ? "true" : "false");
         break;
@@ -246,7 +250,7 @@ void CycleCPU(CPUState *cpu)
             //       when we read the next instruction.
             cpu->program_counter += 2;
         }
-        logger_LogDebug(cpu->logger, "(0x%04X) - Skip next instruction if (V%X(%02X) != %02X)(%s).\n",
+        logger_LogDebug(cpu->logger, "(0x%04X) - Skip next instruction if (V%X(%02X) != %02X)(%s).",
                         instruction, register_index, cpu->variable_registers[register_index], immediate_value,
                         cpu->variable_registers[register_index] != immediate_value ? "true" : "false");
         break;
@@ -265,7 +269,7 @@ void CycleCPU(CPUState *cpu)
             //       when we read the next instruction.
             cpu->program_counter += 2;
         }
-        logger_LogDebug(cpu->logger, "(0x%04X) - Skip next instruction if (V%X(%02X) == V%X(%02X))(%s).\n",
+        logger_LogDebug(cpu->logger, "(0x%04X) - Skip next instruction if (V%X(%02X) == V%X(%02X))(%s).",
                         instruction, register_index_x, cpu->variable_registers[register_index_x],
                         register_index_y, cpu->variable_registers[register_index_y],
                         cpu->variable_registers[register_index_x] == cpu->variable_registers[register_index_y] ? "true" : "false");
@@ -280,7 +284,7 @@ void CycleCPU(CPUState *cpu)
         uint8_t immediate_value = instruction & 0x00FF;
         // Set Vx.
         cpu->variable_registers[register_index] = immediate_value;
-        logger_LogDebug(cpu->logger, "(0x%04X) - Set V%X to 0x%02X.\n", instruction, register_index, immediate_value);
+        logger_LogDebug(cpu->logger, "(0x%04X) - Set V%X to 0x%02X.", instruction, register_index, immediate_value);
         break;
     }
     // 0x7XNN - Add NN to Vx.
@@ -292,7 +296,7 @@ void CycleCPU(CPUState *cpu)
         uint8_t immediate_value = instruction & 0x00FF;
         // Add to Vx.
         cpu->variable_registers[register_index] += immediate_value;
-        logger_LogDebug(cpu->logger, "(0x%04X) - Add 0x%02X to V%X.\n", instruction, register_index, immediate_value);
+        logger_LogDebug(cpu->logger, "(0x%04X) - Add 0x%02X to V%X.", instruction, register_index, immediate_value);
         break;
     }
     // 0x8XY_ - All 0x8000 instructions have X/Y register index.
@@ -310,7 +314,7 @@ void CycleCPU(CPUState *cpu)
         {
             // Set VX to VY.
             cpu->variable_registers[register_index_x] = cpu->variable_registers[register_index_y];
-            logger_LogDebug(cpu->logger, "(0x%04X) - Set V%X to V%X(%02X).\n",
+            logger_LogDebug(cpu->logger, "(0x%04X) - Set V%X to V%X(%02X).",
                             instruction, register_index_x, register_index_y, cpu->variable_registers[register_index_y]);
             break;
         }
@@ -318,7 +322,7 @@ void CycleCPU(CPUState *cpu)
         case 0x0001:
         {
             cpu->variable_registers[register_index_x] |= cpu->variable_registers[register_index_y];
-            logger_LogDebug(cpu->logger, "(0x%04X) - Set V%X to V%X(%02X) | V%X(%02X).\n",
+            logger_LogDebug(cpu->logger, "(0x%04X) - Set V%X to V%X(%02X) | V%X(%02X).",
                             instruction, register_index_x,
                             register_index_x, cpu->variable_registers[register_index_x],
                             register_index_y, cpu->variable_registers[register_index_y]);
@@ -328,7 +332,7 @@ void CycleCPU(CPUState *cpu)
         case 0x0002:
         {
             cpu->variable_registers[register_index_x] &= cpu->variable_registers[register_index_y];
-            logger_LogDebug(cpu->logger, "(0x%04X) - Set V%X to V%X(%02X) & V%X(%02X).\n",
+            logger_LogDebug(cpu->logger, "(0x%04X) - Set V%X to V%X(%02X) & V%X(%02X).",
                             instruction, register_index_x,
                             register_index_x, cpu->variable_registers[register_index_x],
                             register_index_y, cpu->variable_registers[register_index_y]);
@@ -338,7 +342,7 @@ void CycleCPU(CPUState *cpu)
         case 0x0003:
         {
             cpu->variable_registers[register_index_x] ^= cpu->variable_registers[register_index_y];
-            logger_LogDebug(cpu->logger, "(0x%04X) - Set V%X to V%X(%02X) ^ V%X(%02X).\n",
+            logger_LogDebug(cpu->logger, "(0x%04X) - Set V%X to V%X(%02X) ^ V%X(%02X).",
                             instruction, register_index_x,
                             register_index_x, cpu->variable_registers[register_index_x],
                             register_index_y, cpu->variable_registers[register_index_y]);
@@ -358,7 +362,7 @@ void CycleCPU(CPUState *cpu)
             // Either way, we will store the first byte of result in VX.
             cpu->variable_registers[register_index_x] = result & 0xFF;
 
-            logger_LogDebug(cpu->logger, "(0x%04X) - Add V%X(%02X) to V%X - VF(%02X).\n",
+            logger_LogDebug(cpu->logger, "(0x%04X) - Add V%X(%02X) to V%X - VF(%02X).",
                             instruction, register_index_y, cpu->variable_registers[register_index_y],
                             register_index_x, cpu->variable_registers[0xF]);
             break;
@@ -374,7 +378,7 @@ void CycleCPU(CPUState *cpu)
             // Set underflow.
             cpu->variable_registers[0xF] = !underflow;
 
-            logger_LogDebug(cpu->logger, "(0x%04X) - Sub V%X(%02X) from V%X - VF(%02X).\n",
+            logger_LogDebug(cpu->logger, "(0x%04X) - Sub V%X(%02X) from V%X - VF(%02X).",
                             instruction, register_index_y, cpu->variable_registers[register_index_y],
                             register_index_x, cpu->variable_registers[0xF]);
             break;
@@ -388,7 +392,7 @@ void CycleCPU(CPUState *cpu)
             // Right-shift VX by 1.
             cpu->variable_registers[register_index_x] >>= 1;
 
-            logger_LogDebug(cpu->logger, "(0x%04X) -  V%X(%02X) >> 1 - VF(%02X).\n",
+            logger_LogDebug(cpu->logger, "(0x%04X) -  V%X(%02X) >> 1 - VF(%02X).",
                             instruction, register_index_x, cpu->variable_registers[register_index_x],
                             cpu->variable_registers[0xF]);
             break;
@@ -404,7 +408,7 @@ void CycleCPU(CPUState *cpu)
             // Set underflow.
             cpu->variable_registers[0xF] = !underflow;
 
-            logger_LogDebug(cpu->logger, "(0x%04X) - Set V%X to V%X(%02X) - V%X(%02X) - VF(%02X).\n",
+            logger_LogDebug(cpu->logger, "(0x%04X) - Set V%X to V%X(%02X) - V%X(%02X) - VF(%02X).",
                             instruction, register_index_x,
                             register_index_y, cpu->variable_registers[register_index_y],
                             register_index_x, cpu->variable_registers[register_index_x],
@@ -420,13 +424,13 @@ void CycleCPU(CPUState *cpu)
             // Left-shift VX by 1.
             cpu->variable_registers[register_index_x] <<= 1;
 
-            logger_LogDebug(cpu->logger, "(0x%04X) -  V%X(%02X) << 1 - VF(%02X).\n",
+            logger_LogDebug(cpu->logger, "(0x%04X) -  V%X(%02X) << 1 - VF(%02X).",
                             instruction, register_index_x, cpu->variable_registers[register_index_x],
                             cpu->variable_registers[0xF]);
             break;
         }
         default:
-            logger_LogDebug(cpu->logger, "(0x%04X) - (NOT IMPLEMENTED).\n", instruction);
+            logger_LogDebug(cpu->logger, "(0x%04X) - (NOT IMPLEMENTED).", instruction);
             break;
         }
     }
@@ -444,7 +448,7 @@ void CycleCPU(CPUState *cpu)
             //       when we read the next instruction.
             cpu->program_counter += 2;
         }
-        logger_LogDebug(cpu->logger, "(0x%04X) - Skip next instruction if (V%X(%02X) != V%X(%02X))(%s).\n",
+        logger_LogDebug(cpu->logger, "(0x%04X) - Skip next instruction if (V%X(%02X) != V%X(%02X))(%s).",
                         instruction, register_index_x, cpu->variable_registers[register_index_x],
                         register_index_y, cpu->variable_registers[register_index_y],
                         cpu->variable_registers[register_index_x] != cpu->variable_registers[register_index_y] ? "true" : "false");
@@ -457,7 +461,7 @@ void CycleCPU(CPUState *cpu)
         uint16_t immediate_addr = instruction & 0x0FFF;
         // Set I.
         cpu->index_register = immediate_addr;
-        logger_LogDebug(cpu->logger, "(0x%04X) - Set I to 0x%04X.\n", instruction, immediate_addr);
+        logger_LogDebug(cpu->logger, "(0x%04X) - Set I to 0x%04X.", instruction, immediate_addr);
         break;
     }
     // 0xBNNN - Jump to address V0 + NNN.
@@ -468,7 +472,7 @@ void CycleCPU(CPUState *cpu)
         // Set PC to V0 + NNN.
         cpu->program_counter = cpu->variable_registers[0x0] + immediate_addr;
 
-        logger_LogDebug(cpu->logger, "(0x%04X) - Jump to V0(%02X) + 0x%04X.\n",
+        logger_LogDebug(cpu->logger, "(0x%04X) - Jump to V0(%02X) + 0x%04X.",
                         instruction, cpu->variable_registers[0x0], immediate_addr);
         break;
     }
@@ -483,7 +487,7 @@ void CycleCPU(CPUState *cpu)
         uint8_t random_number = (uint8_t)rand();
         cpu->variable_registers[register_index] = random_number & immediate_value;
 
-        logger_LogDebug(cpu->logger, "(0x%04X) - Set V%X to rand(%02X) & %02X.\n",
+        logger_LogDebug(cpu->logger, "(0x%04X) - Set V%X to rand(%02X) & %02X.",
                         instruction, register_index,
                         random_number, immediate_value);
         break;
@@ -527,7 +531,7 @@ void CycleCPU(CPUState *cpu)
 
         cpu->variable_registers[0xF] = turned_off;
 
-        logger_LogDebug(cpu->logger, "(0x%04X) - Draw sprite at (V%X(0x%02X), V%X(0x%02X)). Width: 8 pixels. Height: %d pixels. VF(0x%02X).\n",
+        logger_LogDebug(cpu->logger, "(0x%04X) - Draw sprite at (V%X(0x%02X), V%X(0x%02X)). Width: 8 pixels. Height: %d pixels. VF(0x%02X).",
                         instruction, register_index_x, cpu->variable_registers[register_index_x],
                         register_index_y, cpu->variable_registers[register_index_y],
                         height, cpu->variable_registers[0xF]);
@@ -550,7 +554,7 @@ void CycleCPU(CPUState *cpu)
             {
                 cpu->program_counter += 2;
             }
-            logger_LogDebug(cpu->logger, "(0x%04X) - Skip next instruction if key V%X(%02X) is pressed.\n",
+            logger_LogDebug(cpu->logger, "(0x%04X) - Skip next instruction if key V%X(%02X) is pressed.",
                             instruction, register_index, cpu->variable_registers[register_index]);
             break;
         }
@@ -563,12 +567,12 @@ void CycleCPU(CPUState *cpu)
             {
                 cpu->program_counter += 2;
             }
-            logger_LogDebug(cpu->logger, "(0x%04X) - Skip next instruction if key V%X(%02X) is not pressed.\n",
+            logger_LogDebug(cpu->logger, "(0x%04X) - Skip next instruction if key V%X(%02X) is not pressed.",
                             instruction, register_index, cpu->variable_registers[register_index]);
             break;
         }
         default:
-            logger_LogDebug(cpu->logger, "(0x%04X) - (NOT IMPLEMENTED).\n", instruction);
+            logger_LogDebug(cpu->logger, "(0x%04X) - (NOT IMPLEMENTED).", instruction);
             break;
         }
     }
@@ -588,10 +592,11 @@ void CycleCPU(CPUState *cpu)
                             instruction, register_index, cpu->delay_timer);
             break;
         }
-        // 0xFX0A - Wait for keypress and assign it to VX. TODO.
+        // 0xFX0A - Wait for keypress and assign it to VX.
         case 0x000A:
         {
-            uint8_t key_pressed = 0; // TODO: Wait for key pressed.
+            uint8_t key_pressed = WaitKeyPressed(cpu);
+            cpu->variable_registers[register_index] = key_pressed;
             logger_LogDebug(cpu->logger, "(0x%04X) - Waited for keypress. Key %02X pressed and stored in V%X.",
                             instruction, key_pressed, register_index);
             break;
@@ -671,14 +676,14 @@ void CycleCPU(CPUState *cpu)
 
 bool SetPixel(CPUState *cpu, uint8_t x, uint8_t y, uint8_t pixel_value)
 {
-    assert(x < CH8_DISPLAY_WIDTH);
-    assert(y < CH8_DISPLAY_HEIGHT);
+    if (x >= cpu->display.display_buffer_width || y >= cpu->display.display_buffer_height)
+        return false;
 
     // This is set to true if we turn of any pixels and returned in the end.
     bool turned_off = false;
 
     // index * 4 because we index as if it's one byte per pixel, but actually it's 4(RGBA).
-    size_t actual_index = ((y * CH8_DISPLAY_WIDTH) + x) * CH8_INTERNAL_DISPLAY_CHANNELS;
+    size_t actual_index = ((y * cpu->display.display_buffer_width) + x) * cpu->display.display_buffer_channels;
     // Set RGB. A is always set to 0xFF.
     // Since we always set all channels at the same time, we only need to check the first channel
     // to see if we turn off the pixel.
@@ -697,8 +702,8 @@ bool SetPixel(CPUState *cpu, uint8_t x, uint8_t y, uint8_t pixel_value)
 
 bool SetPixels(CPUState *cpu, uint8_t x, uint8_t y, uint8_t pixels)
 {
-    assert(x < CH8_DISPLAY_WIDTH);
-    assert(y < CH8_DISPLAY_HEIGHT);
+    assert(x < cpu->display.display_buffer_width);
+    assert(y < cpu->display.display_buffer_height);
 
     // This is set to true if we turn of any pixels and returned in the end.
     bool turned_off = false;
@@ -718,11 +723,11 @@ bool SetPixels(CPUState *cpu, uint8_t x, uint8_t y, uint8_t pixels)
 
 void SetAlpha(CPUState *cpu, uint8_t x, uint8_t y, uint8_t alpha_value)
 {
-    assert(x < CH8_DISPLAY_WIDTH);
-    assert(y < CH8_DISPLAY_HEIGHT);
+    assert(x < cpu->display.display_buffer_width);
+    assert(y < cpu->display.display_buffer_height);
 
     // index * 4 because we index as if it's one byte per pixel, but actually it's 4(RGBA).
-    size_t actual_index = ((y * CH8_DISPLAY_WIDTH) + x) * CH8_INTERNAL_DISPLAY_CHANNELS;
+    size_t actual_index = ((y * cpu->display.display_buffer_width) + x) * cpu->display.display_buffer_channels;
     // Set RGB. A is always set to 0xFF.
     cpu->display.display_buffer[actual_index + 3] = alpha_value;
 }
@@ -732,7 +737,26 @@ bool KeyPressed(CPUState *cpu, uint16_t key_bit)
     return cpu->keys & key_bit;
 }
 
-int WaitKeyPressed(CPUState *cpu, uint16_t key_bit)
+uint8_t WaitKeyPressed(CPUState *cpu)
 {
-    return 0;
+    // Loop while keys == 0(no key pressed).
+    uint16_t keys = cpu->keys;
+    while (keys == 0)
+    {
+        keys = cpu->keys;
+    }
+
+    return MapBitKey(keys);
+}
+
+void PushStack(CPUState *cpu, uint16_t pc)
+{
+    *(cpu->stack_pointer) = pc;
+    cpu->stack_pointer++;
+}
+
+uint16_t PopStack(CPUState *cpu)
+{
+    cpu->stack_pointer--;
+    return *(cpu->stack_pointer);
 }
