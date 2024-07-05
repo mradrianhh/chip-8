@@ -7,7 +7,7 @@
                 "${workspaceFolder}/core/include/**",
                 "${workspaceFolder}/ui/include/**",
                 "${workspaceFolder}/graphio/include/**",
-                "${workspaceFolder}/audio/include/**",
+                "${workspaceFolder}/audiosys/include/**",
                 "${workspaceFolder}/common/include/**",
                 "${workspaceFolder}/external/events/include/**",
                 "${workspaceFolder}/external/logger/include/**",

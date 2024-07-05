@@ -9,6 +9,7 @@
 #include <logger/logger.h>
 #include <core/keys.h>
 #include <graphio/graphio.h>
+#include <audiosys/audiosys.h>
 
 typedef struct Application
 {
@@ -20,9 +21,10 @@ typedef struct Application
     double frame_target_frequency;
     uint64_t frame_count;
     double prev_fps_update_time;
-    // Internal graphics context.
+    // Context and data
     GraphioContext *gio_context;
     uint16_t keys;
+    AudioContext *audio_context;
 } Application;
 
 /// @brief Create and initialize an application.

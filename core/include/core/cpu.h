@@ -17,11 +17,14 @@
 #define CH8_FONT_SIZE (16 * 5)
 #define CH8_PROGRAM_START_ADDRESS (0x200)
 
+#define CH8_TIMER_FREQUENCY (60)
+
 typedef struct CPUState
 {
     // Memory
     uint8_t memory[CH8_MEM_SIZE];
     size_t memory_size;
+    size_t font_start_address;
     // Peripherals
     Display display;
     uint16_t keys;
@@ -34,8 +37,11 @@ typedef struct CPUState
     uint16_t index_register;
     // Timers
     uint8_t delay_timer;
+    pthread_t delay_timer_thread_id;
     uint8_t sound_timer;
+    pthread_t sound_timer_thread_id;
     // Clock
+    double timer_target_frequency;
     double clock_target_frequency;
     double (*pfn_get_time)();
     // Internal

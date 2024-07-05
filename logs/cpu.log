@@ -1,201 +1,152 @@
-[UTC: 04-07-2024 07-59-17] - INFO: Loading font starting at address 0x0050.
-[UTC: 04-07-2024 07-59-17] - INFO: Starting CPU on thread 0x00007f1c4effd640.
-[UTC: 04-07-2024 07-59-17] - DEBUG: (0xA254) - Set I to 0x0254.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF065) - Loading registers V0-V0 from memory starting at address I(0254).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF065) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0x6201) - Set V2 to 0x01.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0x8300) - Set V3 to V0(00).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0x8300) - Skip next instruction if (V3(00) != V0(00))(false).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0x640B) - Set V4 to 0x0B.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0x6A1C) - Set VA to 0x1C.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0x6B0C) - Set VB to 0x0C.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xA254) - Set I to 0x0254.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF21E) - Add V2(01) to I.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF21E) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF165) - Loading registers V0-V1 from memory starting at address I(0255).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF165) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xA267) - Set I to 0x0267.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x00).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF018) - Set sound timer to V0(00).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF018) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF015) - Set delay timer to V0(00).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF015) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0x222C) - Call subroutine at address 022C.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF007) - Set V0 to delay timer(00).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0x00EE) - Return.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x01).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF115) - Set delay timer to V1(00).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF115) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0x222C) - Call subroutine at address 022C.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF007) - Set V0 to delay timer(00).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0x00EE) - Return.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0x7202) - Add 0x02 to V2.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0x5230) - Skip next instruction if (V2(03) == V3(00))(false).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0x120E) - Jump to 0x020E.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xA254) - Set I to 0x0254.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF21E) - Add V2(03) to I.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF21E) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF165) - Loading registers V0-V1 from memory starting at address I(0257).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF165) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xA267) - Set I to 0x0267.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x00).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF018) - Set sound timer to V0(00).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF018) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF015) - Set delay timer to V0(00).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF015) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0x222C) - Call subroutine at address 022C.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF007) - Set V0 to delay timer(00).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0x00EE) - Return.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x01).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF115) - Set delay timer to V1(00).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF115) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0x222C) - Call subroutine at address 022C.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF007) - Set V0 to delay timer(00).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0x00EE) - Return.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0x7202) - Add 0x02 to V2.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0x5230) - Skip next instruction if (V2(05) == V3(00))(false).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0x120E) - Jump to 0x020E.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xA254) - Set I to 0x0254.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF21E) - Add V2(05) to I.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF21E) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF165) - Loading registers V0-V1 from memory starting at address I(0259).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF165) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xA267) - Set I to 0x0267.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x00).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF018) - Set sound timer to V0(00).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF018) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF015) - Set delay timer to V0(00).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF015) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0x222C) - Call subroutine at address 022C.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF007) - Set V0 to delay timer(00).
-[UTC: 04-07-2024 07-59-18] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0x00EE) - Return.
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x01).
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xF115) - Set delay timer to V1(00).
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xF115) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0x222C) - Call subroutine at address 022C.
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xF007) - Set V0 to delay timer(00).
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0x00EE) - Return.
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0x7202) - Add 0x02 to V2.
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0x5230) - Skip next instruction if (V2(07) == V3(00))(false).
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0x120E) - Jump to 0x020E.
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xA254) - Set I to 0x0254.
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xF21E) - Add V2(07) to I.
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xF21E) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xF165) - Loading registers V0-V1 from memory starting at address I(025B).
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xF165) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xA267) - Set I to 0x0267.
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x00).
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xF018) - Set sound timer to V0(00).
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xF018) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xF015) - Set delay timer to V0(00).
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xF015) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0x222C) - Call subroutine at address 022C.
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xF007) - Set V0 to delay timer(00).
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0x00EE) - Return.
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x01).
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xF115) - Set delay timer to V1(00).
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xF115) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0x222C) - Call subroutine at address 022C.
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xF007) - Set V0 to delay timer(00).
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0x00EE) - Return.
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0x7202) - Add 0x02 to V2.
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0x5230) - Skip next instruction if (V2(09) == V3(00))(false).
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0x120E) - Jump to 0x020E.
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xA254) - Set I to 0x0254.
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xF21E) - Add V2(09) to I.
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xF21E) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xF165) - Loading registers V0-V1 from memory starting at address I(025D).
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xF165) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xA267) - Set I to 0x0267.
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x00).
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xF018) - Set sound timer to V0(00).
-[UTC: 04-07-2024 07-59-19] - DEBUG: (0xF018) - (NOT IMPLEMENTED).
-
-[UTC: 04-07-2024 07-59-19] - INFO: Stopping CPU on thread 0x00007f1c4effd640.
+[UTC: 05-07-2024 18-44-40] - INFO: Loading font starting at address 0x0050.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0x00E0) - Clear screen.
+[UTC: 05-07-2024 18-44-44] - INFO: Starting CPU on thread 0x00007f0e257fa640.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0x6101) - Set V1 to 0x01.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0x6008) - Set V0 to 0x08.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0xA250) - Set I to 0x0250.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0xD01F) - Draw sprite at (V0(0x08), V1(0x01)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0x6010) - Set V0 to 0x10.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0xA25F) - Set I to 0x025F.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0xD01F) - Draw sprite at (V0(0x10), V1(0x01)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0x6018) - Set V0 to 0x18.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0xA26E) - Set I to 0x026E.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0xD01F) - Draw sprite at (V0(0x18), V1(0x01)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0x6020) - Set V0 to 0x20.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0xA27D) - Set I to 0x027D.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0xD01F) - Draw sprite at (V0(0x20), V1(0x01)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0x6028) - Set V0 to 0x28.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0xA28C) - Set I to 0x028C.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0xD01F) - Draw sprite at (V0(0x28), V1(0x01)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0x6030) - Set V0 to 0x30.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0xA29B) - Set I to 0x029B.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0xD01F) - Draw sprite at (V0(0x30), V1(0x01)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0x6110) - Set V1 to 0x10.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0x6008) - Set V0 to 0x08.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0xA2AA) - Set I to 0x02AA.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0xD01F) - Draw sprite at (V0(0x08), V1(0x10)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0x6010) - Set V0 to 0x10.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0xA2B9) - Set I to 0x02B9.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0xD01F) - Draw sprite at (V0(0x10), V1(0x10)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0x6018) - Set V0 to 0x18.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0xA2C8) - Set I to 0x02C8.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0xD01F) - Draw sprite at (V0(0x18), V1(0x10)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0x6020) - Set V0 to 0x20.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0xA2D7) - Set I to 0x02D7.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0xD01F) - Draw sprite at (V0(0x20), V1(0x10)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0x6028) - Set V0 to 0x28.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0xA2E6) - Set I to 0x02E6.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0xD01F) - Draw sprite at (V0(0x28), V1(0x10)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0x6030) - Set V0 to 0x30.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0xA2F5) - Set I to 0x02F5.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0xD01F) - Draw sprite at (V0(0x30), V1(0x10)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-44] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
+[UTC: 05-07-2024 18-44-46] - INFO: Stopping CPU on thread 0x00007f0e257fa640.

@@ -5,6 +5,8 @@
 
 #include <timing/timing.h>
 
+#include <audiosys/audiosys.h>
+
 #include "application.h"
 
 Application *CreateApplication(Display *display, uint16_t *keys, uint8_t target_fps, LogLevel log_level)
@@ -21,6 +23,19 @@ Application *CreateApplication(Display *display, uint16_t *keys, uint8_t target_
 
     // Create and configure graphics context.
     app->gio_context = gio_CreateGraphioContext(app->logger, display, keys);
+
+    app->audio_context = aud_CreateAudioContext(1);
+
+    if(!aud_CreateSound(app->audio_context, SOUNDS_BASE_PATH "test.wav", 0, true))
+        logger_LogError(app->logger, "Failed to create sound %s.", "test.wav");
+
+    if(!aud_PlaySound(app->audio_context, 0))
+        logger_LogError(app->logger, "Failed to play sound %s.", "test.wav");
+
+    sleep(3);
+
+    if(!aud_StopSound(app->audio_context, 0))
+        logger_LogError(app->logger, "Failed to stop sound %s.", "test.wav");
 
     return app;
 }
@@ -73,6 +88,7 @@ void RunApplication(Application *app)
 void DestroyApplication(Application *app)
 {
     gio_DestroyGraphioContext(app->gio_context);
+    aud_DestroyAudioContext(app->audio_context);
 
     logger_Destroy(app->logger);
 

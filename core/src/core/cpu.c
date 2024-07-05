@@ -30,6 +30,8 @@ static uint8_t font_data[CH8_FONT_SIZE] = {
 };
 
 static void *RunCPU(void *vargp);
+static void *RunDelayTimer(void *vargp);
+static void *RunSoundTimer(void *vargp);
 static void CycleCPU(CPUState *cpu);
 // Returns true if any pixels were turned off.
 static bool SetPixel(CPUState *cpu, uint8_t x, uint8_t y, uint8_t pixel_value);
@@ -43,6 +45,8 @@ static uint16_t PopStack(CPUState *cpu);
 CPUState *core_CreateCPU(uint8_t clock_target_freq, double (*pfn_get_time)(), LogLevel log_level)
 {
     CPUState *cpu = calloc(1, sizeof(CPUState));
+
+    cpu->font_start_address = CH8_FONT_START_ADDRESS;
     cpu->memory_size = CH8_MEM_SIZE;
 
     cpu->display.display_buffer_size = CH8_INTERNAL_DISPLAY_BUFFER_SIZE;
@@ -70,6 +74,7 @@ CPUState *core_CreateCPU(uint8_t clock_target_freq, double (*pfn_get_time)(), Lo
     // Internal
     cpu->running = false;
     cpu->clock_target_frequency = (double)1 / clock_target_freq;
+    cpu->timer_target_frequency = (double)1 / CH8_TIMER_FREQUENCY;
     cpu->pfn_get_time = pfn_get_time;
     cpu->logger = logger_Initialize(LOGS_BASE_PATH "cpu.log", log_level);
 
@@ -90,6 +95,8 @@ void core_StartCPU(CPUState *cpu)
 {
     cpu->running = true;
     pthread_create(&cpu->thread_id, NULL, RunCPU, (void *)cpu);
+    pthread_create(&cpu->delay_timer_thread_id, NULL, RunDelayTimer, (void *)cpu);
+    pthread_create(&cpu->sound_timer_thread_id, NULL, RunSoundTimer, (void *)cpu);
     logger_LogInfo(cpu->logger, "Starting CPU on thread 0x%016lx.", cpu->thread_id);
 }
 
@@ -98,6 +105,8 @@ void core_StopCPU(CPUState *cpu)
     logger_LogInfo(cpu->logger, "Stopping CPU on thread 0x%016lx.", cpu->thread_id);
     cpu->running = false;
     pthread_join(cpu->thread_id, NULL);
+    pthread_join(cpu->delay_timer_thread_id, NULL);
+    pthread_join(cpu->sound_timer_thread_id, NULL);
 }
 
 void core_DestroyCPU(CPUState *cpu)
@@ -140,6 +149,64 @@ void *RunCPU(void *vargp)
         double delta_time = end_time - start_time;
         struct timespec delay_time = {
             .tv_nsec = SEC_TO_NS(cpu->clock_target_frequency - delta_time),
+        };
+
+        // Cap at target clock frequency.
+        if (delay_time.tv_nsec > 0)
+        {
+            nanosleep(&delay_time, NULL);
+        }
+    }
+
+    pthread_exit(NULL);
+}
+
+void *RunDelayTimer(void *vargp)
+{
+    CPUState *cpu = vargp;
+    while (cpu->running)
+    {
+        // Get start time of cycle.
+        double start_time = cpu->pfn_get_time();
+
+        if (cpu->delay_timer > 0)
+            cpu->delay_timer--;
+
+        // Get end time of frame, calculate delta and delay.
+        double end_time = cpu->pfn_get_time();
+
+        double delta_time = end_time - start_time;
+        struct timespec delay_time = {
+            .tv_nsec = SEC_TO_NS(cpu->timer_target_frequency - delta_time),
+        };
+
+        // Cap at target clock frequency.
+        if (delay_time.tv_nsec > 0)
+        {
+            nanosleep(&delay_time, NULL);
+        }
+    }
+
+    pthread_exit(NULL);
+}
+
+void *RunSoundTimer(void *vargp)
+{
+    CPUState *cpu = vargp;
+    while (cpu->running)
+    {
+        // Get start time of cycle.
+        double start_time = cpu->pfn_get_time();
+
+        if (cpu->sound_timer > 0)
+            cpu->sound_timer--;
+
+        // Get end time of frame, calculate delta and delay.
+        double end_time = cpu->pfn_get_time();
+
+        double delta_time = end_time - start_time;
+        struct timespec delay_time = {
+            .tv_nsec = SEC_TO_NS(cpu->timer_target_frequency - delta_time),
         };
 
         // Cap at target clock frequency.
@@ -519,7 +586,8 @@ void CycleCPU(CPUState *cpu)
         bool turned_off = false;
         // The index register points at the first row in the sprite.
         // We should loop through all N rows without incrementing I, and draw it to the screen.
-        for (uint16_t i = 0; i < height; i++)
+        // We stop if we reach the bottom of the screen.
+        for (uint16_t i = 0; i < height && y_coord < cpu->display.display_buffer_height; i++)
         {
             // Get row.
             uint8_t row = cpu->memory[cpu->index_register + i];
@@ -576,7 +644,7 @@ void CycleCPU(CPUState *cpu)
             break;
         }
     }
-    // 0xFX__ - All instructions here have register index X. TODO.
+    // 0xFX__ - All instructions here have register index X.
     case 0xF000:
     {
         // Extract 4-bit register index(X).
@@ -606,7 +674,6 @@ void CycleCPU(CPUState *cpu)
         {
             // Set delay timer.
             cpu->delay_timer = cpu->variable_registers[register_index];
-
             logger_LogDebug(cpu->logger, "(0x%04X) - Set delay timer to V%X(%02X).",
                             instruction, register_index, cpu->variable_registers[register_index]);
             break;
@@ -632,33 +699,53 @@ void CycleCPU(CPUState *cpu)
                             instruction, register_index, cpu->variable_registers[register_index]);
             break;
         }
-        // 0xFX29 - Set I to location of sprite indexed by VX. TODO.
+        // 0xFX29 - Set I to location of sprite indexed by VX.
         case 0x0029:
         {
-            uint16_t sprite_addr = 0; // TODO: Get sprite address by index.
-
+            uint16_t sprite_addr = cpu->memory[cpu->font_start_address + (5 * cpu->variable_registers[register_index])];
+            cpu->index_register = sprite_addr;
             logger_LogDebug(cpu->logger, "(0x%04X) - Set I to address(%04X) of sprite V%X(%02X).",
                             instruction, sprite_addr, register_index, cpu->variable_registers[register_index]);
             break;
         }
         // 0xFX33 - Store the binary-coded decimal of VX with the
-        //          100-place at I, 10-place at I+1 and 1-place at I+2. TODO.
+        //          100-place at I, 10-place at I+1 and 1-place at I+2.
         case 0x0033:
         {
+            // 100-place
+            uint8_t binary = cpu->variable_registers[register_index];
+            uint8_t modulo = binary % 100;
+            uint8_t result = (binary - modulo) / 100;
+            cpu->memory[cpu->index_register] = result;
+            // 10-place
+            binary = modulo;
+            modulo = binary % 10;
+            result = (binary - modulo) / 10;
+            cpu->memory[cpu->index_register + 1] = result;
+            // 1-place
+            cpu->memory[cpu->index_register + 2] = modulo;
             logger_LogDebug(cpu->logger, "(0x%04X) - Store BCD of V%X(%02X) starting at address I(%04X).",
                             instruction, register_index, cpu->variable_registers[register_index], cpu->index_register);
             break;
         }
-        // 0xFX55 - Store V0-VX in memory starting at address I. TODO.
+        // 0xFX55 - Store V0-VX in memory starting at address I.
         case 0x0055:
         {
+            for (uint8_t i = 0; i <= register_index; i++)
+            {
+                cpu->memory[cpu->index_register + i] = cpu->variable_registers[i];
+            }
             logger_LogDebug(cpu->logger, "(0x%04X) - Storing registers V0-V%X in memory starting at address I(%04X).",
                             instruction, register_index, cpu->index_register);
             break;
         }
-        // 0xFX65 - Loads V0-VX from memory starting at address I. TODO.
+        // 0xFX65 - Loads V0-VX from memory starting at address I.
         case 0x0065:
         {
+            for (uint8_t i = 0; i <= register_index; i++)
+            {
+                cpu->variable_registers[i] = cpu->memory[cpu->index_register + i];
+            }
             logger_LogDebug(cpu->logger, "(0x%04X) - Loading registers V0-V%X from memory starting at address I(%04X).",
                             instruction, register_index, cpu->index_register);
             break;
