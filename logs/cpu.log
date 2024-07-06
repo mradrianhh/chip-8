@@ -1,152 +1,2393 @@
-[UTC: 05-07-2024 18-44-40] - INFO: Loading font starting at address 0x0050.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0x00E0) - Clear screen.
-[UTC: 05-07-2024 18-44-44] - INFO: Starting CPU on thread 0x00007f0e257fa640.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0x6101) - Set V1 to 0x01.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0x6008) - Set V0 to 0x08.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0xA250) - Set I to 0x0250.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0xD01F) - Draw sprite at (V0(0x08), V1(0x01)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0x6010) - Set V0 to 0x10.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0xA25F) - Set I to 0x025F.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0xD01F) - Draw sprite at (V0(0x10), V1(0x01)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0x6018) - Set V0 to 0x18.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0xA26E) - Set I to 0x026E.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0xD01F) - Draw sprite at (V0(0x18), V1(0x01)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0x6020) - Set V0 to 0x20.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0xA27D) - Set I to 0x027D.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0xD01F) - Draw sprite at (V0(0x20), V1(0x01)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0x6028) - Set V0 to 0x28.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0xA28C) - Set I to 0x028C.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0xD01F) - Draw sprite at (V0(0x28), V1(0x01)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0x6030) - Set V0 to 0x30.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0xA29B) - Set I to 0x029B.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0xD01F) - Draw sprite at (V0(0x30), V1(0x01)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0x6110) - Set V1 to 0x10.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0x6008) - Set V0 to 0x08.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0xA2AA) - Set I to 0x02AA.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0xD01F) - Draw sprite at (V0(0x08), V1(0x10)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0x6010) - Set V0 to 0x10.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0xA2B9) - Set I to 0x02B9.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0xD01F) - Draw sprite at (V0(0x10), V1(0x10)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0x6018) - Set V0 to 0x18.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0xA2C8) - Set I to 0x02C8.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0xD01F) - Draw sprite at (V0(0x18), V1(0x10)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0x6020) - Set V0 to 0x20.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0xA2D7) - Set I to 0x02D7.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0xD01F) - Draw sprite at (V0(0x20), V1(0x10)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0x6028) - Set V0 to 0x28.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0xA2E6) - Set I to 0x02E6.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0xD01F) - Draw sprite at (V0(0x28), V1(0x10)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0x6030) - Set V0 to 0x30.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0xA2F5) - Set I to 0x02F5.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0xD01F) - Draw sprite at (V0(0x30), V1(0x10)). Width: 8 pixels. Height: 15 pixels. VF(0x00).
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-44] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-45] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - DEBUG: (0x124E) - Jump to 0x024E.
-[UTC: 05-07-2024 18-44-46] - INFO: Stopping CPU on thread 0x00007f0e257fa640.
+[UTC: 06-07-2024 00-04-27] - INFO: Loading font starting at address 0x0050.
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xA254) - Set I to 0x0254.
+[UTC: 06-07-2024 00-04-27] - INFO: Starting CPU on thread 0x00007f73827fc640.
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xF065) - Loading registers V0-V0 from memory starting at address I(0254).
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xF065) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0x6201) - Set V2 to 0x01.
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0x8300) - Set V3 to V0(13).
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0x8300) - Skip next instruction if (V3(13) != V0(13))(false).
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0x640B) - Set V4 to 0x0B.
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0x6A1C) - Set VA to 0x1C.
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0x6B0C) - Set VB to 0x0C.
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xA254) - Set I to 0x0254.
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xF21E) - Add V2(01) to I.
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xF21E) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xF165) - Loading registers V0-V1 from memory starting at address I(0255).
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xF165) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xA267) - Set I to 0x0267.
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x00).
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xF018) - Set sound timer to V0(0A).
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xF018) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xF015) - Set delay timer to V0(0A).
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xF015) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xF007) - Set V0 to delay timer(07).
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0x3000) - Skip next instruction if (V0(07) == 00)(false).
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xF007) - Set V0 to delay timer(04).
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0x3000) - Skip next instruction if (V0(04) == 00)(false).
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x01).
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xF115) - Set delay timer to V1(05).
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xF115) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-27] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF007) - Set V0 to delay timer(03).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0x3000) - Skip next instruction if (V0(03) == 00)(false).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0x7202) - Add 0x02 to V2.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0x5230) - Skip next instruction if (V2(03) == V3(13))(false).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0x120E) - Jump to 0x020E.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xA254) - Set I to 0x0254.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF21E) - Add V2(03) to I.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF21E) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF165) - Loading registers V0-V1 from memory starting at address I(0257).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF165) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xA267) - Set I to 0x0267.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x00).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF018) - Set sound timer to V0(0A).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF018) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF015) - Set delay timer to V0(0A).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF015) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF007) - Set V0 to delay timer(07).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0x3000) - Skip next instruction if (V0(07) == 00)(false).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF007) - Set V0 to delay timer(03).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0x3000) - Skip next instruction if (V0(03) == 00)(false).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x01).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF115) - Set delay timer to V1(05).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF115) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF007) - Set V0 to delay timer(02).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0x3000) - Skip next instruction if (V0(02) == 00)(false).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0x7202) - Add 0x02 to V2.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0x5230) - Skip next instruction if (V2(05) == V3(13))(false).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0x120E) - Jump to 0x020E.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xA254) - Set I to 0x0254.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF21E) - Add V2(05) to I.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF21E) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF165) - Loading registers V0-V1 from memory starting at address I(0259).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF165) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xA267) - Set I to 0x0267.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x00).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF018) - Set sound timer to V0(0A).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF018) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF015) - Set delay timer to V0(0A).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF015) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF007) - Set V0 to delay timer(07).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0x3000) - Skip next instruction if (V0(07) == 00)(false).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF007) - Set V0 to delay timer(03).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0x3000) - Skip next instruction if (V0(03) == 00)(false).
+[UTC: 06-07-2024 00-04-28] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x01).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF115) - Set delay timer to V1(14).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF115) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF007) - Set V0 to delay timer(11).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0x3000) - Skip next instruction if (V0(11) == 00)(false).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF007) - Set V0 to delay timer(0D).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0x3000) - Skip next instruction if (V0(0D) == 00)(false).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF007) - Set V0 to delay timer(09).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0x3000) - Skip next instruction if (V0(09) == 00)(false).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF007) - Set V0 to delay timer(05).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0x3000) - Skip next instruction if (V0(05) == 00)(false).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF007) - Set V0 to delay timer(01).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0x3000) - Skip next instruction if (V0(01) == 00)(false).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0x7202) - Add 0x02 to V2.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0x5230) - Skip next instruction if (V2(07) == V3(13))(false).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0x120E) - Jump to 0x020E.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xA254) - Set I to 0x0254.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF21E) - Add V2(07) to I.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF21E) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF165) - Loading registers V0-V1 from memory starting at address I(025B).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF165) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xA267) - Set I to 0x0267.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x00).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF018) - Set sound timer to V0(1E).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF018) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF015) - Set delay timer to V0(1E).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF015) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF007) - Set V0 to delay timer(1B).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0x3000) - Skip next instruction if (V0(1B) == 00)(false).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF007) - Set V0 to delay timer(17).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0x3000) - Skip next instruction if (V0(17) == 00)(false).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF007) - Set V0 to delay timer(13).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0x3000) - Skip next instruction if (V0(13) == 00)(false).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF007) - Set V0 to delay timer(0F).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0x3000) - Skip next instruction if (V0(0F) == 00)(false).
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-29] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF007) - Set V0 to delay timer(0B).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0x3000) - Skip next instruction if (V0(0B) == 00)(false).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF007) - Set V0 to delay timer(07).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0x3000) - Skip next instruction if (V0(07) == 00)(false).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF007) - Set V0 to delay timer(03).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0x3000) - Skip next instruction if (V0(03) == 00)(false).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x01).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF115) - Set delay timer to V1(05).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF115) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF007) - Set V0 to delay timer(02).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0x3000) - Skip next instruction if (V0(02) == 00)(false).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0x7202) - Add 0x02 to V2.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0x5230) - Skip next instruction if (V2(09) == V3(13))(false).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0x120E) - Jump to 0x020E.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xA254) - Set I to 0x0254.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF21E) - Add V2(09) to I.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF21E) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF165) - Loading registers V0-V1 from memory starting at address I(025D).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF165) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xA267) - Set I to 0x0267.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x00).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF018) - Set sound timer to V0(1E).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF018) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF015) - Set delay timer to V0(1E).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF015) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF007) - Set V0 to delay timer(1B).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0x3000) - Skip next instruction if (V0(1B) == 00)(false).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF007) - Set V0 to delay timer(17).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0x3000) - Skip next instruction if (V0(17) == 00)(false).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF007) - Set V0 to delay timer(13).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0x3000) - Skip next instruction if (V0(13) == 00)(false).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF007) - Set V0 to delay timer(0F).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0x3000) - Skip next instruction if (V0(0F) == 00)(false).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF007) - Set V0 to delay timer(0B).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0x3000) - Skip next instruction if (V0(0B) == 00)(false).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF007) - Set V0 to delay timer(07).
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-30] - DEBUG: (0x3000) - Skip next instruction if (V0(07) == 00)(false).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF007) - Set V0 to delay timer(02).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0x3000) - Skip next instruction if (V0(02) == 00)(false).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x01).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF115) - Set delay timer to V1(05).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF115) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF007) - Set V0 to delay timer(02).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0x3000) - Skip next instruction if (V0(02) == 00)(false).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0x7202) - Add 0x02 to V2.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0x5230) - Skip next instruction if (V2(0B) == V3(13))(false).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0x120E) - Jump to 0x020E.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xA254) - Set I to 0x0254.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF21E) - Add V2(0B) to I.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF21E) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF165) - Loading registers V0-V1 from memory starting at address I(025F).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF165) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xA267) - Set I to 0x0267.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x00).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF018) - Set sound timer to V0(1E).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF018) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF015) - Set delay timer to V0(1E).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF015) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF007) - Set V0 to delay timer(1A).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0x3000) - Skip next instruction if (V0(1A) == 00)(false).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF007) - Set V0 to delay timer(16).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0x3000) - Skip next instruction if (V0(16) == 00)(false).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF007) - Set V0 to delay timer(12).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0x3000) - Skip next instruction if (V0(12) == 00)(false).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF007) - Set V0 to delay timer(0E).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0x3000) - Skip next instruction if (V0(0E) == 00)(false).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF007) - Set V0 to delay timer(0A).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0x3000) - Skip next instruction if (V0(0A) == 00)(false).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF007) - Set V0 to delay timer(07).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0x3000) - Skip next instruction if (V0(07) == 00)(false).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF007) - Set V0 to delay timer(03).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0x3000) - Skip next instruction if (V0(03) == 00)(false).
+[UTC: 06-07-2024 00-04-31] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x01).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF115) - Set delay timer to V1(14).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF115) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF007) - Set V0 to delay timer(12).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0x3000) - Skip next instruction if (V0(12) == 00)(false).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF007) - Set V0 to delay timer(0D).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0x3000) - Skip next instruction if (V0(0D) == 00)(false).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF007) - Set V0 to delay timer(09).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0x3000) - Skip next instruction if (V0(09) == 00)(false).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF007) - Set V0 to delay timer(05).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0x3000) - Skip next instruction if (V0(05) == 00)(false).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF007) - Set V0 to delay timer(01).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0x3000) - Skip next instruction if (V0(01) == 00)(false).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0x7202) - Add 0x02 to V2.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0x5230) - Skip next instruction if (V2(0D) == V3(13))(false).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0x120E) - Jump to 0x020E.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xA254) - Set I to 0x0254.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF21E) - Add V2(0D) to I.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF21E) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF165) - Loading registers V0-V1 from memory starting at address I(0261).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF165) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xA267) - Set I to 0x0267.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x00).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF018) - Set sound timer to V0(0A).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF018) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF015) - Set delay timer to V0(0A).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF015) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF007) - Set V0 to delay timer(07).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0x3000) - Skip next instruction if (V0(07) == 00)(false).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF007) - Set V0 to delay timer(03).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0x3000) - Skip next instruction if (V0(03) == 00)(false).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x01).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF115) - Set delay timer to V1(05).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF115) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF007) - Set V0 to delay timer(02).
+[UTC: 06-07-2024 00-04-32] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0x3000) - Skip next instruction if (V0(02) == 00)(false).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0x7202) - Add 0x02 to V2.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0x5230) - Skip next instruction if (V2(0F) == V3(13))(false).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0x120E) - Jump to 0x020E.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xA254) - Set I to 0x0254.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF21E) - Add V2(0F) to I.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF21E) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF165) - Loading registers V0-V1 from memory starting at address I(0263).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF165) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xA267) - Set I to 0x0267.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x00).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF018) - Set sound timer to V0(0A).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF018) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF015) - Set delay timer to V0(0A).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF015) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF007) - Set V0 to delay timer(07).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0x3000) - Skip next instruction if (V0(07) == 00)(false).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF007) - Set V0 to delay timer(03).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0x3000) - Skip next instruction if (V0(03) == 00)(false).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x01).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF115) - Set delay timer to V1(05).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF115) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF007) - Set V0 to delay timer(02).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0x3000) - Skip next instruction if (V0(02) == 00)(false).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0x7202) - Add 0x02 to V2.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0x5230) - Skip next instruction if (V2(11) == V3(13))(false).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0x120E) - Jump to 0x020E.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xA254) - Set I to 0x0254.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF21E) - Add V2(11) to I.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF21E) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF165) - Loading registers V0-V1 from memory starting at address I(0265).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF165) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xA267) - Set I to 0x0267.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x00).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF018) - Set sound timer to V0(0A).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF018) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF015) - Set delay timer to V0(0A).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF015) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF007) - Set V0 to delay timer(07).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0x3000) - Skip next instruction if (V0(07) == 00)(false).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF007) - Set V0 to delay timer(03).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0x3000) - Skip next instruction if (V0(03) == 00)(false).
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-33] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x01).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF115) - Set delay timer to V1(3C).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF115) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF007) - Set V0 to delay timer(39).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x3000) - Skip next instruction if (V0(39) == 00)(false).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF007) - Set V0 to delay timer(35).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x3000) - Skip next instruction if (V0(35) == 00)(false).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF007) - Set V0 to delay timer(31).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x3000) - Skip next instruction if (V0(31) == 00)(false).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF007) - Set V0 to delay timer(2D).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x3000) - Skip next instruction if (V0(2D) == 00)(false).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF007) - Set V0 to delay timer(29).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x3000) - Skip next instruction if (V0(29) == 00)(false).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF007) - Set V0 to delay timer(25).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x3000) - Skip next instruction if (V0(25) == 00)(false).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF007) - Set V0 to delay timer(21).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x3000) - Skip next instruction if (V0(21) == 00)(false).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF007) - Set V0 to delay timer(1D).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x3000) - Skip next instruction if (V0(1D) == 00)(false).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF007) - Set V0 to delay timer(19).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x3000) - Skip next instruction if (V0(19) == 00)(false).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF007) - Set V0 to delay timer(15).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x3000) - Skip next instruction if (V0(15) == 00)(false).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF007) - Set V0 to delay timer(12).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x3000) - Skip next instruction if (V0(12) == 00)(false).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF007) - Set V0 to delay timer(0D).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x3000) - Skip next instruction if (V0(0D) == 00)(false).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF007) - Set V0 to delay timer(09).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x3000) - Skip next instruction if (V0(09) == 00)(false).
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-34] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF007) - Set V0 to delay timer(05).
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x3000) - Skip next instruction if (V0(05) == 00)(false).
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF007) - Set V0 to delay timer(01).
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x3000) - Skip next instruction if (V0(01) == 00)(false).
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x7202) - Add 0x02 to V2.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x5230) - Skip next instruction if (V2(13) == V3(13))(true).
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x1200) - Jump to 0x0200.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xA254) - Set I to 0x0254.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF065) - Loading registers V0-V0 from memory starting at address I(0254).
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF065) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x6201) - Set V2 to 0x01.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x8300) - Set V3 to V0(13).
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x8300) - Skip next instruction if (V3(13) != V0(13))(false).
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x640B) - Set V4 to 0x0B.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x6A1C) - Set VA to 0x1C.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x6B0C) - Set VB to 0x0C.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xA254) - Set I to 0x0254.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF21E) - Add V2(01) to I.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF21E) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF165) - Loading registers V0-V1 from memory starting at address I(0255).
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF165) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xA267) - Set I to 0x0267.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x00).
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF018) - Set sound timer to V0(0A).
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF018) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF015) - Set delay timer to V0(0A).
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF015) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF007) - Set V0 to delay timer(08).
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x3000) - Skip next instruction if (V0(08) == 00)(false).
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF007) - Set V0 to delay timer(04).
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x3000) - Skip next instruction if (V0(04) == 00)(false).
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x01).
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF115) - Set delay timer to V1(05).
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF115) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF007) - Set V0 to delay timer(02).
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x3000) - Skip next instruction if (V0(02) == 00)(false).
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x7202) - Add 0x02 to V2.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x5230) - Skip next instruction if (V2(03) == V3(13))(false).
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0x120E) - Jump to 0x020E.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xA254) - Set I to 0x0254.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF21E) - Add V2(03) to I.
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF21E) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF165) - Loading registers V0-V1 from memory starting at address I(0257).
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xF165) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-35] - DEBUG: (0xA267) - Set I to 0x0267.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x00).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF018) - Set sound timer to V0(0A).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF018) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF015) - Set delay timer to V0(0A).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF015) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF007) - Set V0 to delay timer(07).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0x3000) - Skip next instruction if (V0(07) == 00)(false).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF007) - Set V0 to delay timer(02).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0x3000) - Skip next instruction if (V0(02) == 00)(false).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x01).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF115) - Set delay timer to V1(05).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF115) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF007) - Set V0 to delay timer(02).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0x3000) - Skip next instruction if (V0(02) == 00)(false).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0x7202) - Add 0x02 to V2.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0x5230) - Skip next instruction if (V2(05) == V3(13))(false).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0x120E) - Jump to 0x020E.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xA254) - Set I to 0x0254.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF21E) - Add V2(05) to I.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF21E) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF165) - Loading registers V0-V1 from memory starting at address I(0259).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF165) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xA267) - Set I to 0x0267.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x00).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF018) - Set sound timer to V0(0A).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF018) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF015) - Set delay timer to V0(0A).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF015) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF007) - Set V0 to delay timer(06).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0x3000) - Skip next instruction if (V0(06) == 00)(false).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF007) - Set V0 to delay timer(02).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0x3000) - Skip next instruction if (V0(02) == 00)(false).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x01).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF115) - Set delay timer to V1(14).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF115) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF007) - Set V0 to delay timer(11).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0x3000) - Skip next instruction if (V0(11) == 00)(false).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF007) - Set V0 to delay timer(0D).
+[UTC: 06-07-2024 00-04-36] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x3000) - Skip next instruction if (V0(0D) == 00)(false).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF007) - Set V0 to delay timer(09).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x3000) - Skip next instruction if (V0(09) == 00)(false).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF007) - Set V0 to delay timer(05).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x3000) - Skip next instruction if (V0(05) == 00)(false).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF007) - Set V0 to delay timer(01).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x3000) - Skip next instruction if (V0(01) == 00)(false).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x7202) - Add 0x02 to V2.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x5230) - Skip next instruction if (V2(07) == V3(13))(false).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x120E) - Jump to 0x020E.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xA254) - Set I to 0x0254.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF21E) - Add V2(07) to I.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF21E) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF165) - Loading registers V0-V1 from memory starting at address I(025B).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF165) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xA267) - Set I to 0x0267.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x00).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF018) - Set sound timer to V0(1E).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF018) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF015) - Set delay timer to V0(1E).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF015) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF007) - Set V0 to delay timer(1B).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x3000) - Skip next instruction if (V0(1B) == 00)(false).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF007) - Set V0 to delay timer(17).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x3000) - Skip next instruction if (V0(17) == 00)(false).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF007) - Set V0 to delay timer(13).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x3000) - Skip next instruction if (V0(13) == 00)(false).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF007) - Set V0 to delay timer(0F).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x3000) - Skip next instruction if (V0(0F) == 00)(false).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF007) - Set V0 to delay timer(0B).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x3000) - Skip next instruction if (V0(0B) == 00)(false).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF007) - Set V0 to delay timer(07).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x3000) - Skip next instruction if (V0(07) == 00)(false).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF007) - Set V0 to delay timer(03).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x3000) - Skip next instruction if (V0(03) == 00)(false).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-37] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x01).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF115) - Set delay timer to V1(05).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF115) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF007) - Set V0 to delay timer(02).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0x3000) - Skip next instruction if (V0(02) == 00)(false).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0x7202) - Add 0x02 to V2.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0x5230) - Skip next instruction if (V2(09) == V3(13))(false).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0x120E) - Jump to 0x020E.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xA254) - Set I to 0x0254.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF21E) - Add V2(09) to I.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF21E) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF165) - Loading registers V0-V1 from memory starting at address I(025D).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF165) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xA267) - Set I to 0x0267.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x00).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF018) - Set sound timer to V0(1E).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF018) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF015) - Set delay timer to V0(1E).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF015) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF007) - Set V0 to delay timer(1B).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0x3000) - Skip next instruction if (V0(1B) == 00)(false).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF007) - Set V0 to delay timer(18).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0x3000) - Skip next instruction if (V0(18) == 00)(false).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF007) - Set V0 to delay timer(13).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0x3000) - Skip next instruction if (V0(13) == 00)(false).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF007) - Set V0 to delay timer(0F).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0x3000) - Skip next instruction if (V0(0F) == 00)(false).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF007) - Set V0 to delay timer(0C).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0x3000) - Skip next instruction if (V0(0C) == 00)(false).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF007) - Set V0 to delay timer(07).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0x3000) - Skip next instruction if (V0(07) == 00)(false).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF007) - Set V0 to delay timer(04).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0x3000) - Skip next instruction if (V0(04) == 00)(false).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x01).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF115) - Set delay timer to V1(05).
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xF115) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-38] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF007) - Set V0 to delay timer(02).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0x3000) - Skip next instruction if (V0(02) == 00)(false).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0x7202) - Add 0x02 to V2.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0x5230) - Skip next instruction if (V2(0B) == V3(13))(false).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0x120E) - Jump to 0x020E.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xA254) - Set I to 0x0254.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF21E) - Add V2(0B) to I.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF21E) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF165) - Loading registers V0-V1 from memory starting at address I(025F).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF165) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xA267) - Set I to 0x0267.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x00).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF018) - Set sound timer to V0(1E).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF018) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF015) - Set delay timer to V0(1E).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF015) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF007) - Set V0 to delay timer(1B).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0x3000) - Skip next instruction if (V0(1B) == 00)(false).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF007) - Set V0 to delay timer(17).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0x3000) - Skip next instruction if (V0(17) == 00)(false).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF007) - Set V0 to delay timer(13).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0x3000) - Skip next instruction if (V0(13) == 00)(false).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF007) - Set V0 to delay timer(10).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0x3000) - Skip next instruction if (V0(10) == 00)(false).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF007) - Set V0 to delay timer(0B).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0x3000) - Skip next instruction if (V0(0B) == 00)(false).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF007) - Set V0 to delay timer(07).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0x3000) - Skip next instruction if (V0(07) == 00)(false).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF007) - Set V0 to delay timer(03).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0x3000) - Skip next instruction if (V0(03) == 00)(false).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x01).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF115) - Set delay timer to V1(14).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF115) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF007) - Set V0 to delay timer(11).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0x3000) - Skip next instruction if (V0(11) == 00)(false).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF007) - Set V0 to delay timer(0E).
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-39] - DEBUG: (0x3000) - Skip next instruction if (V0(0E) == 00)(false).
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF007) - Set V0 to delay timer(0A).
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0x3000) - Skip next instruction if (V0(0A) == 00)(false).
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF007) - Set V0 to delay timer(05).
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0x3000) - Skip next instruction if (V0(05) == 00)(false).
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF007) - Set V0 to delay timer(01).
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0x3000) - Skip next instruction if (V0(01) == 00)(false).
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0x7202) - Add 0x02 to V2.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0x5230) - Skip next instruction if (V2(0D) == V3(13))(false).
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0x120E) - Jump to 0x020E.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xA254) - Set I to 0x0254.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF21E) - Add V2(0D) to I.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF21E) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF165) - Loading registers V0-V1 from memory starting at address I(0261).
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF165) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xA267) - Set I to 0x0267.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x00).
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF018) - Set sound timer to V0(0A).
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF018) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF015) - Set delay timer to V0(0A).
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF015) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF007) - Set V0 to delay timer(06).
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0x3000) - Skip next instruction if (V0(06) == 00)(false).
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF007) - Set V0 to delay timer(02).
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0x3000) - Skip next instruction if (V0(02) == 00)(false).
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x01).
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF115) - Set delay timer to V1(05).
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF115) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF007) - Set V0 to delay timer(02).
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0x3000) - Skip next instruction if (V0(02) == 00)(false).
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0x7202) - Add 0x02 to V2.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0x5230) - Skip next instruction if (V2(0F) == V3(13))(false).
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0x120E) - Jump to 0x020E.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xA254) - Set I to 0x0254.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF21E) - Add V2(0F) to I.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF21E) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF165) - Loading registers V0-V1 from memory starting at address I(0263).
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xF165) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xA267) - Set I to 0x0267.
+[UTC: 06-07-2024 00-04-40] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x00).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF018) - Set sound timer to V0(0A).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF018) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF015) - Set delay timer to V0(0A).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF015) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF007) - Set V0 to delay timer(07).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0x3000) - Skip next instruction if (V0(07) == 00)(false).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF007) - Set V0 to delay timer(03).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0x3000) - Skip next instruction if (V0(03) == 00)(false).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x01).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF115) - Set delay timer to V1(05).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF115) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF007) - Set V0 to delay timer(02).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0x3000) - Skip next instruction if (V0(02) == 00)(false).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0x7202) - Add 0x02 to V2.
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0x5230) - Skip next instruction if (V2(11) == V3(13))(false).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0x120E) - Jump to 0x020E.
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xA254) - Set I to 0x0254.
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF21E) - Add V2(11) to I.
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF21E) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF165) - Loading registers V0-V1 from memory starting at address I(0265).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF165) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xA267) - Set I to 0x0267.
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x00).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF018) - Set sound timer to V0(0A).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF018) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF015) - Set delay timer to V0(0A).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF015) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF007) - Set V0 to delay timer(07).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0x3000) - Skip next instruction if (V0(07) == 00)(false).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF007) - Set V0 to delay timer(02).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0x3000) - Skip next instruction if (V0(02) == 00)(false).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x01).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF115) - Set delay timer to V1(3C).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF115) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF007) - Set V0 to delay timer(39).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0x3000) - Skip next instruction if (V0(39) == 00)(false).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF007) - Set V0 to delay timer(36).
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-41] - DEBUG: (0x3000) - Skip next instruction if (V0(36) == 00)(false).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xF007) - Set V0 to delay timer(32).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x3000) - Skip next instruction if (V0(32) == 00)(false).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xF007) - Set V0 to delay timer(2E).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x3000) - Skip next instruction if (V0(2E) == 00)(false).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xF007) - Set V0 to delay timer(2A).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x3000) - Skip next instruction if (V0(2A) == 00)(false).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xF007) - Set V0 to delay timer(26).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x3000) - Skip next instruction if (V0(26) == 00)(false).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xF007) - Set V0 to delay timer(22).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x3000) - Skip next instruction if (V0(22) == 00)(false).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xF007) - Set V0 to delay timer(1E).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x3000) - Skip next instruction if (V0(1E) == 00)(false).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xF007) - Set V0 to delay timer(1A).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x3000) - Skip next instruction if (V0(1A) == 00)(false).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xF007) - Set V0 to delay timer(16).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x3000) - Skip next instruction if (V0(16) == 00)(false).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xF007) - Set V0 to delay timer(12).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x3000) - Skip next instruction if (V0(12) == 00)(false).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xF007) - Set V0 to delay timer(0E).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x3000) - Skip next instruction if (V0(0E) == 00)(false).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xF007) - Set V0 to delay timer(0A).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x3000) - Skip next instruction if (V0(0A) == 00)(false).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xF007) - Set V0 to delay timer(06).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x3000) - Skip next instruction if (V0(06) == 00)(false).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xF007) - Set V0 to delay timer(02).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x3000) - Skip next instruction if (V0(02) == 00)(false).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x7202) - Add 0x02 to V2.
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x5230) - Skip next instruction if (V2(13) == V3(13))(true).
+[UTC: 06-07-2024 00-04-42] - DEBUG: (0x1200) - Jump to 0x0200.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xA254) - Set I to 0x0254.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF065) - Loading registers V0-V0 from memory starting at address I(0254).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF065) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0x6201) - Set V2 to 0x01.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0x8300) - Set V3 to V0(13).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0x8300) - Skip next instruction if (V3(13) != V0(13))(false).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0x640B) - Set V4 to 0x0B.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0x6A1C) - Set VA to 0x1C.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0x6B0C) - Set VB to 0x0C.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xA254) - Set I to 0x0254.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF21E) - Add V2(01) to I.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF21E) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF165) - Loading registers V0-V1 from memory starting at address I(0255).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF165) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xA267) - Set I to 0x0267.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x00).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF018) - Set sound timer to V0(0A).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF018) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF015) - Set delay timer to V0(0A).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF015) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF007) - Set V0 to delay timer(07).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0x3000) - Skip next instruction if (V0(07) == 00)(false).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF007) - Set V0 to delay timer(04).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0x3000) - Skip next instruction if (V0(04) == 00)(false).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x01).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF115) - Set delay timer to V1(05).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF115) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF007) - Set V0 to delay timer(02).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0x3000) - Skip next instruction if (V0(02) == 00)(false).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0x7202) - Add 0x02 to V2.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0x5230) - Skip next instruction if (V2(03) == V3(13))(false).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0x120E) - Jump to 0x020E.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xA254) - Set I to 0x0254.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF21E) - Add V2(03) to I.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF21E) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF165) - Loading registers V0-V1 from memory starting at address I(0257).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF165) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xA267) - Set I to 0x0267.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x00).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF018) - Set sound timer to V0(0A).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF018) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF015) - Set delay timer to V0(0A).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF015) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF007) - Set V0 to delay timer(07).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0x3000) - Skip next instruction if (V0(07) == 00)(false).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF007) - Set V0 to delay timer(03).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0x3000) - Skip next instruction if (V0(03) == 00)(false).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-43] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x01).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF115) - Set delay timer to V1(05).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF115) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF007) - Set V0 to delay timer(02).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0x3000) - Skip next instruction if (V0(02) == 00)(false).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0x7202) - Add 0x02 to V2.
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0x5230) - Skip next instruction if (V2(05) == V3(13))(false).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0x120E) - Jump to 0x020E.
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xA254) - Set I to 0x0254.
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF21E) - Add V2(05) to I.
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF21E) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF165) - Loading registers V0-V1 from memory starting at address I(0259).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF165) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xA267) - Set I to 0x0267.
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x00).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF018) - Set sound timer to V0(0A).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF018) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF015) - Set delay timer to V0(0A).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF015) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF007) - Set V0 to delay timer(07).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0x3000) - Skip next instruction if (V0(07) == 00)(false).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF007) - Set V0 to delay timer(03).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0x3000) - Skip next instruction if (V0(03) == 00)(false).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x01).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF115) - Set delay timer to V1(14).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF115) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF007) - Set V0 to delay timer(11).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0x3000) - Skip next instruction if (V0(11) == 00)(false).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF007) - Set V0 to delay timer(0D).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0x3000) - Skip next instruction if (V0(0D) == 00)(false).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF007) - Set V0 to delay timer(09).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0x3000) - Skip next instruction if (V0(09) == 00)(false).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF007) - Set V0 to delay timer(05).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0x3000) - Skip next instruction if (V0(05) == 00)(false).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF007) - Set V0 to delay timer(01).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0x3000) - Skip next instruction if (V0(01) == 00)(false).
+[UTC: 06-07-2024 00-04-44] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0xF007) - Set V0 to delay timer(00).
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0x3000) - Skip next instruction if (V0(00) == 00)(true).
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0x00EE) - Return.
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0x7202) - Add 0x02 to V2.
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0x5230) - Skip next instruction if (V2(07) == V3(13))(false).
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0x120E) - Jump to 0x020E.
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0xA254) - Set I to 0x0254.
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0xF21E) - Add V2(07) to I.
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0xF21E) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0xF165) - Loading registers V0-V1 from memory starting at address I(025B).
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0xF165) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0xA267) - Set I to 0x0267.
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0xDAB7) - Draw sprite at (VA(0x1C), VB(0x0C)). Width: 8 pixels. Height: 7 pixels. VF(0x00).
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0xF018) - Set sound timer to V0(1E).
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0xF018) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0xF015) - Set delay timer to V0(1E).
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0xF015) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0x222C) - Call subroutine at address 022C.
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0xE4A1) - Skip next instruction if key V4(0B) is not pressed.
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0xE4A1) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0xF007) - Set V0 to delay timer(1B).
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0xF007) - (NOT IMPLEMENTED).
+
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0x3000) - Skip next instruction if (V0(1B) == 00)(false).
+[UTC: 06-07-2024 00-04-45] - DEBUG: (0x122C) - Jump to 0x022C.
+[UTC: 06-07-2024 00-04-45] - INFO: Stopping CPU on thread 0x00007f73827fc640.

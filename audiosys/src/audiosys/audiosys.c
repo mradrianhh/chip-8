@@ -11,7 +11,7 @@ static uint8_t *LoadWaveFile(const char *path, WaveInfo **wave);
 static inline ALenum to_al_format(short channels, short samples)
 {
     bool stereo = (channels > 1);
-
+    
     switch (samples)
     {
     case 16:
@@ -38,7 +38,14 @@ AudioContext *aud_CreateAudioContext(uint8_t numSlots)
 
     // Get default/preferred device name.
     ctx->devicename = alcGetString(NULL, ALC_DEFAULT_DEVICE_SPECIFIER);
-
+    ALchar *ch = ctx->devicename;
+    ALchar *next = ctx->devicename + 1;
+    while(ch && *ch != '\0' && next && *next != '\0')
+    {
+        printf("%s\n", ch);
+        ch += strlen(ch) + 1;
+        next += strlen(ch) + 2;
+    }
     // Open the default/preferred device.
     ctx->device = alcOpenDevice(ctx->devicename);
 

@@ -8,4 +8,4 @@ target_include_directories(chip-8 PUBLIC
 )
 
 # Must link 'm' to use STB.
-target_link_libraries(chip-8 PRIVATE core graphio logger audiosys common)
+target_link_libraries(chip-8 PRIVATE core graphio logger common)

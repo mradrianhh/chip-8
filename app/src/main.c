@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 
     if (argc == 1)
     {
-        core_LoadBinary16File(TEST_SUITE_ROMS "1-chip8-logo.ch8", cpu->memory,
+        core_LoadBinary16File(TEST_SUITE_ROMS "7-beep.ch8", cpu->memory,
                               CH8_PROGRAM_START_ADDRESS, cpu->memory_size);
     }
     else if (argc == 2)

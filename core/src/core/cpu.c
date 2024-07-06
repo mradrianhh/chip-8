@@ -46,6 +46,13 @@ CPUState *core_CreateCPU(uint8_t clock_target_freq, double (*pfn_get_time)(), Lo
 {
     CPUState *cpu = calloc(1, sizeof(CPUState));
 
+    // Internal
+    cpu->running = false;
+    cpu->clock_target_frequency = (double)1 / clock_target_freq;
+    cpu->timer_target_frequency = (double)1 / CH8_TIMER_FREQUENCY;
+    cpu->pfn_get_time = pfn_get_time;
+    cpu->logger = logger_Initialize(LOGS_BASE_PATH "cpu.log", log_level);
+
     cpu->font_start_address = CH8_FONT_START_ADDRESS;
     cpu->memory_size = CH8_MEM_SIZE;
 
@@ -66,17 +73,16 @@ CPUState *core_CreateCPU(uint8_t clock_target_freq, double (*pfn_get_time)(), Lo
     cpu->stack_pointer = cpu->stack;
 
     cpu->delay_timer = 0;
+
     cpu->sound_timer = 0;
+    cpu->audio_context = aud_CreateAudioContext(1);
+
+    if (!aud_CreateSound(cpu->audio_context, SOUNDS_BASE_PATH "sound_timer.wav",
+                         SOUND_TIMER_SOUND_SLOT, true))
+        logger_LogError(cpu->logger, "Failed to create sound timer sound.");
 
     cpu->index_register = 0;
     cpu->program_counter = CH8_PROGRAM_START_ADDRESS;
-
-    // Internal
-    cpu->running = false;
-    cpu->clock_target_frequency = (double)1 / clock_target_freq;
-    cpu->timer_target_frequency = (double)1 / CH8_TIMER_FREQUENCY;
-    cpu->pfn_get_time = pfn_get_time;
-    cpu->logger = logger_Initialize(LOGS_BASE_PATH "cpu.log", log_level);
 
     // Load font into memory.
     logger_LogInfo(cpu->logger, "Loading font starting at address 0x%04x.", CH8_FONT_START_ADDRESS);
@@ -116,6 +122,7 @@ void core_DestroyCPU(CPUState *cpu)
         core_StopCPU(cpu);
     }
     logger_Destroy(cpu->logger);
+    aud_DestroyAudioContext(cpu->audio_context);
     free(cpu);
 }
 
@@ -193,13 +200,26 @@ void *RunDelayTimer(void *vargp)
 void *RunSoundTimer(void *vargp)
 {
     CPUState *cpu = vargp;
+    bool sound_playing = false;
     while (cpu->running)
     {
         // Get start time of cycle.
         double start_time = cpu->pfn_get_time();
 
         if (cpu->sound_timer > 0)
+        {
+            if(!sound_playing)
+            {
+                aud_PlaySound(cpu->audio_context, SOUND_TIMER_SOUND_SLOT);
+                sound_playing = true;
+            }
             cpu->sound_timer--;
+        }
+        else
+        {
+            aud_StopSound(cpu->audio_context, SOUND_TIMER_SOUND_SLOT);
+            sound_playing = false;
+        }
 
         // Get end time of frame, calculate delta and delay.
         double end_time = cpu->pfn_get_time();

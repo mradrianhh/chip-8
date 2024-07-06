@@ -9,7 +9,6 @@
 #include <logger/logger.h>
 #include <core/keys.h>
 #include <graphio/graphio.h>
-#include <audiosys/audiosys.h>
 
 typedef struct Application
 {
@@ -24,7 +23,6 @@ typedef struct Application
     // Context and data
     GraphioContext *gio_context;
     uint16_t keys;
-    AudioContext *audio_context;
 } Application;
 
 /// @brief Create and initialize an application.

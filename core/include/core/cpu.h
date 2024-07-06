@@ -5,6 +5,8 @@
 #include <stdbool.h>
 #include <pthread.h>
 
+#include <audiosys/audiosys.h>
+
 #include "logger/logger.h"
 #include "display.h"
 
@@ -18,6 +20,8 @@
 #define CH8_PROGRAM_START_ADDRESS (0x200)
 
 #define CH8_TIMER_FREQUENCY (60)
+
+#define SOUND_TIMER_SOUND_SLOT (0)
 
 typedef struct CPUState
 {
@@ -48,6 +52,7 @@ typedef struct CPUState
     Logger *logger;
     pthread_t thread_id;
     bool running;
+    AudioContext *audio_context;
 } CPUState;
 
 CPUState *core_CreateCPU(uint8_t clock_target_freq, double (*pfn_get_time)(), LogLevel log_level);
