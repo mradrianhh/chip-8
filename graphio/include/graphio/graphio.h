@@ -1,14 +1,23 @@
 #ifndef GRAPHIO_GRAPHIO_H
 #define GRAPHIO_GRAPHIO_H
 
+#include <stdbool.h>
+
 #include <logger/logger.h>
 #include <core/display.h>
 
 #define GLFW_INCLUDE_VULKAN
 #include <GLFW/glfw3.h>
 
-#define CGLM_FORCE_DEPTH_ZERO_TO_ONE
-#include "cglm/cglm.h"
+#define NK_INCLUDE_FIXED_TYPES
+#define NK_INCLUDE_STANDARD_IO
+#define NK_INCLUDE_STANDARD_VARARGS
+#define NK_INCLUDE_DEFAULT_ALLOCATOR
+#define NK_INCLUDE_VERTEX_BUFFER_OUTPUT
+#define NK_INCLUDE_FONT_BAKING
+#define NK_INCLUDE_DEFAULT_FONT
+#define NK_KEYSTATE_BASED_INPUT
+#include "nuklear/nuklear.h"
 
 #ifdef CH8_SHADERS_DIR
 #define SHADERS_BASE_PATH CH8_SHADERS_DIR
@@ -16,8 +25,12 @@
 #define SHADERS_BASE_PATH "../../assets/shaders/"
 #endif
 
+#define MAX_VERTEX_BUFFER 512 * 1024
+#define MAX_ELEMENT_BUFFER 128 * 1024
+
 #define WINDOW_WIDTH (800)
 #define WINDOW_HEIGHT (600)
+
 #define MAX_FRAMES_IN_FLIGHT (2)
 
 // Calls VK-function and checks VkResult. Raises SIGABRT if error.
@@ -101,6 +114,14 @@ typedef struct GraphioContext
     uint32_t currentFrame;
 
     bool frameBufferResized;
+
+    // Used for running Nuklear(GUI).
+    struct nk_context *nk_ctx;
+    VkImage *overlayImages;
+    VkImageView *overlayImageViews;
+    VkDeviceMemory *overlayImageMemories;
+    struct nk_image nk_img;
+    struct nk_colorf nk_bg;
 } GraphioContext;
 
 GraphioContext *gio_CreateGraphioContext(Logger *logger, Display *display, uint16_t *keys);
@@ -122,6 +143,5 @@ void gio_StopGraphioContext(GraphioContext *ctx);
 /// @param height height of buffer.
 /// @param channels number of channels per pixel.
 void gio_SavePixelBufferPNG(const char *filename, uint8_t *pixel_buffer, uint8_t width, uint8_t height, uint8_t channels);
-
 
 #endif

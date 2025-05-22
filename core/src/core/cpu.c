@@ -210,14 +210,14 @@ void *RunSoundTimer(void *vargp)
         {
             if(!sound_playing)
             {
-                aud_PlaySound(cpu->audio_context, SOUND_TIMER_SOUND_SLOT);
+                //aud_PlaySound(cpu->audio_context, SOUND_TIMER_SOUND_SLOT);
                 sound_playing = true;
             }
             cpu->sound_timer--;
         }
         else
         {
-            aud_StopSound(cpu->audio_context, SOUND_TIMER_SOUND_SLOT);
+            //aud_StopSound(cpu->audio_context, SOUND_TIMER_SOUND_SLOT);
             sound_playing = false;
         }
 

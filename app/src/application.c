@@ -36,7 +36,7 @@ void RunApplication(Application *app)
         // Poll events
         glfwPollEvents();
 
-        // TODO: Draw display to screen.
+        // Draw display to screen.
         gio_Draw(app->gio_context);
 
         // Get end time of frame, calculate delta and delay.
@@ -60,7 +60,7 @@ void RunApplication(Application *app)
         if (delta_time >= 1.0)
         {
             double fps = (double)app->frame_count / delta_time;
-            gio_UpdateFPS(app->gio_context, fps);
+            //gio_UpdateFPS(app->gio_context, fps);
 
             app->frame_count = 0;
             app->prev_fps_update_time = end_time;

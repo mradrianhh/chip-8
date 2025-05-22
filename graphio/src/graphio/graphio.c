@@ -1,14 +1,27 @@
 #include <signal.h>
 
+#include "graphio/graphio.h"
+
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb/stb_image.h"
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb/stb_image_write.h"
 
+#define NK_INCLUDE_FIXED_TYPES
+#define NK_INCLUDE_STANDARD_IO
+#define NK_INCLUDE_STANDARD_VARARGS
+#define NK_INCLUDE_DEFAULT_ALLOCATOR
+#define NK_INCLUDE_VERTEX_BUFFER_OUTPUT
+#define NK_INCLUDE_FONT_BAKING
+#define NK_INCLUDE_DEFAULT_FONT
+#define NK_KEYSTATE_BASED_INPUT
+#define NK_IMPLEMENTATION
+#include "nuklear/nuklear.h"
+#define NK_GLFW_VULKAN_IMPLEMENTATION
+#include "nuklear/nuklear_glfw_vulkan.h"
+
 #include <maths/maths.h>
 #include <core/keys.h>
-
-#include "graphio/graphio.h"
 
 #ifdef CH8_PNGS_DIR
 #define PNGS_BASE_PATH CH8_PNGS_DIR
@@ -24,6 +37,7 @@ static const char *validation_layers[1] = {"VK_LAYER_KHRONOS_validation"};
 
 static void InitGLFW(GraphioContext *ctx);
 static void InitVulkan(GraphioContext *ctx);
+static void InitNuklear(GraphioContext *ctx);
 
 static void CreateInstance(GraphioContext *ctx);
 static void SetupDebugMessenger(GraphioContext *ctx);
@@ -31,7 +45,7 @@ static void CreateSurface(GraphioContext *ctx);
 static void SelectPhysicalDevice(GraphioContext *ctx);
 static void CreateLogicalDevice(GraphioContext *ctx);
 static void CreateSwapChain(GraphioContext *ctx);
-static void CreateImageViews(GraphioContext *ctx);
+static void CreateSwapchainImageViews(GraphioContext *ctx);
 static void CreateRenderPass(GraphioContext *ctx);
 static void CreateDescriptorSetLayout(GraphioContext *ctx);
 static void CreateGraphicsPipeline(GraphioContext *ctx);
@@ -40,6 +54,8 @@ static void CreateCommandPool(GraphioContext *ctx);
 static void CreateTextureImage(GraphioContext *ctx);
 static void CreateTextureImageView(GraphioContext *ctx);
 static void CreateTextureSampler(GraphioContext *ctx);
+static void CreateOverlayImages(GraphioContext *ctx);
+static void CreateOverlayImageViews(GraphioContext *ctx);
 static void CreateDescriptorPool(GraphioContext *ctx);
 static void CreateDescriptorSets(GraphioContext *ctx);
 static void CreateCommandBuffers(GraphioContext *ctx);
@@ -131,12 +147,15 @@ GraphioContext *gio_CreateGraphioContext(Logger *logger, Display *display, uint1
 
     InitGLFW(ctx);
     InitVulkan(ctx);
+    InitNuklear(ctx);
 
     return ctx;
 }
 
 void gio_DestroyGraphioContext(GraphioContext *ctx)
 {
+    nk_glfw3_shutdown();
+
     for (size_t i = 0; i < MAX_FRAMES_IN_FLIGHT; i++)
     {
         vkDestroySemaphore(ctx->device, ctx->imageAvailableSemaphores[i], NULL);
@@ -150,6 +169,13 @@ void gio_DestroyGraphioContext(GraphioContext *ctx)
 
     vkDestroyDescriptorPool(ctx->device, ctx->descriptorPool, NULL);
     vkDestroyDescriptorSetLayout(ctx->device, ctx->descriptorSetLayout, NULL);
+
+    for (uint32_t i = 0; i < ctx->swapChainImages_count; i++)
+    {
+        vkDestroyImageView(ctx->device, ctx->overlayImageViews[i], NULL);
+        vkDestroyImage(ctx->device, ctx->overlayImages[i], NULL);
+        vkFreeMemory(ctx->device, ctx->overlayImageMemories[i], NULL);
+    }
 
     vkDestroySampler(ctx->device, ctx->textureSampler, NULL);
     vkDestroyImageView(ctx->device, ctx->textureImageView, NULL);
@@ -182,7 +208,11 @@ void gio_DestroyGraphioContext(GraphioContext *ctx)
 
 void gio_Draw(GraphioContext *ctx)
 {
+    nk_glfw3_new_frame();
+
     vkWaitForFences(ctx->device, 1, &ctx->inFlightFences[ctx->currentFrame], VK_TRUE, UINT64_MAX);
+
+    vkResetFences(ctx->device, 1, &ctx->inFlightFences[ctx->currentFrame]);
 
     uint32_t imageIndex;
     VkResult result = vkAcquireNextImageKHR(ctx->device, ctx->swapChain, UINT64_MAX,
@@ -198,10 +228,11 @@ void gio_Draw(GraphioContext *ctx)
         PANIC(ctx->logger, "Failed to acquire swap chain image.");
     }
 
-    vkResetFences(ctx->device, 1, &ctx->inFlightFences[ctx->currentFrame]);
-
     // DYNTEX: UpdateTexture
     UpdateTexture(ctx);
+
+    //VkSemaphore nk_semaphore = nk_glfw3_render(ctx->graphicsQueue, imageIndex,
+    //                                           ctx->imageAvailableSemaphores[ctx->currentFrame], NK_ANTI_ALIASING_ON);
 
     vkResetCommandBuffer(ctx->commandBuffers[ctx->currentFrame], /*VkCommandBufferResetFlagBits*/ 0);
     RecordCommandBuffer(ctx, imageIndex);
@@ -213,6 +244,7 @@ void gio_Draw(GraphioContext *ctx)
     VkPipelineStageFlags waitStages[] = {VK_PIPELINE_STAGE_COLOR_ATTACHMENT_OUTPUT_BIT};
     submitInfo.waitSemaphoreCount = 1;
     submitInfo.pWaitSemaphores = waitSemaphores;
+    //submitInfo.pWaitSemaphores = &nk_semaphore;
     submitInfo.pWaitDstStageMask = waitStages;
 
     submitInfo.commandBufferCount = 1;
@@ -303,7 +335,7 @@ void InitVulkan(GraphioContext *ctx)
     SelectPhysicalDevice(ctx);
     CreateLogicalDevice(ctx);
     CreateSwapChain(ctx);
-    CreateImageViews(ctx);
+    CreateSwapchainImageViews(ctx);
     CreateRenderPass(ctx);
     CreateDescriptorSetLayout(ctx);
     CreateGraphicsPipeline(ctx);
@@ -312,10 +344,28 @@ void InitVulkan(GraphioContext *ctx)
     CreateTextureImage(ctx);
     CreateTextureImageView(ctx);
     CreateTextureSampler(ctx);
+    CreateOverlayImages(ctx);
+    CreateOverlayImageViews(ctx);
     CreateDescriptorPool(ctx);
     CreateDescriptorSets(ctx);
     CreateCommandBuffers(ctx);
     CreateSyncObjects(ctx);
+}
+
+void InitNuklear(GraphioContext *ctx)
+{
+    ctx->nk_ctx = nk_glfw3_init(
+        ctx->window, ctx->device, ctx->physicalDevice, ctx->graphicsQueueFamilyIdx,
+        ctx->overlayImageViews, ctx->swapChainImageViews_count,
+        ctx->swapChainImageFormat, NK_GLFW3_INSTALL_CALLBACKS,
+        MAX_VERTEX_BUFFER, MAX_ELEMENT_BUFFER);
+
+    struct nk_font_atlas *atlas;
+    nk_glfw3_font_stash_begin(&atlas);
+    nk_glfw3_font_stash_end(ctx->graphicsQueue);
+
+    // ctx->nk_img = nk_image_ptr(ctx->textureImageView);
+    ctx->nk_bg.r = 0.10f, ctx->nk_bg.g = 0.18f, ctx->nk_bg.b = 0.24f, ctx->nk_bg.a = 1.0f;
 }
 
 void CreateInstance(GraphioContext *ctx)
@@ -535,7 +585,7 @@ void CreateSwapChain(GraphioContext *ctx)
     // DestroySwapChainSupportDetails(swap_chain_support);
 }
 
-void CreateImageViews(GraphioContext *ctx)
+void CreateSwapchainImageViews(GraphioContext *ctx)
 {
     // Resize SwapchainImageViews to the same size as SwapChainImages.
     // We want one ImageView per Image.
@@ -668,13 +718,27 @@ void CreateGraphicsPipeline(GraphioContext *ctx)
         .primitiveRestartEnable = VK_FALSE,
     };
 
+    VkViewport viewport = {};
+    viewport.x = 0.0f;
+    viewport.y = 0.0f;
+    viewport.width = (float)ctx->swapChainExtent.width;
+    viewport.height = (float)ctx->swapChainExtent.height;
+    viewport.minDepth = 0.0f;
+    viewport.maxDepth = 1.0f;
+
+    VkRect2D scissor = {};
+    scissor.extent.width = ctx->swapChainExtent.width;
+    scissor.extent.height = ctx->swapChainExtent.height;
+
     // Set up viewport state. We provide viewport and scissor dynamically, so we
     // don't configure anything here. We just let it know that we will provide
     // one viewport and one scissor.
     VkPipelineViewportStateCreateInfo viewport_state_info = {
         .sType = VK_STRUCTURE_TYPE_PIPELINE_VIEWPORT_STATE_CREATE_INFO,
         .viewportCount = 1,
+        .pViewports = &viewport,
         .scissorCount = 1,
+        .pScissors = &scissor,
     };
 
     // Set up rasterization.
@@ -715,6 +779,7 @@ void CreateGraphicsPipeline(GraphioContext *ctx)
     };
 
     // We allow the viewport and scissor to be dynamic so they are set at each draw.
+    /*
     VkDynamicState dynamic_states[2] = {
         VK_DYNAMIC_STATE_VIEWPORT,
         VK_DYNAMIC_STATE_SCISSOR,
@@ -723,7 +788,7 @@ void CreateGraphicsPipeline(GraphioContext *ctx)
         .sType = VK_STRUCTURE_TYPE_PIPELINE_DYNAMIC_STATE_CREATE_INFO,
         .dynamicStateCount = 2,
         .pDynamicStates = dynamic_states,
-    };
+    };*/
 
     // Set up and create pipeline layout.
     VkPipelineLayoutCreateInfo pipeline_layout_info = {
@@ -748,7 +813,7 @@ void CreateGraphicsPipeline(GraphioContext *ctx)
         .pRasterizationState = &rasterization_state_info,
         .pMultisampleState = &multisample_state_info,
         .pColorBlendState = &color_blend_state_info,
-        .pDynamicState = &dynamic_state_info,
+        //.pDynamicState = &dynamic_state_info,
         .layout = ctx->pipelineLayout,
         .renderPass = ctx->renderPass,
         .subpass = 0,
@@ -834,7 +899,7 @@ void CreateTextureImage(GraphioContext *ctx)
     CopyBufferToImage(ctx, ctx->textureStagingBuffer, ctx->textureImage,
                       (uint32_t)ctx->display->display_buffer_width,
                       (uint32_t)ctx->display->display_buffer_height);
-    // Transition texture image from VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL 
+    // Transition texture image from VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL
     // to VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL to prepare it for shader access.
     TransitionImageLayout(ctx, ctx->textureImage, VK_FORMAT_R8G8B8A8_SRGB,
                           VK_IMAGE_LAYOUT_TRANSFER_DST_OPTIMAL, VK_IMAGE_LAYOUT_SHADER_READ_ONLY_OPTIMAL);
@@ -872,6 +937,33 @@ void CreateTextureSampler(GraphioContext *ctx)
     createInfo.maxLod = 0.0f;
     CALL_VK(vkCreateSampler(ctx->device, &createInfo, NULL, &ctx->textureSampler),
             ctx->logger, "Failed to create texture sampler.");
+}
+
+void CreateOverlayImages(GraphioContext *ctx)
+{
+    ctx->overlayImages = realloc(ctx->overlayImages, ctx->swapChainImages_count * sizeof(VkImage));
+    ctx->overlayImageMemories = realloc(ctx->overlayImageMemories, ctx->swapChainImages_count * sizeof(VkDeviceMemory));
+
+    for (uint32_t i = 0; i < ctx->swapChainImages_count; i++)
+    {
+        CreateImage(ctx, (uint32_t)ctx->display->display_buffer_width,
+                    (uint32_t)ctx->display->display_buffer_height,
+                    ctx->swapChainImageFormat, VK_IMAGE_TILING_OPTIMAL,
+                    VK_IMAGE_USAGE_COLOR_ATTACHMENT_BIT | VK_IMAGE_USAGE_SAMPLED_BIT,
+                    VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT,
+                    &ctx->overlayImages[i], &ctx->overlayImageMemories[i]);
+    }
+}
+
+void CreateOverlayImageViews(GraphioContext *ctx)
+{
+    ctx->overlayImageViews = realloc(ctx->overlayImageViews, ctx->swapChainImages_count * sizeof(VkImageView));
+
+    for (uint32_t i = 0; i < ctx->swapChainImages_count; i++)
+    {
+        ctx->overlayImageViews[i] = CreateImageView(ctx, ctx->overlayImages[i],
+                                                    ctx->swapChainImageFormat, VK_IMAGE_ASPECT_COLOR_BIT);
+    }
 }
 
 void CreateDescriptorPool(GraphioContext *ctx)
@@ -1092,8 +1184,11 @@ void RecreateSwapChain(GraphioContext *ctx)
     CleanUpSwapchain(ctx);
 
     CreateSwapChain(ctx);
-    CreateImageViews(ctx);
+    CreateSwapchainImageViews(ctx);
     CreateFramebuffers(ctx);
+
+    nk_glfw3_resize(ctx->swapChainExtent.width,
+                    ctx->swapChainExtent.height);
 }
 
 // Get details about Swapchain surface-support.
@@ -1225,7 +1320,7 @@ void CreateImage(GraphioContext *ctx, uint32_t width, uint32_t height, VkFormat 
     createInfo.sharingMode = VK_SHARING_MODE_EXCLUSIVE;
     createInfo.samples = VK_SAMPLE_COUNT_1_BIT;
     CALL_VK(vkCreateImage(ctx->device, &createInfo, NULL, image),
-            ctx->logger, "Failed to create texture image.");
+            ctx->logger, "Failed to create image.");
 
     VkMemoryRequirements memRequirements;
     vkGetImageMemoryRequirements(ctx->device, *image, &memRequirements);
@@ -1235,10 +1330,10 @@ void CreateImage(GraphioContext *ctx, uint32_t width, uint32_t height, VkFormat 
     allocInfo.allocationSize = memRequirements.size;
     allocInfo.memoryTypeIndex = FindMemoryType(ctx, memRequirements.memoryTypeBits, properties);
     CALL_VK(vkAllocateMemory(ctx->device, &allocInfo, NULL, imageMemory),
-            ctx->logger, "Failed to allocate memory for texture image memory.");
+            ctx->logger, "Failed to allocate memory for image memory.");
 
     CALL_VK(vkBindImageMemory(ctx->device, *image, *imageMemory, 0),
-            ctx->logger, "Failed to bind texture image to texture image memory.");
+            ctx->logger, "Failed to bind image to image memory.");
 }
 
 void CopyBufferToImage(GraphioContext *ctx, VkBuffer buffer, VkImage image, uint32_t width, uint32_t height)
@@ -1452,6 +1547,7 @@ void RecordCommandBuffer(GraphioContext *ctx, uint32_t image_index)
 
     // Since we set viewport and scissor as dynamic states we need to pass them in here
     // while recording the command buffer.
+    /*
     VkViewport viewport = {
         .x = 0.0f,
         .y = 0.0f,
@@ -1466,7 +1562,7 @@ void RecordCommandBuffer(GraphioContext *ctx, uint32_t image_index)
         .offset = {0, 0},
         .extent = ctx->swapChainExtent,
     };
-    vkCmdSetScissor(ctx->commandBuffers[ctx->currentFrame], 0, 1, &scissor);
+    vkCmdSetScissor(ctx->commandBuffers[ctx->currentFrame], 0, 1, &scissor);*/
 
     vkCmdBindDescriptorSets(ctx->commandBuffers[ctx->currentFrame], VK_PIPELINE_BIND_POINT_GRAPHICS,
                             ctx->pipelineLayout, 0, 1, &ctx->descriptorSets[ctx->currentFrame], 0, NULL);

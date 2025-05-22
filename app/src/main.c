@@ -27,7 +27,7 @@ int main(int argc, char **argv)
 {
     core_InitializeLoader(LOG_LEVEL_FULL);
 
-    CPUState *cpu = core_CreateCPU(60, gio_GetCurrentTime, LOG_LEVEL_FULL);
+    CPUState *cpu = core_CreateCPU(180, gio_GetCurrentTime, LOG_LEVEL_FULL);
 
     if (argc == 1)
     {
